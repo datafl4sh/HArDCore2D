@@ -1,38 +1,12 @@
-\form#0:$(K+1)\times k\_doe$
-\form#1:$K\times l\_doe + 1$
-\form#2:$n_R, n_F, n_E, n_V$
-\form#3:$0$
-\form#4:$n_R-1$
-\form#5:$n_F - 1$
-\form#6:$n_{lF}$
-\form#7:$n_{lF} - 1$
-\form#8:$(K+1)$
-\form#9:$(K+1) \times k_{doe}$
-\form#10:$L\times l_{doe} + 1$
-\form#11:$k_{doe}$
-\form#12:$l_{doe}$
-\form#13:$L$
-\form#14:$(x,y,z)$
-\form#15:$f(x,y,z) = x^2 + y^2 + z^2$
-\form#16:$f(x,y,z) = \sin(\pi x) \sin(\pi y) \sin(\pi z) $
-\form#17:$\mathbb{W}_K$
-\form#18:$K$
-\form#19:$L\le K+1$
-\form#20:$(K+1)(K+2)/2$
-\form#21:$K\fK on the edges and $
-\form#22:$ in the cells, these unknowns can be represented as vectors of coefficients on the basis functions, for example by listing all the coefficients on the basis functions in the first cell, then all the coefficients on the basis functions in the second cell, etc., and then listing all the coefficients on the basis functions in the first edge, etc. This is the choice adopted in [HHO-diffusion](@ref HArDCore2D::HHO-diffusion). A number of convenient quantities relating to the basis functions are available in the [HybridCore](@ref HArDCore2D::HybridCore) structure follows. Symbol name | Meaning ------------------- | - [nlocal_cell_dofs](@ref HArDCore2D::HybridCore#nlocal_cell_dofs) | The number of degrees of freedom of a cell polynomial (ie. the dimension of $
-\form#23:$) [nlocal_face_dofs](@ref HArDCore2D::HybridCore#nlocal_face_dofs) | The number of degrees of freedom of a face polynomial (ie. the number of face basis functions) [nhighorder_dofs](@ref HArDCore2D::HybridCore#nhighorder_dofs) | The number of degrees of freedom of a degree $
-\form#24:$ cell polynomial [ngradient_dofs](@ref HArDCore2D::HybridCore#ngradient_dofs) | The dimension of the gradient space of degree $
-\form#25:$ cell polynomials [ntotal_cell_dofs](@ref HArDCore2D::HybridCore#ntotal_cell_dofs) | The total number of degrees of freedom over all cell polynomials over the entire mesh [ntotal_face_dofs](@ref HArDCore2D::HybridCore#ntotal_face_dofs) | The total number of degrees of freedom over all face polynomials over the entire mesh [ninternal_face_dofs](@ref HArDCore2D::HybridCore#ninternal_face_dofs) | The total number of degrees of freedom over all internal faces over the entire mesh [nboundary_face_dofs](@ref HArDCore2D::HybridCore#nboundary_face_dofs) | The number number of degrees of freedom over all boundary faces over the entire mesh [ntotal_dofs](@ref HArDCore2D::HybridCore#ntotal_dofs) | The total number of cell and face degrees of freedom over the entire mesh \subsection integrate_mesh Integration over cells and edges The [HybridCore](@ref HArDCore2D::HybridCore) structure provides routines to integrate generic functions on the cells and the edges. These routines are however expensive as they re-compute the quadrature points and weights every time they are called. They should therefore only be used with parsimony; computing quadrature nodes and values of basis functions at these nodes is more efficient, see [Quadratures rules](#quad_rules). For example, to integrate $
-\form#26:$ over the cell number iT: \code{.cpp} auto integral = integrate_over_cell(iT, [](auto x, auto y) { return x*x+y*y; }); \endcode Basis functions can also be integrated: \code{.cpp} const auto& phi_i = edge_basis(iT, i); const auto& phi_j = cell_basis(iT, j); auto integral = hho.integrate_over_face(iT, [&phi_i, &phi_j](auto x, auto y, auto z) { return phi_i(x,y) * phi_j(x,y); }); \endcode <!--To illustrate, the following code computes a mass matrix of the cell basis for a particular region `iR`. We use the [Eigen](http://eigen.tuxfamily.org/) library for the matrix.--> <!--\code{.cpp}--> <!--Eigen::MatrixXd M(hho.nlocal_cell_dofs, hho.nlocal_cell_dofs);--> <!--for (size_t i = 0; i < hho.nlocal_cell_dofs; i++) {--> <!-- const auto& phi_i = hho.cell_basis(iR, i);--> <!-- for (size_t j = 0; j < hho.nlocal_cell_dofs; j++) {--> <!-- const auto& phi_j = hho.cell_basis(iR, j);--> <!-- M(i, j) = hho.integrate_over_region(iR, [&phi_i, &phi_j](auto x, auto y, auto z) {--> <!-- return phi_i(x,y,z) * phi_j(x,y,z);--> <!-- });--> <!-- }--> <!--}--> <!--\endcode--> \subsection quad_rules Quadrature rules <!--ICICICI--> <!-- polynomial basis functions, integration, quadrature rules etc.--> At present, the quadrature rules available in the code support a total degree of exactness in the cells up to 8, and a total degree of exactness on the faces up to 10. <a name="hmm"> \section example Example - The Hybrid Mimetic Mixed (HMM) Scheme </a> We present in this section, an example implementation of a scheme. The following code assembles the matrices for the Hybrid Mimetic Mixed (HMM) scheme. The key part of the assembly is the computation of the local matrices $
-\form#27:$\mathbb{P}^L$
-\form#28:$f(x,y) = x^2 + y^2 $
-\form#29:$\mathbb{W}$
-\form#30:$\le L$
-\form#31:$\le K$
-\form#32:$\le K+1$
-\form#33:$\nabla$
-\form#34:$(\int f_ig_j)_{ij}$
-\form#35:$(f_1,\ldots,f_{Nf})$
-\form#36:$(g_1,\ldots,g_{Ng})$
-\form#37:$(\int weight*f_i*g_j)_{ij}$
+\form#0:$K$
+\form#1:$(K+1)$
+\form#2:$L\le K+1$
+\form#3:$(K+1)(K+2)/2$
+\form#4:$L$
+\form#5:$\le L$
+\form#6:$\le K$
+\form#7:$\le K+1$
+\form#8:$f(x,y) = x^2 + y^2 $
+\form#9:$(\int weight*f_i*g_j)_{ij}$
+\form#10:$(f_1,\ldots,f_{Nf})$
+\form#11:$(g_1,\ldots,g_{Ng})$
