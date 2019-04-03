@@ -1,0 +1,67 @@
+\hypertarget{classMeshFramework2D_1_1Mesh2dReaderTyp2}{}\section{Mesh\+Framework2D\+:\+:Mesh2d\+Reader\+Typ2 Class Reference}
+\label{classMeshFramework2D_1_1Mesh2dReaderTyp2}\index{Mesh\+Framework2\+D\+::\+Mesh2d\+Reader\+Typ2@{Mesh\+Framework2\+D\+::\+Mesh2d\+Reader\+Typ2}}
+
+
+In charge of reading typ2 file and extracting the vertices coordinates, cell indices and the cell centers. Note that the global index is offset for c++ so a index of 1 becomes 0.  
+
+
+
+
+{\ttfamily \#include $<$import\+\_\+mesh2d.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMeshFramework2D_1_1Mesh2dReaderTyp2_a4894381f40e8b298838c01eee7ba1f73}{Mesh2d\+Reader\+Typ2} (std\+::string file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Constructor for mesh reader. \end{DoxyCompactList}\item 
+bool \hyperlink{classMeshFramework2D_1_1Mesh2dReaderTyp2_aabe68be0d5249d435f77aa14e65b0c40}{read\+\_\+mesh} (std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&vertices, std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \&cells, std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&centers)
+\begin{DoxyCompactList}\small\item\em read the file into the specified containers \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+In charge of reading typ2 file and extracting the vertices coordinates, cell indices and the cell centers. Note that the global index is offset for c++ so a index of 1 becomes 0. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2dReaderTyp2_a4894381f40e8b298838c01eee7ba1f73}\label{classMeshFramework2D_1_1Mesh2dReaderTyp2_a4894381f40e8b298838c01eee7ba1f73}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2d\+Reader\+Typ2@{Mesh\+Framework2\+D\+::\+Mesh2d\+Reader\+Typ2}!Mesh2d\+Reader\+Typ2@{Mesh2d\+Reader\+Typ2}}
+\index{Mesh2d\+Reader\+Typ2@{Mesh2d\+Reader\+Typ2}!Mesh\+Framework2\+D\+::\+Mesh2d\+Reader\+Typ2@{Mesh\+Framework2\+D\+::\+Mesh2d\+Reader\+Typ2}}
+\subsubsection{\texorpdfstring{Mesh2d\+Reader\+Typ2()}{Mesh2dReaderTyp2()}}
+{\footnotesize\ttfamily Mesh2d\+Reader\+Typ2\+::\+Mesh2d\+Reader\+Typ2 (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Constructor for mesh reader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & name of the file name, needs to include the full path \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2dReaderTyp2_aabe68be0d5249d435f77aa14e65b0c40}\label{classMeshFramework2D_1_1Mesh2dReaderTyp2_aabe68be0d5249d435f77aa14e65b0c40}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2d\+Reader\+Typ2@{Mesh\+Framework2\+D\+::\+Mesh2d\+Reader\+Typ2}!read\+\_\+mesh@{read\+\_\+mesh}}
+\index{read\+\_\+mesh@{read\+\_\+mesh}!Mesh\+Framework2\+D\+::\+Mesh2d\+Reader\+Typ2@{Mesh\+Framework2\+D\+::\+Mesh2d\+Reader\+Typ2}}
+\subsubsection{\texorpdfstring{read\+\_\+mesh()}{read\_mesh()}}
+{\footnotesize\ttfamily bool Mesh2d\+Reader\+Typ2\+::read\+\_\+mesh (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{vertices,  }\item[{std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \&}]{cells,  }\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{centers }\end{DoxyParamCaption})}
+
+
+
+read the file into the specified containers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertices} & reference to a vector to hold the vertices coordinates \\
+\hline
+{\em cells} & reference to a vector to hold the cell indexes \\
+\hline
+{\em centers} & reference to a vector to hold the cell centers coordinates \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+old/\+Mesh2d/src/include/import\+\_\+mesh2d.\+h\item 
+old/\+Mesh2d/src/import\+\_\+mesh2d.\+cpp\end{DoxyCompactItemize}

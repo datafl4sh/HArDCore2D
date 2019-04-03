@@ -1,0 +1,467 @@
+\hypertarget{classMeshFramework2D_1_1Cell2D}{}\section{Mesh\+Framework2D\+:\+:Cell2D Class Reference}
+\label{classMeshFramework2D_1_1Cell2D}\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+
+
+A cell in a 2D mesh. Contains all of the necessary functions access the geometrical elements of the cell.  
+
+
+
+
+{\ttfamily \#include $<$cell2d.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMeshFramework2D_1_1Cell2D_a2809b2187df931c08882188899a365ae}{Cell2D} (size\+\_\+t iC, std\+::vector$<$ size\+\_\+t $>$ ids, \hyperlink{classMeshFramework2D_1_1Mesh2D}{Mesh2D} $\ast$mesh)
+\begin{DoxyCompactList}\small\item\em Constructor from global indexes and a mesh. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classMeshFramework2D_1_1Edge2D}{Edge2D} $\ast$ $>$ \hyperlink{classMeshFramework2D_1_1Cell2D_a55049e977f519dc8a161a61726fdac23}{edges} () const
+\begin{DoxyCompactList}\small\item\em getter for the global indicies making up the edges of this cell \end{DoxyCompactList}\item 
+\hyperlink{classMeshFramework2D_1_1Edge2D}{Edge2D} $\ast$ \hyperlink{classMeshFramework2D_1_1Cell2D_a8bff95ccdb70cd39b8bd3cdbae8b111f}{edge} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em getter for edge in cell \end{DoxyCompactList}\item 
+std\+::vector$<$ size\+\_\+t $>$ \hyperlink{classMeshFramework2D_1_1Cell2D_a325799dd2b8542035a9539fc2ec63220}{vertices} () const
+\begin{DoxyCompactList}\small\item\em getter for global indices of this cell \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classMeshFramework2D_1_1Cell2D_a153ec3d2c9b22dbfd0cf68419647a387}{global\+\_\+index} () const
+\begin{DoxyCompactList}\small\item\em getter for the cells global index \end{DoxyCompactList}\item 
+std\+::vector$<$ Vector2d $>$ \hyperlink{classMeshFramework2D_1_1Cell2D_a3a7aff59de8ef842d92e17b29de65be4}{vertices\+\_\+coords} () const
+\begin{DoxyCompactList}\small\item\em getter for returning the coordinates of the vertices \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classMeshFramework2D_1_1Cell2D_a0c94721b435519f5891a49549cfca560}{vertex} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Converts from local cell index to global index. \end{DoxyCompactList}\item 
+Vector2d \hyperlink{classMeshFramework2D_1_1Cell2D_a80dd9d0a3bffccc32f1c9b89dc0ae0d1}{vertex\+\_\+coords} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em getter for the coordinates of a vertex \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a72a389a2c4d5fa6ba34018c510470c33}\label{classMeshFramework2D_1_1Cell2D_a72a389a2c4d5fa6ba34018c510470c33}} 
+Vector2d {\bfseries tangent} (size\+\_\+t i) const
+\item 
+std\+::vector$<$ size\+\_\+t $>$ \hyperlink{classMeshFramework2D_1_1Cell2D_a8f31d078c59aa8cbe397fbe789500835}{get\+\_\+neighbours} () const
+\begin{DoxyCompactList}\small\item\em tangent of edge using local \end{DoxyCompactList}\item 
+bool \hyperlink{classMeshFramework2D_1_1Cell2D_a6c21f565043627c7032489dd0e5b22b1}{is\+\_\+internal} ()
+\begin{DoxyCompactList}\small\item\em getter for internal condition \end{DoxyCompactList}\item 
+bool \hyperlink{classMeshFramework2D_1_1Cell2D_a4834404c5bfd4a4ee3f85118a5dc8bcd}{is\+\_\+boundary} ()
+\begin{DoxyCompactList}\small\item\em getter for boundary condition \end{DoxyCompactList}\item 
+bool \hyperlink{classMeshFramework2D_1_1Cell2D_a9374d59391f8e14f2840527baa67ab0a}{is\+\_\+boundary\+\_\+vertex} (size\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em getter for vertex boundary condition \end{DoxyCompactList}\item 
+bool \hyperlink{classMeshFramework2D_1_1Cell2D_aa0799aed687569c66741e8259d4858f6}{is\+\_\+boundary\+\_\+edge} (size\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em getter for edge boundary condition \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a54d1d37333af79791b63f9dd7459f41a}\label{classMeshFramework2D_1_1Cell2D_a54d1d37333af79791b63f9dd7459f41a}} 
+bool {\bfseries is\+\_\+internal\+\_\+vertex} (size\+\_\+t i)
+\item 
+bool \hyperlink{classMeshFramework2D_1_1Cell2D_a34eab4c0d682a445d3536d6a8b0e7ed2}{is\+\_\+internal\+\_\+edge} (size\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em $<$ \end{DoxyCompactList}\item 
+double \hyperlink{classMeshFramework2D_1_1Cell2D_aa77363c693484427ca71d607e376be2f}{get\+\_\+cell\+\_\+area} () const
+\begin{DoxyCompactList}\small\item\em getter for cell area \end{DoxyCompactList}\item 
+double \hyperlink{classMeshFramework2D_1_1Cell2D_abf59b323d39cda1f6f65c6ba83247ca9}{get\+\_\+cell\+\_\+diam} () const
+\begin{DoxyCompactList}\small\item\em getter for cell diameter \end{DoxyCompactList}\item 
+double \hyperlink{classMeshFramework2D_1_1Cell2D_ae2f7c7e6c4a58c2851b0ed0735af4035}{get\+\_\+edge\+\_\+measure} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Getter for the edge length. \end{DoxyCompactList}\item 
+Vector2d \hyperlink{classMeshFramework2D_1_1Cell2D_a2b3ce883ce985125cc43d7c7509854cc}{get\+\_\+edge\+\_\+midpoint} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Setter for barycentric coordinates. \end{DoxyCompactList}\item 
+bool \hyperlink{classMeshFramework2D_1_1Cell2D_a70ba37c58fdfb014865c600c51a59911}{add\+\_\+neighbour} (size\+\_\+t iC)
+\begin{DoxyCompactList}\small\item\em getst the midpoint of \end{DoxyCompactList}\item 
+bool \hyperlink{classMeshFramework2D_1_1Cell2D_a5dd60b54738e447e922b8d4decfac5b2}{calc\+\_\+cell\+\_\+geometry\+\_\+factors} ()
+\begin{DoxyCompactList}\small\item\em add a cell to the neighbour \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_adea88b0500005fa433bc4bb63b74a29b}\label{classMeshFramework2D_1_1Cell2D_adea88b0500005fa433bc4bb63b74a29b}} 
+Vector2d \hyperlink{classMeshFramework2D_1_1Cell2D_adea88b0500005fa433bc4bb63b74a29b}{ari\+\_\+coords} () const
+\begin{DoxyCompactList}\small\item\em calc cell diam, area etc \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a82142fae2501ee78bb50771ddd7d5752}\label{classMeshFramework2D_1_1Cell2D_a82142fae2501ee78bb50771ddd7d5752}} 
+Vector2d \hyperlink{classMeshFramework2D_1_1Cell2D_a82142fae2501ee78bb50771ddd7d5752}{bary\+\_\+coords} () const
+\begin{DoxyCompactList}\small\item\em arithmetic coordinates average of edge midpoints \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_ad739eeff29a89ecfe392eaa5ef97c2d3}\label{classMeshFramework2D_1_1Cell2D_ad739eeff29a89ecfe392eaa5ef97c2d3}} 
+bool \hyperlink{classMeshFramework2D_1_1Cell2D_ad739eeff29a89ecfe392eaa5ef97c2d3}{is\+\_\+equal} (\hyperlink{classMeshFramework2D_1_1Cell2D}{Cell2D} $\ast$rhs)
+\begin{DoxyCompactList}\small\item\em getter for the barycentric coordinates \end{DoxyCompactList}\item 
+bool \hyperlink{classMeshFramework2D_1_1Cell2D_a557da6f9e39c77c05bb2d42108d1728d}{is\+\_\+neighbour} (const \hyperlink{classMeshFramework2D_1_1Cell2D}{Cell2D} $\ast$rhs) const
+\begin{DoxyCompactList}\small\item\em checks if verticies are the same \end{DoxyCompactList}\item 
+std\+::vector$<$ Vector2d $>$ \hyperlink{classMeshFramework2D_1_1Cell2D_a556bc73467e350e7a323ff5f506fdc26}{edge\+\_\+mp} () const
+\begin{DoxyCompactList}\small\item\em $<$ \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classMeshFramework2D_1_1Cell2D_a3513683b24ddb93f97f4f177649d9009}{n\+\_\+edges} () const
+\begin{DoxyCompactList}\small\item\em getter for the midpoints of all edges \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classMeshFramework2D_1_1Cell2D_aafd7dfeecdd6db6e66cace7fa685ec58}{n\+\_\+vertex} () const
+\begin{DoxyCompactList}\small\item\em return number of edges for this \end{DoxyCompactList}\item 
+void \hyperlink{classMeshFramework2D_1_1Cell2D_a45e79a174895ad2282ecf4f70deb1ac2}{calc\+\_\+boundary} ()
+\begin{DoxyCompactList}\small\item\em getter for number of vertices in \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classMeshFramework2D_1_1Cell2D_a7ec95ac9c1ef2551f6ca2a4b2078ee40}{shared\+\_\+edge} (size\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em calculates if cell is a boundary cell and saves the flag \end{DoxyCompactList}\item 
+Vector2d \hyperlink{classMeshFramework2D_1_1Cell2D_a50635f2a486a9af7aa89d6af4dc17422}{edge\+\_\+normal} (size\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em Returns the global index to the cell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A cell in a 2D mesh. Contains all of the necessary functions access the geometrical elements of the cell. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a2809b2187df931c08882188899a365ae}\label{classMeshFramework2D_1_1Cell2D_a2809b2187df931c08882188899a365ae}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!Cell2D@{Cell2D}}
+\index{Cell2D@{Cell2D}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{Cell2\+D()}{Cell2D()}}
+{\footnotesize\ttfamily Cell2\+D\+::\+Cell2D (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iC,  }\item[{std\+::vector$<$ size\+\_\+t $>$}]{ids,  }\item[{\hyperlink{classMeshFramework2D_1_1Mesh2D}{Mesh2D} $\ast$}]{mesh }\end{DoxyParamCaption})}
+
+
+
+Constructor from global indexes and a mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iG} & is the global index of the Cell (basically its just the location in the mesh2d cells vector \\
+\hline
+{\em ids} & vector containing the global indices of the cell vertices \\
+\hline
+{\em mesh} & pointer to the mesh that the cell is contained in \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a70ba37c58fdfb014865c600c51a59911}\label{classMeshFramework2D_1_1Cell2D_a70ba37c58fdfb014865c600c51a59911}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!add\+\_\+neighbour@{add\+\_\+neighbour}}
+\index{add\+\_\+neighbour@{add\+\_\+neighbour}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{add\+\_\+neighbour()}{add\_neighbour()}}
+{\footnotesize\ttfamily bool Cell2\+D\+::add\+\_\+neighbour (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iC }\end{DoxyParamCaption})}
+
+
+
+getst the midpoint of 
+
+$<$an edge using the local edge index \mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a45e79a174895ad2282ecf4f70deb1ac2}\label{classMeshFramework2D_1_1Cell2D_a45e79a174895ad2282ecf4f70deb1ac2}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!calc\+\_\+boundary@{calc\+\_\+boundary}}
+\index{calc\+\_\+boundary@{calc\+\_\+boundary}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{calc\+\_\+boundary()}{calc\_boundary()}}
+{\footnotesize\ttfamily void Cell2\+D\+::calc\+\_\+boundary (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter for number of vertices in 
+
+$<$cell \mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a5dd60b54738e447e922b8d4decfac5b2}\label{classMeshFramework2D_1_1Cell2D_a5dd60b54738e447e922b8d4decfac5b2}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!calc\+\_\+cell\+\_\+geometry\+\_\+factors@{calc\+\_\+cell\+\_\+geometry\+\_\+factors}}
+\index{calc\+\_\+cell\+\_\+geometry\+\_\+factors@{calc\+\_\+cell\+\_\+geometry\+\_\+factors}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{calc\+\_\+cell\+\_\+geometry\+\_\+factors()}{calc\_cell\_geometry\_factors()}}
+{\footnotesize\ttfamily bool Cell2\+D\+::calc\+\_\+cell\+\_\+geometry\+\_\+factors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+add a cell to the neighbour 
+
+list \mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a8bff95ccdb70cd39b8bd3cdbae8b111f}\label{classMeshFramework2D_1_1Cell2D_a8bff95ccdb70cd39b8bd3cdbae8b111f}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!edge@{edge}}
+\index{edge@{edge}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{edge()}{edge()}}
+{\footnotesize\ttfamily \hyperlink{classMeshFramework2D_1_1Edge2D}{Edge2D} $\ast$ Cell2\+D\+::edge (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
+
+
+
+getter for edge in cell 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iL} & local index of the edge going counter clockwise\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+container with the indices of the edges 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a556bc73467e350e7a323ff5f506fdc26}\label{classMeshFramework2D_1_1Cell2D_a556bc73467e350e7a323ff5f506fdc26}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!edge\+\_\+mp@{edge\+\_\+mp}}
+\index{edge\+\_\+mp@{edge\+\_\+mp}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{edge\+\_\+mp()}{edge\_mp()}}
+{\footnotesize\ttfamily std\+::vector$<$ Vector2d $>$ Mesh\+Framework2\+D\+::\+Cell2\+D\+::edge\+\_\+mp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+$<$ 
+
+true if shares edge \mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a50635f2a486a9af7aa89d6af4dc17422}\label{classMeshFramework2D_1_1Cell2D_a50635f2a486a9af7aa89d6af4dc17422}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!edge\+\_\+normal@{edge\+\_\+normal}}
+\index{edge\+\_\+normal@{edge\+\_\+normal}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{edge\+\_\+normal()}{edge\_normal()}}
+{\footnotesize\ttfamily Vector2d Cell2\+D\+::edge\+\_\+normal (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption})}
+
+
+
+Returns the global index to the cell. 
+
+$<$that shares the edge defined by the local coordinates with this cell if there is no edge it will return a null pointer, it would be best to check if the cell is a boundary before calling this function. Returns -\/1 if there is no cell \mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a55049e977f519dc8a161a61726fdac23}\label{classMeshFramework2D_1_1Cell2D_a55049e977f519dc8a161a61726fdac23}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!edges@{edges}}
+\index{edges@{edges}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{edges()}{edges()}}
+{\footnotesize\ttfamily std\+::vector$<$ \hyperlink{classMeshFramework2D_1_1Edge2D}{Edge2D} $\ast$ $>$ Cell2\+D\+::edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+getter for the global indicies making up the edges of this cell 
+
+\begin{DoxyReturn}{Returns}
+container of edges where the global indicies of the vertices making up the edges 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_aa77363c693484427ca71d607e376be2f}\label{classMeshFramework2D_1_1Cell2D_aa77363c693484427ca71d607e376be2f}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!get\+\_\+cell\+\_\+area@{get\+\_\+cell\+\_\+area}}
+\index{get\+\_\+cell\+\_\+area@{get\+\_\+cell\+\_\+area}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{get\+\_\+cell\+\_\+area()}{get\_cell\_area()}}
+{\footnotesize\ttfamily double Mesh\+Framework2\+D\+::\+Cell2\+D\+::get\+\_\+cell\+\_\+area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+getter for cell area 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_abf59b323d39cda1f6f65c6ba83247ca9}\label{classMeshFramework2D_1_1Cell2D_abf59b323d39cda1f6f65c6ba83247ca9}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!get\+\_\+cell\+\_\+diam@{get\+\_\+cell\+\_\+diam}}
+\index{get\+\_\+cell\+\_\+diam@{get\+\_\+cell\+\_\+diam}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{get\+\_\+cell\+\_\+diam()}{get\_cell\_diam()}}
+{\footnotesize\ttfamily double Mesh\+Framework2\+D\+::\+Cell2\+D\+::get\+\_\+cell\+\_\+diam (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+getter for cell diameter 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_ae2f7c7e6c4a58c2851b0ed0735af4035}\label{classMeshFramework2D_1_1Cell2D_ae2f7c7e6c4a58c2851b0ed0735af4035}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!get\+\_\+edge\+\_\+measure@{get\+\_\+edge\+\_\+measure}}
+\index{get\+\_\+edge\+\_\+measure@{get\+\_\+edge\+\_\+measure}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{get\+\_\+edge\+\_\+measure()}{get\_edge\_measure()}}
+{\footnotesize\ttfamily double Cell2\+D\+::get\+\_\+edge\+\_\+measure (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the edge length. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iL} & local coordinate of the edge\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a2b3ce883ce985125cc43d7c7509854cc}\label{classMeshFramework2D_1_1Cell2D_a2b3ce883ce985125cc43d7c7509854cc}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!get\+\_\+edge\+\_\+midpoint@{get\+\_\+edge\+\_\+midpoint}}
+\index{get\+\_\+edge\+\_\+midpoint@{get\+\_\+edge\+\_\+midpoint}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{get\+\_\+edge\+\_\+midpoint()}{get\_edge\_midpoint()}}
+{\footnotesize\ttfamily Vector2d Cell2\+D\+::get\+\_\+edge\+\_\+midpoint (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Setter for barycentric coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & vector containing (x,y) coords of the cell barycenter\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successfully added 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a8f31d078c59aa8cbe397fbe789500835}\label{classMeshFramework2D_1_1Cell2D_a8f31d078c59aa8cbe397fbe789500835}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!get\+\_\+neighbours@{get\+\_\+neighbours}}
+\index{get\+\_\+neighbours@{get\+\_\+neighbours}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{get\+\_\+neighbours()}{get\_neighbours()}}
+{\footnotesize\ttfamily std\+::vector$<$ size\+\_\+t $>$ Cell2\+D\+::get\+\_\+neighbours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+tangent of edge using local 
+
+$<$index getter for the cell neighbours
+
+\begin{DoxyReturn}{Returns}
+vector containing the neighbouring cells 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a153ec3d2c9b22dbfd0cf68419647a387}\label{classMeshFramework2D_1_1Cell2D_a153ec3d2c9b22dbfd0cf68419647a387}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!global\+\_\+index@{global\+\_\+index}}
+\index{global\+\_\+index@{global\+\_\+index}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{global\+\_\+index()}{global\_index()}}
+{\footnotesize\ttfamily size\+\_\+t Mesh\+Framework2\+D\+::\+Cell2\+D\+::global\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+getter for the cells global index 
+
+\begin{DoxyReturn}{Returns}
+int that corresponds to the location in the mesh2d cells vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a4834404c5bfd4a4ee3f85118a5dc8bcd}\label{classMeshFramework2D_1_1Cell2D_a4834404c5bfd4a4ee3f85118a5dc8bcd}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!is\+\_\+boundary@{is\+\_\+boundary}}
+\index{is\+\_\+boundary@{is\+\_\+boundary}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{is\+\_\+boundary()}{is\_boundary()}}
+{\footnotesize\ttfamily bool Cell2\+D\+::is\+\_\+boundary (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter for boundary condition 
+
+\begin{DoxyReturn}{Returns}
+true if boundary false if internal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_aa0799aed687569c66741e8259d4858f6}\label{classMeshFramework2D_1_1Cell2D_aa0799aed687569c66741e8259d4858f6}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!is\+\_\+boundary\+\_\+edge@{is\+\_\+boundary\+\_\+edge}}
+\index{is\+\_\+boundary\+\_\+edge@{is\+\_\+boundary\+\_\+edge}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{is\+\_\+boundary\+\_\+edge()}{is\_boundary\_edge()}}
+{\footnotesize\ttfamily bool Cell2\+D\+::is\+\_\+boundary\+\_\+edge (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption})}
+
+
+
+getter for edge boundary condition 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & local coordinate of edge\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if boundary false if internal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a9374d59391f8e14f2840527baa67ab0a}\label{classMeshFramework2D_1_1Cell2D_a9374d59391f8e14f2840527baa67ab0a}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!is\+\_\+boundary\+\_\+vertex@{is\+\_\+boundary\+\_\+vertex}}
+\index{is\+\_\+boundary\+\_\+vertex@{is\+\_\+boundary\+\_\+vertex}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{is\+\_\+boundary\+\_\+vertex()}{is\_boundary\_vertex()}}
+{\footnotesize\ttfamily bool Cell2\+D\+::is\+\_\+boundary\+\_\+vertex (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption})}
+
+
+
+getter for vertex boundary condition 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & local coordinate of vertex\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if boundary false if internal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a6c21f565043627c7032489dd0e5b22b1}\label{classMeshFramework2D_1_1Cell2D_a6c21f565043627c7032489dd0e5b22b1}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!is\+\_\+internal@{is\+\_\+internal}}
+\index{is\+\_\+internal@{is\+\_\+internal}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{is\+\_\+internal()}{is\_internal()}}
+{\footnotesize\ttfamily bool Mesh\+Framework2\+D\+::\+Cell2\+D\+::is\+\_\+internal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+getter for internal condition 
+
+\begin{DoxyReturn}{Returns}
+true if internal false if boundary 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a34eab4c0d682a445d3536d6a8b0e7ed2}\label{classMeshFramework2D_1_1Cell2D_a34eab4c0d682a445d3536d6a8b0e7ed2}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!is\+\_\+internal\+\_\+edge@{is\+\_\+internal\+\_\+edge}}
+\index{is\+\_\+internal\+\_\+edge@{is\+\_\+internal\+\_\+edge}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{is\+\_\+internal\+\_\+edge()}{is\_internal\_edge()}}
+{\footnotesize\ttfamily bool Cell2\+D\+::is\+\_\+internal\+\_\+edge (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption})}
+
+
+
+$<$ 
+
+using local coords check if vertex is boundary getter for cell area
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a557da6f9e39c77c05bb2d42108d1728d}\label{classMeshFramework2D_1_1Cell2D_a557da6f9e39c77c05bb2d42108d1728d}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!is\+\_\+neighbour@{is\+\_\+neighbour}}
+\index{is\+\_\+neighbour@{is\+\_\+neighbour}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{is\+\_\+neighbour()}{is\_neighbour()}}
+{\footnotesize\ttfamily bool Cell2\+D\+::is\+\_\+neighbour (\begin{DoxyParamCaption}\item[{const \hyperlink{classMeshFramework2D_1_1Cell2D}{Cell2D} $\ast$}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+checks if verticies are the same 
+
+$<$ \mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a3513683b24ddb93f97f4f177649d9009}\label{classMeshFramework2D_1_1Cell2D_a3513683b24ddb93f97f4f177649d9009}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!n\+\_\+edges@{n\+\_\+edges}}
+\index{n\+\_\+edges@{n\+\_\+edges}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{n\+\_\+edges()}{n\_edges()}}
+{\footnotesize\ttfamily size\+\_\+t Mesh\+Framework2\+D\+::\+Cell2\+D\+::n\+\_\+edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+getter for the midpoints of all edges 
+
+$<$ \mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_aafd7dfeecdd6db6e66cace7fa685ec58}\label{classMeshFramework2D_1_1Cell2D_aafd7dfeecdd6db6e66cace7fa685ec58}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!n\+\_\+vertex@{n\+\_\+vertex}}
+\index{n\+\_\+vertex@{n\+\_\+vertex}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{n\+\_\+vertex()}{n\_vertex()}}
+{\footnotesize\ttfamily size\+\_\+t Mesh\+Framework2\+D\+::\+Cell2\+D\+::n\+\_\+vertex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+return number of edges for this 
+
+$<$cell; \mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a7ec95ac9c1ef2551f6ca2a4b2078ee40}\label{classMeshFramework2D_1_1Cell2D_a7ec95ac9c1ef2551f6ca2a4b2078ee40}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!shared\+\_\+edge@{shared\+\_\+edge}}
+\index{shared\+\_\+edge@{shared\+\_\+edge}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{shared\+\_\+edge()}{shared\_edge()}}
+{\footnotesize\ttfamily size\+\_\+t Cell2\+D\+::shared\+\_\+edge (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption})}
+
+
+
+calculates if cell is a boundary cell and saves the flag 
+
+$<$ \mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a0c94721b435519f5891a49549cfca560}\label{classMeshFramework2D_1_1Cell2D_a0c94721b435519f5891a49549cfca560}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!vertex@{vertex}}
+\index{vertex@{vertex}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{vertex()}{vertex()}}
+{\footnotesize\ttfamily size\+\_\+t Cell2\+D\+::vertex (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Converts from local cell index to global index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iL} & local index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+global index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a80dd9d0a3bffccc32f1c9b89dc0ae0d1}\label{classMeshFramework2D_1_1Cell2D_a80dd9d0a3bffccc32f1c9b89dc0ae0d1}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!vertex\+\_\+coords@{vertex\+\_\+coords}}
+\index{vertex\+\_\+coords@{vertex\+\_\+coords}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{vertex\+\_\+coords()}{vertex\_coords()}}
+{\footnotesize\ttfamily Vector2d Cell2\+D\+::vertex\+\_\+coords (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
+
+
+
+getter for the coordinates of a vertex 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iL} & local coordinate index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector containing the x,y coordinates 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a325799dd2b8542035a9539fc2ec63220}\label{classMeshFramework2D_1_1Cell2D_a325799dd2b8542035a9539fc2ec63220}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!vertices@{vertices}}
+\index{vertices@{vertices}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{vertices()}{vertices()}}
+{\footnotesize\ttfamily std\+::vector$<$ size\+\_\+t $>$ Mesh\+Framework2\+D\+::\+Cell2\+D\+::vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+getter for global indices of this cell 
+
+\begin{DoxyReturn}{Returns}
+container with the indices of the cells 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Cell2D_a3a7aff59de8ef842d92e17b29de65be4}\label{classMeshFramework2D_1_1Cell2D_a3a7aff59de8ef842d92e17b29de65be4}} 
+\index{Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}!vertices\+\_\+coords@{vertices\+\_\+coords}}
+\index{vertices\+\_\+coords@{vertices\+\_\+coords}!Mesh\+Framework2\+D\+::\+Cell2D@{Mesh\+Framework2\+D\+::\+Cell2D}}
+\subsubsection{\texorpdfstring{vertices\+\_\+coords()}{vertices\_coords()}}
+{\footnotesize\ttfamily std\+::vector$<$ Vector2d $>$ Cell2\+D\+::vertices\+\_\+coords (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+getter for returning the coordinates of the vertices 
+
+\begin{DoxyReturn}{Returns}
+a vector containing the vertices in the cell. They are ordered in counter clockwise order 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+old/\+Mesh2d/src/include/cell2d.\+h\item 
+old/\+Mesh2d/src/cell2d.\+cpp\end{DoxyCompactItemize}

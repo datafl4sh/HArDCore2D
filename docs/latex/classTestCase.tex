@@ -1,0 +1,95 @@
+\hypertarget{classTestCase}{}\section{Test\+Case Class Reference}
+\label{classTestCase}\index{Test\+Case@{Test\+Case}}
+
+
+The \hyperlink{classTestCase}{Test\+Case} class provides definition of test cases.  
+
+
+
+
+{\ttfamily \#include $<$Test\+Case2d.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTestCase_aa4ad29533416ee515205db87002a1bf1}{Test\+Case} (const std\+::vector$<$ int $>$ i\+TC)
+\begin{DoxyCompactList}\small\item\em Initialise data. \end{DoxyCompactList}\item 
+double \hyperlink{classTestCase_aede719dac81c460c713d930a379c537e}{sol} (const double x, const double y)
+\begin{DoxyCompactList}\small\item\em Returns the exact solution at the points x, y. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_ac6ea8a6757e14702acde6aa73270c5b8}\label{classTestCase_ac6ea8a6757e14702acde6aa73270c5b8}} 
+Eigen\+::\+Vector\+Xd \hyperlink{classTestCase_ac6ea8a6757e14702acde6aa73270c5b8}{grad\+\_\+sol} (const double x, const double y)
+\begin{DoxyCompactList}\small\item\em Returns the gradient of the exact solution at the points x, y. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_aefa0d363c18d007e5fa7c75df2c319fa}\label{classTestCase_aefa0d363c18d007e5fa7c75df2c319fa}} 
+Eigen\+::\+Matrix\+Xd \hyperlink{classTestCase_aefa0d363c18d007e5fa7c75df2c319fa}{hess\+\_\+sol} (const double x, const double y)
+\begin{DoxyCompactList}\small\item\em Returns the Hessian of the exact solution at the points x, y. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \hyperlink{classTestCase_a74093020578afb0e658ae1dc77011b8a}{diff} (const double x, const double y)
+\begin{DoxyCompactList}\small\item\em Returns the diffusion matrix at the points x, y. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_a8a7a5456cfd75fa939179119a9c65955}\label{classTestCase_a8a7a5456cfd75fa939179119a9c65955}} 
+Eigen\+::\+Vector\+Xd \hyperlink{classTestCase_a8a7a5456cfd75fa939179119a9c65955}{div\+\_\+diff} (const double x, const double y)
+\begin{DoxyCompactList}\small\item\em Returns the divergence by row of the diffusion matrix at the points x, y. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_a0f23ed8e9ad5e04e6599f4cd90fd5fd4}\label{classTestCase_a0f23ed8e9ad5e04e6599f4cd90fd5fd4}} 
+double \hyperlink{classTestCase_a0f23ed8e9ad5e04e6599f4cd90fd5fd4}{source} (const double x, const double y)
+\begin{DoxyCompactList}\small\item\em Returns the source term at the points x, y. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTestCase_a1f428652eb476f6eb4973ef1f478e8ce}\label{classTestCase_a1f428652eb476f6eb4973ef1f478e8ce}} 
+void \hyperlink{classTestCase_a1f428652eb476f6eb4973ef1f478e8ce}{validate} ()
+\begin{DoxyCompactList}\small\item\em Check if the provided test cases are valid (within range, and combination of solution/diffusion valid) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classTestCase}{Test\+Case} class provides definition of test cases. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTestCase_aa4ad29533416ee515205db87002a1bf1}\label{classTestCase_aa4ad29533416ee515205db87002a1bf1}} 
+\index{Test\+Case@{Test\+Case}!Test\+Case@{Test\+Case}}
+\index{Test\+Case@{Test\+Case}!Test\+Case@{Test\+Case}}
+\subsubsection{\texorpdfstring{Test\+Case()}{TestCase()}}
+{\footnotesize\ttfamily Test\+Case\+::\+Test\+Case (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$}]{i\+TC }\end{DoxyParamCaption})}
+
+
+
+Initialise data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+TC} & The vector id of the test case\+: (id of solution, id of diffusion) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classTestCase_a74093020578afb0e658ae1dc77011b8a}\label{classTestCase_a74093020578afb0e658ae1dc77011b8a}} 
+\index{Test\+Case@{Test\+Case}!diff@{diff}}
+\index{diff@{diff}!Test\+Case@{Test\+Case}}
+\subsubsection{\texorpdfstring{diff()}{diff()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Test\+Case\+::diff (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y }\end{DoxyParamCaption})}
+
+
+
+Returns the diffusion matrix at the points x, y. 
+
+i\+TC\mbox{[}1\mbox{]}=1\+: Diff = Id
+
+i\+TC\mbox{[}1\mbox{]}=2\+: Diff = \mbox{[}y$^\wedge$2+1 -\/xy; -\/xy x$^\wedge$2+1\mbox{]}
+
+i\+TC\mbox{[}1\mbox{]}=3\+: Diff=Id if x$<$=1/2, Diff=\mbox{[}2 0; 0 1\mbox{]} if x$>$1/2. Only valid with i\+TC\mbox{[}0\mbox{]}=1; \mbox{\Hypertarget{classTestCase_aede719dac81c460c713d930a379c537e}\label{classTestCase_aede719dac81c460c713d930a379c537e}} 
+\index{Test\+Case@{Test\+Case}!sol@{sol}}
+\index{sol@{sol}!Test\+Case@{Test\+Case}}
+\subsubsection{\texorpdfstring{sol()}{sol()}}
+{\footnotesize\ttfamily double Test\+Case\+::sol (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y }\end{DoxyParamCaption})}
+
+
+
+Returns the exact solution at the points x, y. 
+
+i\+TC\mbox{[}0\mbox{]}=1\+: u(x,y)=sin(pi x) $\ast$ sin(pi y)
+
+i\+TC\mbox{[}0\mbox{]}=2\+: u(x,y)=cos(pi x) $\ast$ cos(pi y)
+
+i\+TC\mbox{[}0\mbox{]}=3\+: u(x,y)= x
+
+i\+TC\mbox{[}0\mbox{]}=3\+: u(x,y)= y 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Schemes/\+Test\+Case/Test\+Case2d.\+hpp\item 
+Schemes/\+Test\+Case/Test\+Case2d.\+cpp\end{DoxyCompactItemize}

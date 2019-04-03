@@ -1,0 +1,102 @@
+\hypertarget{classHArDCore2D_1_1Mesh2D}{}\section{H\+Ar\+D\+Core2D\+:\+:Mesh2D Class Reference}
+\label{classHArDCore2D_1_1Mesh2D}\index{H\+Ar\+D\+Core2\+D\+::\+Mesh2D@{H\+Ar\+D\+Core2\+D\+::\+Mesh2D}}
+
+
+The \hyperlink{classHArDCore2D_1_1Mesh2D}{Mesh2D} class provides description of a mesh.  
+
+
+
+
+{\ttfamily \#include $<$mesh2d.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHArDCore2D_1_1Mesh2D_a04b6cd67a13e59ec44be0b19739610e7}{Mesh2D} ()
+\item 
+void \hyperlink{group__Mesh2D_ga76daba60a0d68cbc21605cf997e5219c}{set\+\_\+name} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em set the name of the mesh \end{DoxyCompactList}\item 
+std\+::string \hyperlink{group__Mesh2D_gaba40c4bf2f22422ab55d87d7d6029e3b}{get\+\_\+name} ()
+\begin{DoxyCompactList}\small\item\em getter for the edge name \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__Mesh2D_ga49d8009eeb74fd880ef9bb61c37fa672}{n\+\_\+cells} () const
+\begin{DoxyCompactList}\small\item\em number of cells in the mesh \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__Mesh2D_ga28758c0eb5e8ce4e0b43c35071a924ef}{n\+\_\+edges} () const
+\begin{DoxyCompactList}\small\item\em number of edges in the mesh \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__Mesh2D_ga3b1e13201d9d23cd835509cc36d28b64}{n\+\_\+vertices} () const
+\begin{DoxyCompactList}\small\item\em number of vertices in the mesh \end{DoxyCompactList}\item 
+double \hyperlink{group__Mesh2D_gaaaa058631dc2af282237e489c5861b8b}{h\+\_\+max} () const
+\begin{DoxyCompactList}\small\item\em max of diameter of cells \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__Mesh2D_ga0f0a5c852edbfcbf66fc84a2005fdaf2}{dim} () const
+\begin{DoxyCompactList}\small\item\em dimension of the mesh (2) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Mesh2D_a393805b16a24933ecc43da5d5766c381}\label{classHArDCore2D_1_1Mesh2D_a393805b16a24933ecc43da5d5766c381}} 
+size\+\_\+t \hyperlink{classHArDCore2D_1_1Mesh2D_a393805b16a24933ecc43da5d5766c381}{n\+\_\+b\+\_\+cells} () const
+\begin{DoxyCompactList}\small\item\em number of boundary cells \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Mesh2D_af2a2d46050a150499c1d1375a731d548}\label{classHArDCore2D_1_1Mesh2D_af2a2d46050a150499c1d1375a731d548}} 
+size\+\_\+t \hyperlink{classHArDCore2D_1_1Mesh2D_af2a2d46050a150499c1d1375a731d548}{n\+\_\+b\+\_\+edges} () const
+\begin{DoxyCompactList}\small\item\em number of boundary edges \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Mesh2D_a50af6c70a806781681cef7fa8a95ee58}\label{classHArDCore2D_1_1Mesh2D_a50af6c70a806781681cef7fa8a95ee58}} 
+size\+\_\+t \hyperlink{classHArDCore2D_1_1Mesh2D_a50af6c70a806781681cef7fa8a95ee58}{n\+\_\+b\+\_\+vertices} () const
+\begin{DoxyCompactList}\small\item\em number of boundary vertices \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classHArDCore2D_1_1Cell2D}{Cell2D} $\ast$ $>$ \hyperlink{group__Mesh2D_ga2392f5bac860bec56d9f53eec9746ea5}{get\+\_\+cells} () const
+\begin{DoxyCompactList}\small\item\em lists the cells in the mesh. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classHArDCore2D_1_1Edge2D}{Edge2D} $\ast$ $>$ \hyperlink{group__Mesh2D_ga5320100a180fdbe7de5547c05a6d48fd}{get\+\_\+edges} () const
+\begin{DoxyCompactList}\small\item\em lists the edges in the mesh. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classHArDCore2D_1_1Vertex2D}{Vertex2D} $\ast$ $>$ \hyperlink{group__Mesh2D_ga9a25caa2da4d3047e9c6a5ebb52501ae}{get\+\_\+vertices} () const
+\begin{DoxyCompactList}\small\item\em lists the vertices in the mesh. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Mesh2D_a1d8c40ea85f0abe3ae5aea23e4a95583}\label{classHArDCore2D_1_1Mesh2D_a1d8c40ea85f0abe3ae5aea23e4a95583}} 
+\hyperlink{classHArDCore2D_1_1Cell2D}{Cell2D} $\ast$ \hyperlink{classHArDCore2D_1_1Mesh2D_a1d8c40ea85f0abe3ae5aea23e4a95583}{cell} (size\+\_\+t iC) const
+\begin{DoxyCompactList}\small\item\em get a constant pointer to a cell using its global index \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Mesh2D_a9dd54d7b118e6f645d9af819a7555e93}\label{classHArDCore2D_1_1Mesh2D_a9dd54d7b118e6f645d9af819a7555e93}} 
+\hyperlink{classHArDCore2D_1_1Edge2D}{Edge2D} $\ast$ \hyperlink{classHArDCore2D_1_1Mesh2D_a9dd54d7b118e6f645d9af819a7555e93}{edge} (size\+\_\+t iE) const
+\begin{DoxyCompactList}\small\item\em get a constant pointer to an edge using its global index \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Mesh2D_ac29a7c5c0c36b3aa519520fbb9cf20de}\label{classHArDCore2D_1_1Mesh2D_ac29a7c5c0c36b3aa519520fbb9cf20de}} 
+\hyperlink{classHArDCore2D_1_1Vertex2D}{Vertex2D} $\ast$ \hyperlink{classHArDCore2D_1_1Mesh2D_ac29a7c5c0c36b3aa519520fbb9cf20de}{vertex} (size\+\_\+t iV) const
+\begin{DoxyCompactList}\small\item\em get a constant pointer to a vertex using its global index \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classHArDCore2D_1_1Cell2D}{Cell2D} $\ast$ $>$ \hyperlink{group__Mesh2D_ga8fb293f0d674f0ea88b249e52ac59d1f}{get\+\_\+b\+\_\+cells} () const
+\begin{DoxyCompactList}\small\item\em lists the boundary cells in the mesh. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classHArDCore2D_1_1Edge2D}{Edge2D} $\ast$ $>$ \hyperlink{group__Mesh2D_ga9cd5463239645bfce1a86d3d434777f7}{get\+\_\+b\+\_\+edges} () const
+\begin{DoxyCompactList}\small\item\em lists the boundary edges in the mesh. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classHArDCore2D_1_1Vertex2D}{Vertex2D} $\ast$ $>$ \hyperlink{group__Mesh2D_ga2a92915e178d63480f93e3c452b91f24}{get\+\_\+b\+\_\+vertices} () const
+\begin{DoxyCompactList}\small\item\em lists the boundary vertices in the mesh. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Mesh2D_ac0bde8b9d9ddf8a4ef3d60e36efbdf61}\label{classHArDCore2D_1_1Mesh2D_ac0bde8b9d9ddf8a4ef3d60e36efbdf61}} 
+\hyperlink{classHArDCore2D_1_1Cell2D}{Cell2D} $\ast$ \hyperlink{classHArDCore2D_1_1Mesh2D_ac0bde8b9d9ddf8a4ef3d60e36efbdf61}{b\+\_\+cell} (size\+\_\+t iC) const
+\begin{DoxyCompactList}\small\item\em get a constant pointer to the i\+C-\/th boundary cell \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Mesh2D_af8f54d47f1b75c185af7551e11c811f2}\label{classHArDCore2D_1_1Mesh2D_af8f54d47f1b75c185af7551e11c811f2}} 
+\hyperlink{classHArDCore2D_1_1Edge2D}{Edge2D} $\ast$ \hyperlink{classHArDCore2D_1_1Mesh2D_af8f54d47f1b75c185af7551e11c811f2}{b\+\_\+edge} (size\+\_\+t iE) const
+\begin{DoxyCompactList}\small\item\em get a constant pointer to the i\+E-\/th boundary edge \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Mesh2D_a843c1fa9dcbff99667a03d3f4d45bcb9}\label{classHArDCore2D_1_1Mesh2D_a843c1fa9dcbff99667a03d3f4d45bcb9}} 
+\hyperlink{classHArDCore2D_1_1Vertex2D}{Vertex2D} $\ast$ \hyperlink{classHArDCore2D_1_1Mesh2D_a843c1fa9dcbff99667a03d3f4d45bcb9}{b\+\_\+vertex} (size\+\_\+t iV) const
+\begin{DoxyCompactList}\small\item\em get a constant pointer to the i\+V-\/th boundary vertex \end{DoxyCompactList}\item 
+bool \hyperlink{group__Mesh2D_gac5e6d42c9fa1f3d0a55be60e119f5278}{add\+\_\+cell} (\hyperlink{classHArDCore2D_1_1Cell2D}{Cell2D} $\ast$\hyperlink{classHArDCore2D_1_1Mesh2D_a1d8c40ea85f0abe3ae5aea23e4a95583}{cell})
+\begin{DoxyCompactList}\small\item\em adds a cell to the mesh \end{DoxyCompactList}\item 
+bool \hyperlink{group__Mesh2D_gab7fe3d51faf7828161648636ddaebfa1}{add\+\_\+vertex} (\hyperlink{classHArDCore2D_1_1Vertex2D}{Vertex2D} $\ast$\hyperlink{classHArDCore2D_1_1Mesh2D_ac29a7c5c0c36b3aa519520fbb9cf20de}{vertex})
+\begin{DoxyCompactList}\small\item\em adds a vertex to the mesh \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1Mesh2D_af9587d7b5a27cc83df1c51d5eaa43aaf}\label{classHArDCore2D_1_1Mesh2D_af9587d7b5a27cc83df1c51d5eaa43aaf}} 
+\hyperlink{classHArDCore2D_1_1Edge2D}{Edge2D} $\ast$ \hyperlink{classHArDCore2D_1_1Mesh2D_af9587d7b5a27cc83df1c51d5eaa43aaf}{add\+\_\+edge} (std\+::vector$<$ size\+\_\+t $>$ vertex\+\_\+ids, \hyperlink{classHArDCore2D_1_1Cell2D}{Cell2D} $\ast$\hyperlink{classHArDCore2D_1_1Mesh2D_a1d8c40ea85f0abe3ae5aea23e4a95583}{cell})
+\begin{DoxyCompactList}\small\item\em add an edge to the mesh \end{DoxyCompactList}\item 
+bool \hyperlink{group__Mesh2D_ga4e3e091b5164de9e3bb189c699810d3d}{add\+\_\+b\+\_\+cell} (\hyperlink{classHArDCore2D_1_1Cell2D}{Cell2D} $\ast$\hyperlink{classHArDCore2D_1_1Mesh2D_a1d8c40ea85f0abe3ae5aea23e4a95583}{cell})
+\begin{DoxyCompactList}\small\item\em adds a boundary cell to the mesh \end{DoxyCompactList}\item 
+bool \hyperlink{group__Mesh2D_ga4b7d71e891c3141a4dea979c8dda2a99}{add\+\_\+b\+\_\+edge} (\hyperlink{classHArDCore2D_1_1Edge2D}{Edge2D} $\ast$\hyperlink{classHArDCore2D_1_1Mesh2D_a9dd54d7b118e6f645d9af819a7555e93}{edge})
+\begin{DoxyCompactList}\small\item\em adds a boundary edge to the mesh \end{DoxyCompactList}\item 
+bool \hyperlink{group__Mesh2D_gaa56f578853eec0ddba252cb2c0399986}{add\+\_\+b\+\_\+vertex} (\hyperlink{classHArDCore2D_1_1Vertex2D}{Vertex2D} $\ast$\hyperlink{classHArDCore2D_1_1Mesh2D_ac29a7c5c0c36b3aa519520fbb9cf20de}{vertex})
+\begin{DoxyCompactList}\small\item\em adds a boundary vertex to the mesh \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__Mesh2D_ga6feb79c0ef575bf4b4b90854dcda8646}{next\+\_\+edge\+\_\+idx} ()
+\begin{DoxyCompactList}\small\item\em gets the next global edge index \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classHArDCore2D_1_1Mesh2D}{Mesh2D} class provides description of a mesh. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHArDCore2D_1_1Mesh2D_a04b6cd67a13e59ec44be0b19739610e7}\label{classHArDCore2D_1_1Mesh2D_a04b6cd67a13e59ec44be0b19739610e7}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Mesh2D@{H\+Ar\+D\+Core2\+D\+::\+Mesh2D}!Mesh2D@{Mesh2D}}
+\index{Mesh2D@{Mesh2D}!H\+Ar\+D\+Core2\+D\+::\+Mesh2D@{H\+Ar\+D\+Core2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{Mesh2\+D()}{Mesh2D()}}
+{\footnotesize\ttfamily Mesh2\+D\+::\+Mesh2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+default constructor for an empty mesh 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Mesh/mesh2d.\+hpp\item 
+src/\+Mesh/mesh2d.\+cpp\end{DoxyCompactItemize}

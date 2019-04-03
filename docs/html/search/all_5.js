@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['get_5fassembly_5ftime',['get_assembly_time',['../group__HHO__diffusion.html#gad295fde4e7f6dfb97a1f25f7d244e1fb',1,'HArDCore2D::DiffusionEquation']]],
+  ['get_5fb_5fcells',['get_b_cells',['../group__Mesh2D.html#ga8fb293f0d674f0ea88b249e52ac59d1f',1,'HArDCore2D::Mesh2D']]],
+  ['get_5fb_5fedges',['get_b_edges',['../group__Mesh2D.html#ga9cd5463239645bfce1a86d3d434777f7',1,'HArDCore2D::Mesh2D']]],
+  ['get_5fb_5fvertices',['get_b_vertices',['../group__Mesh2D.html#ga2a92915e178d63480f93e3c452b91f24',1,'HArDCore2D::Mesh2D']]],
+  ['get_5fcells',['get_cells',['../classHArDCore2D_1_1Edge2D.html#a7a4eb7fa6572d552cd5056237d770bdf',1,'HArDCore2D::Edge2D::get_cells()'],['../group__Mesh2D.html#ga2392f5bac860bec56d9f53eec9746ea5',1,'HArDCore2D::Mesh2D::get_cells()'],['../group__Mesh2D.html#ga73dce5f9bfbdfda7631e04f062f2df79',1,'HArDCore2D::Vertex2D::get_cells()']]],
+  ['get_5fedges',['get_edges',['../classHArDCore2D_1_1Cell2D.html#ad3c7842a181976770dff4d8ce71c525d',1,'HArDCore2D::Cell2D::get_edges()'],['../group__Mesh2D.html#ga5320100a180fdbe7de5547c05a6d48fd',1,'HArDCore2D::Mesh2D::get_edges()'],['../group__Mesh2D.html#ga652502483daf80fd18557f6a80e499ca',1,'HArDCore2D::Vertex2D::get_edges()']]],
+  ['get_5fitime',['get_itime',['../group__HHO__diffusion.html#ga0b37dd7fcb623ae4e6679cd9eed55a50',1,'HArDCore2D::DiffusionEquation']]],
+  ['get_5fmesh_5fptr',['get_mesh_ptr',['../classHArDCore2D_1_1HybridCore.html#a761aa45132a8857c632f30f92b349bfc',1,'HArDCore2D::HybridCore']]],
+  ['get_5fname',['get_name',['../group__Mesh2D.html#gaba40c4bf2f22422ab55d87d7d6029e3b',1,'HArDCore2D::Mesh2D']]],
+  ['get_5fneighbours',['get_neighbours',['../classHArDCore2D_1_1Cell2D.html#aaa5f80dbb7933225228e1a17779b787d',1,'HArDCore2D::Cell2D']]],
+  ['get_5fsolving_5ferror',['get_solving_error',['../group__HHO__diffusion.html#ga630e8768b1d21686fac8ace701fb7f25',1,'HArDCore2D::DiffusionEquation']]],
+  ['get_5fsolving_5ftime',['get_solving_time',['../group__HHO__diffusion.html#gadaf75d443cbf042a1ab65f2953350499',1,'HArDCore2D::DiffusionEquation']]],
+  ['get_5fvertices',['get_vertices',['../classHArDCore2D_1_1Cell2D.html#a46e1952724941adf122e1df9d6aa3a7e',1,'HArDCore2D::Cell2D::get_vertices()'],['../classHArDCore2D_1_1Edge2D.html#ad2b7c14cdbb0c590c705326dd26162b1',1,'HArDCore2D::Edge2D::get_vertices()'],['../group__Mesh2D.html#ga9a25caa2da4d3047e9c6a5ebb52501ae',1,'HArDCore2D::Mesh2D::get_vertices()'],['../group__Mesh2D.html#ga05a3eb80e579fce25ddd3f423adac1a4',1,'HArDCore2D::Vertex2D::get_vertices()']]],
+  ['global_5findex',['global_index',['../group__Mesh2D.html#ga5c51190fdf2037fd2d6289f4c7f583e0',1,'HArDCore2D::Cell2D::global_index()'],['../group__Mesh2D.html#gaf8f93876f28049fbc97eccf27af2ccce',1,'HArDCore2D::Edge2D::global_index()'],['../group__Mesh2D.html#ga916ae3bd5ae5fe6e79554ef216c72382',1,'HArDCore2D::Vertex2D::global_index()']]],
+  ['grad_5fbasis_5fquad',['grad_basis_quad',['../classHArDCore2D_1_1HybridCore.html#a14adb4f4cfdd2dc7f9be9bfd085e7d87',1,'HArDCore2D::HybridCore']]],
+  ['grad_5fsol',['grad_sol',['../classTestCase.html#ac6ea8a6757e14702acde6aa73270c5b8',1,'TestCase']]],
+  ['gram_5fmatrix',['gram_matrix',['../classHArDCore2D_1_1HybridCore.html#a0f34d7feff2d992c1004d1c67a660320',1,'HArDCore2D::HybridCore::gram_matrix(const std::vector&lt; Eigen::VectorXd &gt; &amp;f_quad, const std::vector&lt; Eigen::VectorXd &gt; &amp;g_quad, const size_t &amp;nrows, const size_t &amp;ncols, const std::vector&lt; HybridCore::qrule &gt; &amp;quad, const bool &amp;sym, std::function&lt; double(double, double)&gt; weight=[&amp;](double x, double y){ return 1;}) const'],['../classHArDCore2D_1_1HybridCore.html#a633814c5b4f35034d04b74f09802303d',1,'HArDCore2D::HybridCore::gram_matrix(const std::vector&lt; Eigen::MatrixXd &gt; &amp;F_quad, const std::vector&lt; Eigen::MatrixXd &gt; &amp;G_quad, const size_t &amp;nrows, const size_t &amp;ncols, const std::vector&lt; HybridCore::qrule &gt; &amp;quad, const bool &amp;sym, std::function&lt; Eigen::Matrix2d(double, double)&gt; Weight=[&amp;](double x, double y){ return Eigen::Matrix2d::Identity();}) const']]]
+];

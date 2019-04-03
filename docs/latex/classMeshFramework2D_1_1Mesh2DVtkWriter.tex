@@ -1,0 +1,158 @@
+\hypertarget{classMeshFramework2D_1_1Mesh2DVtkWriter}{}\section{Mesh\+Framework2D\+:\+:Mesh2\+D\+Vtk\+Writer Class Reference}
+\label{classMeshFramework2D_1_1Mesh2DVtkWriter}\index{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer@{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMeshFramework2D_1_1Mesh2DVtkWriter_a45a63d26a0eb5086bdc5b5ec7bd672d6}{Mesh2\+D\+Vtk\+Writer} (\hyperlink{classMeshFramework2D_1_1Mesh2D}{Mesh2D} $\ast$mesh)
+\begin{DoxyCompactList}\small\item\em Constructor for mesh writer. \end{DoxyCompactList}\item 
+void \hyperlink{classMeshFramework2D_1_1Mesh2DVtkWriter_ab9efd52aa811ee091d442bf47e6596e0}{add\+\_\+cell\+\_\+data} (std\+::string name, std\+::vector$<$ double $>$ data)
+\begin{DoxyCompactList}\small\item\em add a data array to the cells \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2DVtkWriter_acf005302029229aab24af2034524b89e}\label{classMeshFramework2D_1_1Mesh2DVtkWriter_acf005302029229aab24af2034524b89e}} 
+void {\bfseries add\+\_\+point\+\_\+scalar\+\_\+property\+\_\+data} (std\+::string name, std\+::vector$<$ double $>$ data)
+\item 
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2DVtkWriter_af48383d1f8d6f2c5eb33b822f3301ec6}\label{classMeshFramework2D_1_1Mesh2DVtkWriter_af48383d1f8d6f2c5eb33b822f3301ec6}} 
+bool {\bfseries write\+\_\+to\+\_\+vtu} (std\+::string file\+\_\+name)
+\item 
+bool \hyperlink{classMeshFramework2D_1_1Mesh2DVtkWriter_a77fe1b72a7d690335c4b6f485d85dd9c}{write\+\_\+point\+\_\+cloud} (std\+::string filename, std\+::vector$<$ Vector2d $>$ coords, std\+::vector$<$ Vector2d $>$ data, std\+::string name)
+\begin{DoxyCompactList}\small\item\em $<$ \end{DoxyCompactList}\item 
+\hyperlink{classMeshFramework2D_1_1Mesh2DVtkWriter_a323326d3765fe1da21130de403d0b6b0}{Mesh2\+D\+Vtk\+Writer} (\hyperlink{classMeshFramework2D_1_1Mesh2D}{Mesh2D} $\ast$mesh)
+\begin{DoxyCompactList}\small\item\em Constructor for mesh writer. \end{DoxyCompactList}\item 
+void \hyperlink{classMeshFramework2D_1_1Mesh2DVtkWriter_aebb67019f770f5310720d765a2f7a3f0}{add\+\_\+cell\+\_\+data} (std\+::string name, std\+::vector$<$ double $>$ data)
+\begin{DoxyCompactList}\small\item\em add a data array to the cells \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2DVtkWriter_acf005302029229aab24af2034524b89e}\label{classMeshFramework2D_1_1Mesh2DVtkWriter_acf005302029229aab24af2034524b89e}} 
+void {\bfseries add\+\_\+point\+\_\+scalar\+\_\+property\+\_\+data} (std\+::string name, std\+::vector$<$ double $>$ data)
+\item 
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2DVtkWriter_a291d0606b5762a86af64b7da4a59a5c9}\label{classMeshFramework2D_1_1Mesh2DVtkWriter_a291d0606b5762a86af64b7da4a59a5c9}} 
+bool {\bfseries write\+\_\+to\+\_\+vtu} (std\+::string file\+\_\+name)
+\item 
+bool \hyperlink{classMeshFramework2D_1_1Mesh2DVtkWriter_a79f4eec04164529c3f6f3910192c1a48}{write\+\_\+point\+\_\+cloud} (std\+::string filename, std\+::vector$<$ Vector2d $>$ coords, std\+::vector$<$ Vector2d $>$ data, std\+::string name)
+\begin{DoxyCompactList}\small\item\em $<$ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2DVtkWriter_a45a63d26a0eb5086bdc5b5ec7bd672d6}\label{classMeshFramework2D_1_1Mesh2DVtkWriter_a45a63d26a0eb5086bdc5b5ec7bd672d6}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer@{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer}!Mesh2\+D\+Vtk\+Writer@{Mesh2\+D\+Vtk\+Writer}}
+\index{Mesh2\+D\+Vtk\+Writer@{Mesh2\+D\+Vtk\+Writer}!Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer@{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer}}
+\subsubsection{\texorpdfstring{Mesh2\+D\+Vtk\+Writer()}{Mesh2DVtkWriter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Mesh2\+D\+Vtk\+Writer\+::\+Mesh2\+D\+Vtk\+Writer (\begin{DoxyParamCaption}\item[{\hyperlink{classMeshFramework2D_1_1Mesh2D}{Mesh2D} $\ast$}]{mesh }\end{DoxyParamCaption})}
+
+
+
+Constructor for mesh writer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh} & pointer to the mesh \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2DVtkWriter_a323326d3765fe1da21130de403d0b6b0}\label{classMeshFramework2D_1_1Mesh2DVtkWriter_a323326d3765fe1da21130de403d0b6b0}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer@{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer}!Mesh2\+D\+Vtk\+Writer@{Mesh2\+D\+Vtk\+Writer}}
+\index{Mesh2\+D\+Vtk\+Writer@{Mesh2\+D\+Vtk\+Writer}!Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer@{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer}}
+\subsubsection{\texorpdfstring{Mesh2\+D\+Vtk\+Writer()}{Mesh2DVtkWriter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer\+::\+Mesh2\+D\+Vtk\+Writer (\begin{DoxyParamCaption}\item[{\hyperlink{classMeshFramework2D_1_1Mesh2D}{Mesh2D} $\ast$}]{mesh }\end{DoxyParamCaption})}
+
+
+
+Constructor for mesh writer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh} & pointer to the mesh \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2DVtkWriter_ab9efd52aa811ee091d442bf47e6596e0}\label{classMeshFramework2D_1_1Mesh2DVtkWriter_ab9efd52aa811ee091d442bf47e6596e0}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer@{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer}!add\+\_\+cell\+\_\+data@{add\+\_\+cell\+\_\+data}}
+\index{add\+\_\+cell\+\_\+data@{add\+\_\+cell\+\_\+data}!Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer@{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer}}
+\subsubsection{\texorpdfstring{add\+\_\+cell\+\_\+data()}{add\_cell\_data()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Mesh2\+D\+Vtk\+Writer\+::add\+\_\+cell\+\_\+data (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::vector$<$ double $>$}]{data }\end{DoxyParamCaption})}
+
+
+
+add a data array to the cells 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of property in vtk file \\
+\hline
+{\em data} & vector of scalar data, must be the same length as the number of cells! \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2DVtkWriter_aebb67019f770f5310720d765a2f7a3f0}\label{classMeshFramework2D_1_1Mesh2DVtkWriter_aebb67019f770f5310720d765a2f7a3f0}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer@{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer}!add\+\_\+cell\+\_\+data@{add\+\_\+cell\+\_\+data}}
+\index{add\+\_\+cell\+\_\+data@{add\+\_\+cell\+\_\+data}!Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer@{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer}}
+\subsubsection{\texorpdfstring{add\+\_\+cell\+\_\+data()}{add\_cell\_data()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer\+::add\+\_\+cell\+\_\+data (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::vector$<$ double $>$}]{data }\end{DoxyParamCaption})}
+
+
+
+add a data array to the cells 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of property in vtk file \\
+\hline
+{\em data} & vector of scalar data, must be the same length as the number of cells! \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2DVtkWriter_a77fe1b72a7d690335c4b6f485d85dd9c}\label{classMeshFramework2D_1_1Mesh2DVtkWriter_a77fe1b72a7d690335c4b6f485d85dd9c}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer@{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer}!write\+\_\+point\+\_\+cloud@{write\+\_\+point\+\_\+cloud}}
+\index{write\+\_\+point\+\_\+cloud@{write\+\_\+point\+\_\+cloud}!Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer@{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer}}
+\subsubsection{\texorpdfstring{write\+\_\+point\+\_\+cloud()}{write\_point\_cloud()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Mesh2\+D\+Vtk\+Writer\+::write\+\_\+point\+\_\+cloud (\begin{DoxyParamCaption}\item[{std\+::string}]{filename,  }\item[{std\+::vector$<$ Vector2d $>$}]{coords,  }\item[{std\+::vector$<$ Vector2d $>$}]{data,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+$<$ 
+
+does the final writing call this after adding data Write a pointset with a vector property to the mesh
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & filename to write to \\
+\hline
+{\em coords} & location of points \\
+\hline
+{\em data} & vector data to write \\
+\hline
+{\em name} & name of property\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2DVtkWriter_a79f4eec04164529c3f6f3910192c1a48}\label{classMeshFramework2D_1_1Mesh2DVtkWriter_a79f4eec04164529c3f6f3910192c1a48}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer@{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer}!write\+\_\+point\+\_\+cloud@{write\+\_\+point\+\_\+cloud}}
+\index{write\+\_\+point\+\_\+cloud@{write\+\_\+point\+\_\+cloud}!Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer@{Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer}}
+\subsubsection{\texorpdfstring{write\+\_\+point\+\_\+cloud()}{write\_point\_cloud()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Mesh\+Framework2\+D\+::\+Mesh2\+D\+Vtk\+Writer\+::write\+\_\+point\+\_\+cloud (\begin{DoxyParamCaption}\item[{std\+::string}]{filename,  }\item[{std\+::vector$<$ Vector2d $>$}]{coords,  }\item[{std\+::vector$<$ Vector2d $>$}]{data,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+$<$ 
+
+does the final writing call this after adding data Write a pointset with a vector property to the mesh
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & filename to write to \\
+\hline
+{\em coords} & location of points \\
+\hline
+{\em data} & vector data to write \\
+\hline
+{\em name} & name of property\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+old/\+Mesh2d/src/include/vtk\+\_\+writer.\+h\item 
+old/vtk\+\_\+writer.\+hpp\item 
+old/\+Mesh2d/src/vtk\+\_\+writer.\+cpp\end{DoxyCompactItemize}

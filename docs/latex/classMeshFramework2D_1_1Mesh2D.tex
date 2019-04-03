@@ -1,0 +1,298 @@
+\hypertarget{classMeshFramework2D_1_1Mesh2D}{}\section{Mesh\+Framework2D\+:\+:Mesh2D Class Reference}
+\label{classMeshFramework2D_1_1Mesh2D}\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a04b6cd67a13e59ec44be0b19739610e7}\label{classMeshFramework2D_1_1Mesh2D_a04b6cd67a13e59ec44be0b19739610e7}} 
+\hyperlink{classMeshFramework2D_1_1Mesh2D_a04b6cd67a13e59ec44be0b19739610e7}{Mesh2D} ()
+\begin{DoxyCompactList}\small\item\em default constructor for an empty mesh \end{DoxyCompactList}\item 
+bool \hyperlink{classMeshFramework2D_1_1Mesh2D_a6d15c8b71c4ef2bb7f2cc9f4af6ee9a6}{set\+\_\+vertices\+\_\+coords} (std\+::vector$<$ std\+::vector$<$ double $>$ $>$ vertices\+\_\+coords)
+\begin{DoxyCompactList}\small\item\em Setter for the mesh vertices coordinates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_ac6af93f0106ba443da176d6f7a6ab16d}\label{classMeshFramework2D_1_1Mesh2D_ac6af93f0106ba443da176d6f7a6ab16d}} 
+bool {\bfseries set\+\_\+vertices\+\_\+coords} (std\+::vector$<$ Vector2d $>$ vertices\+\_\+coords)
+\item 
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_adc651b14da60cef3ba7c17acf31c13b4}\label{classMeshFramework2D_1_1Mesh2D_adc651b14da60cef3ba7c17acf31c13b4}} 
+void {\bfseries set\+\_\+name} (std\+::string name)
+\item 
+size\+\_\+t \hyperlink{classMeshFramework2D_1_1Mesh2D_a684170e0d3616e4c5c3dfc97ed29097b}{n\+\_\+cells} () const
+\begin{DoxyCompactList}\small\item\em set the name of the mesh can be used for exporting file \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classMeshFramework2D_1_1Mesh2D_afa8109b737b52cd21d2d613ef0daaeda}{n\+\_\+edges} () const
+\begin{DoxyCompactList}\small\item\em $<$ \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classMeshFramework2D_1_1Mesh2D_a4db4af0b69594ff5d875546253fb8c7f}{n\+\_\+vertices} () const
+\begin{DoxyCompactList}\small\item\em $<$ \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classMeshFramework2D_1_1Mesh2D_a746cfac777f671bad0b1471b30c3f073}{n\+\_\+bcells} () const
+\begin{DoxyCompactList}\small\item\em $<$ \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classMeshFramework2D_1_1Mesh2D_a01f8db7422e63ae8ea716009f3c4b199}{n\+\_\+bedges} () const
+\begin{DoxyCompactList}\small\item\em $<$ \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classMeshFramework2D_1_1Mesh2D_a0ee8ac1f4ab5535f3688095237506c9c}{n\+\_\+bvertices} () const
+\begin{DoxyCompactList}\small\item\em $<$ \end{DoxyCompactList}\item 
+double \hyperlink{classMeshFramework2D_1_1Mesh2D_a325a72849b7003426dd1c2bf4dcb9c84}{xmin} ()
+\begin{DoxyCompactList}\small\item\em $<$ \end{DoxyCompactList}\item 
+double \hyperlink{classMeshFramework2D_1_1Mesh2D_a354b64e62d528a2ef5927a47f6b577fb}{xmax} ()
+\begin{DoxyCompactList}\small\item\em $<$ \end{DoxyCompactList}\item 
+double \hyperlink{classMeshFramework2D_1_1Mesh2D_ac0553768ea5fd52ee6898ec64ce39c83}{ymin} ()
+\begin{DoxyCompactList}\small\item\em $<$ \end{DoxyCompactList}\item 
+double \hyperlink{classMeshFramework2D_1_1Mesh2D_a5d6820e4ddbd10a692ddca49ac4d6ad3}{ymax} ()
+\begin{DoxyCompactList}\small\item\em $<$ \end{DoxyCompactList}\item 
+Vector2d \hyperlink{classMeshFramework2D_1_1Mesh2D_a66b317b0a3cfba8a1935928db560957f}{get\+\_\+vertex\+\_\+coords} (size\+\_\+t iV) const
+\begin{DoxyCompactList}\small\item\em $<$ \end{DoxyCompactList}\item 
+bool \hyperlink{classMeshFramework2D_1_1Mesh2D_aba42962d8cadef92d2d1e6dbfc885646}{add\+\_\+cell} (\hyperlink{classMeshFramework2D_1_1Cell2D}{Cell2D} $\ast$\hyperlink{classMeshFramework2D_1_1Mesh2D_a1d8c40ea85f0abe3ae5aea23e4a95583}{cell})
+\begin{DoxyCompactList}\small\item\em get the \end{DoxyCompactList}\item 
+\hyperlink{classMeshFramework2D_1_1Edge2D}{Edge2D} $\ast$ \hyperlink{classMeshFramework2D_1_1Mesh2D_acfd90ef8444c8f09ec9fbe09f0914c52}{add\+\_\+edge} (std\+::vector$<$ size\+\_\+t $>$ ids, \hyperlink{classMeshFramework2D_1_1Cell2D}{Cell2D} $\ast$\hyperlink{classMeshFramework2D_1_1Mesh2D_a1d8c40ea85f0abe3ae5aea23e4a95583}{cell})
+\begin{DoxyCompactList}\small\item\em adds a cell to the mesh \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classMeshFramework2D_1_1Mesh2D_a42b47ccc676b53d9aa5b11209427be57}{next\+\_\+edge\+\_\+idx} ()
+\begin{DoxyCompactList}\small\item\em add an edge to the global edge index \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classMeshFramework2D_1_1Cell2D}{Cell2D} $\ast$ $>$ \hyperlink{classMeshFramework2D_1_1Mesh2D_ae886af87d932c7584d2e75c0e73cb01e}{cells} ()
+\begin{DoxyCompactList}\small\item\em gets the next global edge index, \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classMeshFramework2D_1_1Edge2D}{Edge2D} $\ast$ $>$ \hyperlink{classMeshFramework2D_1_1Mesh2D_a63b60ba84e079a7982b82b18ce5192f5}{edges} ()
+\begin{DoxyCompactList}\small\item\em getter for the cells in the mesh. Note that this returns direct access to the cells not a const value so it is possible to remove and add cells using this function \end{DoxyCompactList}\item 
+std\+::vector$<$ size\+\_\+t $>$ \hyperlink{classMeshFramework2D_1_1Mesh2D_a2dc0b35b47bb7789d4b925cc89a2cd6d}{b\+\_\+cells} () const
+\begin{DoxyCompactList}\small\item\em getter for the edges in the mesh. Note that this returns direct access to the edges not a const value so it is possible to remove and add edges using this function \end{DoxyCompactList}\item 
+std\+::vector$<$ size\+\_\+t $>$ \hyperlink{classMeshFramework2D_1_1Mesh2D_abab27bb542a2e79830a4e295384767dd}{b\+\_\+edges} () const
+\begin{DoxyCompactList}\small\item\em getter for boundary cell \end{DoxyCompactList}\item 
+std\+::vector$<$ size\+\_\+t $>$ \hyperlink{classMeshFramework2D_1_1Mesh2D_ac151935a1581c1aa12fa251ed19ca713}{b\+\_\+vertices} () const
+\begin{DoxyCompactList}\small\item\em getter for boundary \end{DoxyCompactList}\item 
+\hyperlink{classMeshFramework2D_1_1Cell2D}{Cell2D} $\ast$ \hyperlink{classMeshFramework2D_1_1Mesh2D_a1d8c40ea85f0abe3ae5aea23e4a95583}{cell} (size\+\_\+t iC) const
+\begin{DoxyCompactList}\small\item\em getter for boundary \end{DoxyCompactList}\item 
+\hyperlink{classMeshFramework2D_1_1Edge2D}{Edge2D} $\ast$ \hyperlink{classMeshFramework2D_1_1Mesh2D_a9dd54d7b118e6f645d9af819a7555e93}{edge} (size\+\_\+t iE) const
+\begin{DoxyCompactList}\small\item\em get a constant pointer to a \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_aa0a6fbd55ae4ccbe922b25215c94e2b7}\label{classMeshFramework2D_1_1Mesh2D_aa0a6fbd55ae4ccbe922b25215c94e2b7}} 
+std\+::string {\bfseries get\+\_\+name} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_aba42962d8cadef92d2d1e6dbfc885646}\label{classMeshFramework2D_1_1Mesh2D_aba42962d8cadef92d2d1e6dbfc885646}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!add\+\_\+cell@{add\+\_\+cell}}
+\index{add\+\_\+cell@{add\+\_\+cell}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{add\+\_\+cell()}{add\_cell()}}
+{\footnotesize\ttfamily bool Mesh\+Framework2\+D\+::\+Mesh2\+D\+::add\+\_\+cell (\begin{DoxyParamCaption}\item[{\hyperlink{classMeshFramework2D_1_1Cell2D}{Cell2D} $\ast$}]{cell }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get the 
+
+$<$coordinates of a vertex given its local coordinates in the cell \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_acfd90ef8444c8f09ec9fbe09f0914c52}\label{classMeshFramework2D_1_1Mesh2D_acfd90ef8444c8f09ec9fbe09f0914c52}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!add\+\_\+edge@{add\+\_\+edge}}
+\index{add\+\_\+edge@{add\+\_\+edge}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{add\+\_\+edge()}{add\_edge()}}
+{\footnotesize\ttfamily \hyperlink{classMeshFramework2D_1_1Edge2D}{Edge2D} $\ast$ Mesh2\+D\+::add\+\_\+edge (\begin{DoxyParamCaption}\item[{std\+::vector$<$ size\+\_\+t $>$}]{ids,  }\item[{\hyperlink{classMeshFramework2D_1_1Cell2D}{Cell2D} $\ast$}]{cell }\end{DoxyParamCaption})}
+
+
+
+adds a cell to the mesh 
+
+$<$(this is only used by the mesh builder) \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a2dc0b35b47bb7789d4b925cc89a2cd6d}\label{classMeshFramework2D_1_1Mesh2D_a2dc0b35b47bb7789d4b925cc89a2cd6d}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!b\+\_\+cells@{b\+\_\+cells}}
+\index{b\+\_\+cells@{b\+\_\+cells}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{b\+\_\+cells()}{b\_cells()}}
+{\footnotesize\ttfamily std\+::vector$<$ size\+\_\+t $>$ Mesh2\+D\+::b\+\_\+cells (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+getter for the edges in the mesh. Note that this returns direct access to the edges not a const value so it is possible to remove and add edges using this function 
+
+$<$ \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_abab27bb542a2e79830a4e295384767dd}\label{classMeshFramework2D_1_1Mesh2D_abab27bb542a2e79830a4e295384767dd}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!b\+\_\+edges@{b\+\_\+edges}}
+\index{b\+\_\+edges@{b\+\_\+edges}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{b\+\_\+edges()}{b\_edges()}}
+{\footnotesize\ttfamily std\+::vector$<$ size\+\_\+t $>$ Mesh2\+D\+::b\+\_\+edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+getter for boundary cell 
+
+$<$indices Note this is computed when called and N\+OT saved. If this is called regularly, consider precomputing or storing the results if necessary. \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_ac151935a1581c1aa12fa251ed19ca713}\label{classMeshFramework2D_1_1Mesh2D_ac151935a1581c1aa12fa251ed19ca713}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!b\+\_\+vertices@{b\+\_\+vertices}}
+\index{b\+\_\+vertices@{b\+\_\+vertices}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{b\+\_\+vertices()}{b\_vertices()}}
+{\footnotesize\ttfamily std\+::vector$<$ size\+\_\+t $>$ Mesh2\+D\+::b\+\_\+vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+getter for boundary 
+
+$<$edge ind. Note this is computed when called and N\+OT saved. If this is called regularly, consider precomputing or storing the results if necessary. \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a1d8c40ea85f0abe3ae5aea23e4a95583}\label{classMeshFramework2D_1_1Mesh2D_a1d8c40ea85f0abe3ae5aea23e4a95583}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!cell@{cell}}
+\index{cell@{cell}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{cell()}{cell()}}
+{\footnotesize\ttfamily \hyperlink{classMeshFramework2D_1_1Cell2D}{Cell2D} $\ast$ Mesh2\+D\+::cell (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iC }\end{DoxyParamCaption}) const}
+
+
+
+getter for boundary 
+
+$<$vert ind. Note this is computed when called and N\+OT saved. If this is called regularly, consider precomputing or storing the results if necessary. \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_ae886af87d932c7584d2e75c0e73cb01e}\label{classMeshFramework2D_1_1Mesh2D_ae886af87d932c7584d2e75c0e73cb01e}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!cells@{cells}}
+\index{cells@{cells}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{cells()}{cells()}}
+{\footnotesize\ttfamily std\+::vector$<$ \hyperlink{classMeshFramework2D_1_1Cell2D}{Cell2D} $\ast$ $>$ Mesh\+Framework2\+D\+::\+Mesh2\+D\+::cells (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+gets the next global edge index, 
+
+$<$counter is updated when add edge is called \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a9dd54d7b118e6f645d9af819a7555e93}\label{classMeshFramework2D_1_1Mesh2D_a9dd54d7b118e6f645d9af819a7555e93}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!edge@{edge}}
+\index{edge@{edge}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{edge()}{edge()}}
+{\footnotesize\ttfamily \hyperlink{classMeshFramework2D_1_1Edge2D}{Edge2D} $\ast$ Mesh2\+D\+::edge (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iE }\end{DoxyParamCaption}) const}
+
+
+
+get a constant pointer to a 
+
+$<$cell using its global index \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a63b60ba84e079a7982b82b18ce5192f5}\label{classMeshFramework2D_1_1Mesh2D_a63b60ba84e079a7982b82b18ce5192f5}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!edges@{edges}}
+\index{edges@{edges}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{edges()}{edges()}}
+{\footnotesize\ttfamily std\+::vector$<$ \hyperlink{classMeshFramework2D_1_1Edge2D}{Edge2D} $\ast$ $>$ Mesh\+Framework2\+D\+::\+Mesh2\+D\+::edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+getter for the cells in the mesh. Note that this returns direct access to the cells not a const value so it is possible to remove and add cells using this function 
+
+$<$ \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a66b317b0a3cfba8a1935928db560957f}\label{classMeshFramework2D_1_1Mesh2D_a66b317b0a3cfba8a1935928db560957f}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!get\+\_\+vertex\+\_\+coords@{get\+\_\+vertex\+\_\+coords}}
+\index{get\+\_\+vertex\+\_\+coords@{get\+\_\+vertex\+\_\+coords}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{get\+\_\+vertex\+\_\+coords()}{get\_vertex\_coords()}}
+{\footnotesize\ttfamily Vector2d Mesh2\+D\+::get\+\_\+vertex\+\_\+coords (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iV }\end{DoxyParamCaption}) const}
+
+
+
+$<$ 
+
+maximum y coordinate \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a746cfac777f671bad0b1471b30c3f073}\label{classMeshFramework2D_1_1Mesh2D_a746cfac777f671bad0b1471b30c3f073}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!n\+\_\+bcells@{n\+\_\+bcells}}
+\index{n\+\_\+bcells@{n\+\_\+bcells}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{n\+\_\+bcells()}{n\_bcells()}}
+{\footnotesize\ttfamily size\+\_\+t Mesh2\+D\+::n\+\_\+bcells (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+$<$ 
+
+number of vertices in the mesh \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a01f8db7422e63ae8ea716009f3c4b199}\label{classMeshFramework2D_1_1Mesh2D_a01f8db7422e63ae8ea716009f3c4b199}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!n\+\_\+bedges@{n\+\_\+bedges}}
+\index{n\+\_\+bedges@{n\+\_\+bedges}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{n\+\_\+bedges()}{n\_bedges()}}
+{\footnotesize\ttfamily size\+\_\+t Mesh2\+D\+::n\+\_\+bedges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+$<$ 
+
+number of boundary cells \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a0ee8ac1f4ab5535f3688095237506c9c}\label{classMeshFramework2D_1_1Mesh2D_a0ee8ac1f4ab5535f3688095237506c9c}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!n\+\_\+bvertices@{n\+\_\+bvertices}}
+\index{n\+\_\+bvertices@{n\+\_\+bvertices}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{n\+\_\+bvertices()}{n\_bvertices()}}
+{\footnotesize\ttfamily size\+\_\+t Mesh2\+D\+::n\+\_\+bvertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+$<$ 
+
+number of boundary edges \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a684170e0d3616e4c5c3dfc97ed29097b}\label{classMeshFramework2D_1_1Mesh2D_a684170e0d3616e4c5c3dfc97ed29097b}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!n\+\_\+cells@{n\+\_\+cells}}
+\index{n\+\_\+cells@{n\+\_\+cells}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{n\+\_\+cells()}{n\_cells()}}
+{\footnotesize\ttfamily size\+\_\+t Mesh\+Framework2\+D\+::\+Mesh2\+D\+::n\+\_\+cells (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set the name of the mesh can be used for exporting file 
+
+$<$ \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_afa8109b737b52cd21d2d613ef0daaeda}\label{classMeshFramework2D_1_1Mesh2D_afa8109b737b52cd21d2d613ef0daaeda}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!n\+\_\+edges@{n\+\_\+edges}}
+\index{n\+\_\+edges@{n\+\_\+edges}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{n\+\_\+edges()}{n\_edges()}}
+{\footnotesize\ttfamily size\+\_\+t Mesh\+Framework2\+D\+::\+Mesh2\+D\+::n\+\_\+edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+$<$ 
+
+number of cells in the mesh \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a4db4af0b69594ff5d875546253fb8c7f}\label{classMeshFramework2D_1_1Mesh2D_a4db4af0b69594ff5d875546253fb8c7f}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!n\+\_\+vertices@{n\+\_\+vertices}}
+\index{n\+\_\+vertices@{n\+\_\+vertices}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{n\+\_\+vertices()}{n\_vertices()}}
+{\footnotesize\ttfamily size\+\_\+t Mesh\+Framework2\+D\+::\+Mesh2\+D\+::n\+\_\+vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+$<$ 
+
+number of edges in the mesh \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a42b47ccc676b53d9aa5b11209427be57}\label{classMeshFramework2D_1_1Mesh2D_a42b47ccc676b53d9aa5b11209427be57}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!next\+\_\+edge\+\_\+idx@{next\+\_\+edge\+\_\+idx}}
+\index{next\+\_\+edge\+\_\+idx@{next\+\_\+edge\+\_\+idx}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{next\+\_\+edge\+\_\+idx()}{next\_edge\_idx()}}
+{\footnotesize\ttfamily size\+\_\+t Mesh\+Framework2\+D\+::\+Mesh2\+D\+::next\+\_\+edge\+\_\+idx (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+add an edge to the global edge index 
+
+$<$ \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a6d15c8b71c4ef2bb7f2cc9f4af6ee9a6}\label{classMeshFramework2D_1_1Mesh2D_a6d15c8b71c4ef2bb7f2cc9f4af6ee9a6}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!set\+\_\+vertices\+\_\+coords@{set\+\_\+vertices\+\_\+coords}}
+\index{set\+\_\+vertices\+\_\+coords@{set\+\_\+vertices\+\_\+coords}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{set\+\_\+vertices\+\_\+coords()}{set\_vertices\_coords()}}
+{\footnotesize\ttfamily bool Mesh2\+D\+::set\+\_\+vertices\+\_\+coords (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$}]{vertices\+\_\+coords }\end{DoxyParamCaption})}
+
+
+
+Setter for the mesh vertices coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertices\+\_\+coords} & container of vertex coordinates ordered by the global ordering.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a354b64e62d528a2ef5927a47f6b577fb}\label{classMeshFramework2D_1_1Mesh2D_a354b64e62d528a2ef5927a47f6b577fb}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!xmax@{xmax}}
+\index{xmax@{xmax}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{xmax()}{xmax()}}
+{\footnotesize\ttfamily double Mesh\+Framework2\+D\+::\+Mesh2\+D\+::xmax (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+$<$ 
+
+minimum x coordinate \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a325a72849b7003426dd1c2bf4dcb9c84}\label{classMeshFramework2D_1_1Mesh2D_a325a72849b7003426dd1c2bf4dcb9c84}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!xmin@{xmin}}
+\index{xmin@{xmin}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{xmin()}{xmin()}}
+{\footnotesize\ttfamily double Mesh\+Framework2\+D\+::\+Mesh2\+D\+::xmin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+$<$ 
+
+number of boundary vertices \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_a5d6820e4ddbd10a692ddca49ac4d6ad3}\label{classMeshFramework2D_1_1Mesh2D_a5d6820e4ddbd10a692ddca49ac4d6ad3}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!ymax@{ymax}}
+\index{ymax@{ymax}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{ymax()}{ymax()}}
+{\footnotesize\ttfamily double Mesh\+Framework2\+D\+::\+Mesh2\+D\+::ymax (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+$<$ 
+
+minimum y coordinate \mbox{\Hypertarget{classMeshFramework2D_1_1Mesh2D_ac0553768ea5fd52ee6898ec64ce39c83}\label{classMeshFramework2D_1_1Mesh2D_ac0553768ea5fd52ee6898ec64ce39c83}} 
+\index{Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}!ymin@{ymin}}
+\index{ymin@{ymin}!Mesh\+Framework2\+D\+::\+Mesh2D@{Mesh\+Framework2\+D\+::\+Mesh2D}}
+\subsubsection{\texorpdfstring{ymin()}{ymin()}}
+{\footnotesize\ttfamily double Mesh\+Framework2\+D\+::\+Mesh2\+D\+::ymin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+$<$ 
+
+maximum x coordinate 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+old/\+Mesh2d/src/include/mesh2d.\+h\item 
+old/\+Mesh2d/src/mesh2d.\+cpp\end{DoxyCompactItemize}

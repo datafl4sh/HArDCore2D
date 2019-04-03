@@ -1,0 +1,50 @@
+\hypertarget{classHArDCore2D_1_1DiffusionEquation}{}\section{H\+Ar\+D\+Core2D\+:\+:Diffusion\+Equation Class Reference}
+\label{classHArDCore2D_1_1DiffusionEquation}\index{H\+Ar\+D\+Core2\+D\+::\+Diffusion\+Equation@{H\+Ar\+D\+Core2\+D\+::\+Diffusion\+Equation}}
+
+
+The \hyperlink{classHArDCore2D_1_1DiffusionEquation}{Diffusion\+Equation} class provides tools to implement the H\+HO method for the diffusion problem.  
+
+
+
+
+{\ttfamily \#include $<$Diffusion\+Equation2d.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1DiffusionEquation_ae1c7c45bf1c9402b11d431716f5e1936}\label{classHArDCore2D_1_1DiffusionEquation_ae1c7c45bf1c9402b11d431716f5e1936}} 
+using \hyperlink{classHArDCore2D_1_1DiffusionEquation_ae1c7c45bf1c9402b11d431716f5e1936}{scalar\+\_\+function\+\_\+type} = std\+::function$<$ double(double, double)$>$
+\begin{DoxyCompactList}\small\item\em type for function R$^\wedge$2-\/$>$R \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1DiffusionEquation_a8fb1165da7a58b15bc4ed9a86829290a}\label{classHArDCore2D_1_1DiffusionEquation_a8fb1165da7a58b15bc4ed9a86829290a}} 
+using \hyperlink{classHArDCore2D_1_1DiffusionEquation_a8fb1165da7a58b15bc4ed9a86829290a}{vector\+\_\+function\+\_\+type} = std\+::function$<$ Eigen\+::\+Vector\+Xd(double, double)$>$
+\begin{DoxyCompactList}\small\item\em type for function R$^\wedge$2-\/$>$R$^\wedge$2 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1DiffusionEquation_acb28d76dbd9b3c07f20a996f74915b76}\label{classHArDCore2D_1_1DiffusionEquation_acb28d76dbd9b3c07f20a996f74915b76}} 
+using \hyperlink{classHArDCore2D_1_1DiffusionEquation_acb28d76dbd9b3c07f20a996f74915b76}{tensor\+\_\+function\+\_\+type} = std\+::function$<$ Eigen\+::\+Matrix2d(double, double)$>$
+\begin{DoxyCompactList}\small\item\em type for function R$^\wedge$2-\/$>$R$^\wedge$\{2x2\} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__HHO__diffusion_ga9a10d995a8b537474dc0d9a2e0a9a04b}{Diffusion\+Equation} (\hyperlink{classHArDCore2D_1_1DiffusionEquation_acb28d76dbd9b3c07f20a996f74915b76}{tensor\+\_\+function\+\_\+type} kappa, \hyperlink{classHArDCore2D_1_1DiffusionEquation_ae1c7c45bf1c9402b11d431716f5e1936}{scalar\+\_\+function\+\_\+type} source, size\+\_\+t BC, \hyperlink{classHArDCore2D_1_1DiffusionEquation_ae1c7c45bf1c9402b11d431716f5e1936}{scalar\+\_\+function\+\_\+type} exact\+\_\+solution, \hyperlink{classHArDCore2D_1_1DiffusionEquation_a8fb1165da7a58b15bc4ed9a86829290a}{vector\+\_\+function\+\_\+type} grad\+\_\+exact\+\_\+solution, std\+::string solver\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector\+Xd \hyperlink{group__HHO__diffusion_gaa5df2366a6063c0e11cd79f3f3ec3f5d}{solve} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho)
+\begin{DoxyCompactList}\small\item\em Assemble and solve the scheme. \end{DoxyCompactList}\item 
+double \hyperlink{group__HHO__diffusion_ga6859be195fb96cc7cf80839cd714dde8}{H1\+Norm} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho, const Eigen\+::\+Vector\+Xd X\+TF)
+\begin{DoxyCompactList}\small\item\em Discrete H1 norm of an hybrid function. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector\+Xd \hyperlink{group__HHO__diffusion_ga76c336893c4f79547a6059a816aa3532}{Vertex\+Values} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho, const Eigen\+::\+Vector\+Xd X\+TF, const char from\+\_\+dofs)
+\begin{DoxyCompactList}\small\item\em From a hybrid function, computes a vector of values at the vertices of the mesh. \end{DoxyCompactList}\item 
+double \hyperlink{group__HHO__diffusion_gad295fde4e7f6dfb97a1f25f7d244e1fb}{get\+\_\+assembly\+\_\+time} () const
+\begin{DoxyCompactList}\small\item\em cpu time to assemble the scheme \end{DoxyCompactList}\item 
+double \hyperlink{group__HHO__diffusion_gadaf75d443cbf042a1ab65f2953350499}{get\+\_\+solving\+\_\+time} () const
+\begin{DoxyCompactList}\small\item\em cpu time to solve the scheme \end{DoxyCompactList}\item 
+double \hyperlink{group__HHO__diffusion_ga630e8768b1d21686fac8ace701fb7f25}{get\+\_\+solving\+\_\+error} () const
+\begin{DoxyCompactList}\small\item\em residual after solving the scheme \end{DoxyCompactList}\item 
+double \hyperlink{group__HHO__diffusion_ga0b37dd7fcb623ae4e6679cd9eed55a50}{get\+\_\+itime} (size\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em various intermediate assembly times \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classHArDCore2D_1_1DiffusionEquation}{Diffusion\+Equation} class provides tools to implement the H\+HO method for the diffusion problem. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Schemes/\+H\+H\+O-\/diffusion/Diffusion\+Equation2d.\+hpp\end{DoxyCompactItemize}

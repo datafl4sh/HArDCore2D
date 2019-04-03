@@ -1,0 +1,88 @@
+\hypertarget{classHCore2D_1_1Vertex2D}{}\section{H\+Core2D\+:\+:Vertex2D Class Reference}
+\label{classHCore2D_1_1Vertex2D}\index{H\+Core2\+D\+::\+Vertex2D@{H\+Core2\+D\+::\+Vertex2D}}
+
+
+The \hyperlink{classHCore2D_1_1Vertex2D}{Vertex2D} class provides description of a vertex.  
+
+
+
+
+{\ttfamily \#include $<$vertex2d.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHCore2D_1_1Vertex2D_ae759dbca494a48ef69b92822ee1a29df}{Vertex2D} (size\+\_\+t iV, Vector2d \hyperlink{group__Mesh2D_ga5a32556d9d3efd85919e94443c4237ca}{coords}, \hyperlink{classHCore2D_1_1Mesh2D}{Mesh2D} $\ast$mesh)
+\item 
+size\+\_\+t \hyperlink{group__Mesh2D_gacd3879a55567a7d909607573c2833b15}{global\+\_\+index} () const
+\begin{DoxyCompactList}\small\item\em returns the edges global index \end{DoxyCompactList}\item 
+Vector2d \hyperlink{group__Mesh2D_ga5a32556d9d3efd85919e94443c4237ca}{coords} () const
+\begin{DoxyCompactList}\small\item\em returns the coordinates of the vertex \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__Mesh2D_gafc8cf8e3ed4a59b2f1f8e1ef6e1a6700}{n\+\_\+cells} () const
+\begin{DoxyCompactList}\small\item\em returns the number of cells that contain the vertex \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__Mesh2D_gace184166a1f2552aed79406812434140}{n\+\_\+edges} () const
+\begin{DoxyCompactList}\small\item\em returns the number of edges that contain the vertex \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__Mesh2D_ga1e24ac52e7546a982bffb879187ce6a6}{n\+\_\+vertices} () const
+\begin{DoxyCompactList}\small\item\em returns the number of vertices connected by an edge to the vertex \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classHCore2D_1_1Cell2D}{Cell2D} $\ast$ $>$ \hyperlink{group__Mesh2D_ga0659e7b5b407353205de9b121dc6835b}{get\+\_\+cells} () const
+\begin{DoxyCompactList}\small\item\em returns the list of cells containing the vertex \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classHCore2D_1_1Edge2D}{Edge2D} $\ast$ $>$ \hyperlink{group__Mesh2D_ga9fa6587cd702066c73db089f74bc36df}{get\+\_\+edges} () const
+\begin{DoxyCompactList}\small\item\em returns the list of edges containint the vertex \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classHCore2D_1_1Vertex2D}{Vertex2D} $\ast$ $>$ \hyperlink{group__Mesh2D_ga5b50d5a22fa7d0ee9a89a024aa409cfa}{get\+\_\+vertices} () const
+\begin{DoxyCompactList}\small\item\em returns the list of vertices linked to the vertex \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHCore2D_1_1Vertex2D_ad5eb7914636eb9937f84370c6030aed9}\label{classHCore2D_1_1Vertex2D_ad5eb7914636eb9937f84370c6030aed9}} 
+\hyperlink{classHCore2D_1_1Cell2D}{Cell2D} $\ast$ \hyperlink{classHCore2D_1_1Vertex2D_ad5eb7914636eb9937f84370c6030aed9}{cell} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em returns i-\/th cell containing the vertex \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHCore2D_1_1Vertex2D_afebfae577ee499d5309ff6a3981279de}\label{classHCore2D_1_1Vertex2D_afebfae577ee499d5309ff6a3981279de}} 
+\hyperlink{classHCore2D_1_1Edge2D}{Edge2D} $\ast$ \hyperlink{classHCore2D_1_1Vertex2D_afebfae577ee499d5309ff6a3981279de}{edge} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em returns i-\/th edge containing the vertex \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHCore2D_1_1Vertex2D_a2094c42a5fe6dc9fa3b91cb90746eeb9}\label{classHCore2D_1_1Vertex2D_a2094c42a5fe6dc9fa3b91cb90746eeb9}} 
+\hyperlink{classHCore2D_1_1Vertex2D}{Vertex2D} $\ast$ \hyperlink{classHCore2D_1_1Vertex2D_a2094c42a5fe6dc9fa3b91cb90746eeb9}{vertex} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em returns i-\/th vertex linked to the vertex \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHCore2D_1_1Vertex2D_ae2b51139ae320115c0a732cb68dd5d91}\label{classHCore2D_1_1Vertex2D_ae2b51139ae320115c0a732cb68dd5d91}} 
+void \hyperlink{classHCore2D_1_1Vertex2D_ae2b51139ae320115c0a732cb68dd5d91}{add\+\_\+cell} (\hyperlink{classHCore2D_1_1Cell2D}{Cell2D} $\ast$\hyperlink{classHCore2D_1_1Vertex2D_ad5eb7914636eb9937f84370c6030aed9}{cell})
+\begin{DoxyCompactList}\small\item\em Add a new cell to the list of cells containing the vertex. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHCore2D_1_1Vertex2D_a99d9e89fc5a01f960ca48179137dbd2f}\label{classHCore2D_1_1Vertex2D_a99d9e89fc5a01f960ca48179137dbd2f}} 
+void \hyperlink{classHCore2D_1_1Vertex2D_a99d9e89fc5a01f960ca48179137dbd2f}{add\+\_\+edge} (\hyperlink{classHCore2D_1_1Edge2D}{Edge2D} $\ast$\hyperlink{classHCore2D_1_1Vertex2D_afebfae577ee499d5309ff6a3981279de}{edge})
+\begin{DoxyCompactList}\small\item\em Add a new edge to the list of edges containing the vertex. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHCore2D_1_1Vertex2D_a44556af3aa22a09d2442fb87833085af}\label{classHCore2D_1_1Vertex2D_a44556af3aa22a09d2442fb87833085af}} 
+void \hyperlink{classHCore2D_1_1Vertex2D_a44556af3aa22a09d2442fb87833085af}{add\+\_\+vertex} (\hyperlink{classHCore2D_1_1Vertex2D}{Vertex2D} $\ast$\hyperlink{classHCore2D_1_1Vertex2D_a2094c42a5fe6dc9fa3b91cb90746eeb9}{vertex})
+\begin{DoxyCompactList}\small\item\em Add a new vertex to the list of vertices connected by an edge to the vertex. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHCore2D_1_1Vertex2D_a605706aa9e02bfc556a99c72eaf3e454}\label{classHCore2D_1_1Vertex2D_a605706aa9e02bfc556a99c72eaf3e454}} 
+void \hyperlink{classHCore2D_1_1Vertex2D_a605706aa9e02bfc556a99c72eaf3e454}{set\+\_\+boundary} (bool val)
+\begin{DoxyCompactList}\small\item\em Set the \+\_\+boundary value of the vertex to val. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classHCore2D_1_1Vertex2D}{Vertex2D} class provides description of a vertex. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHCore2D_1_1Vertex2D_ae759dbca494a48ef69b92822ee1a29df}\label{classHCore2D_1_1Vertex2D_ae759dbca494a48ef69b92822ee1a29df}} 
+\index{H\+Core2\+D\+::\+Vertex2D@{H\+Core2\+D\+::\+Vertex2D}!Vertex2D@{Vertex2D}}
+\index{Vertex2D@{Vertex2D}!H\+Core2\+D\+::\+Vertex2D@{H\+Core2\+D\+::\+Vertex2D}}
+\subsubsection{\texorpdfstring{Vertex2\+D()}{Vertex2D()}}
+{\footnotesize\ttfamily Vertex2\+D\+::\+Vertex2D (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iV,  }\item[{Vector2d}]{coords,  }\item[{\hyperlink{classHCore2D_1_1Mesh2D}{Mesh2D} $\ast$}]{mesh }\end{DoxyParamCaption})}
+
+A class representing a vertex of a cell for a 2D mesh. Contains a pointer to the mesh, the vertex coordinates, and cells, edges and vertices linked to that vertex. Default constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em iV} & global vertex number \\
+\hline
+{\em coord} & coordinates of the vertex \\
+\hline
+{\em mesh} & pointer to the mesh \\
+\hline
+{\em cell} & pointer to the cells the vertex belongs to \\
+\hline
+{\em edge} & pointer to the edges the vertex belongs to \\
+\hline
+{\em vertex} & pointer to the vertex linked to this vertex by an edge \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Mesh/vertex2d.\+hpp\item 
+src/\+Mesh/vertex2d.\+cpp\end{DoxyCompactItemize}

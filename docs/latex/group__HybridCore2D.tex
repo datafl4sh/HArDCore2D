@@ -1,0 +1,65 @@
+\hypertarget{group__HybridCore2D}{}\section{Hybrid\+Core2D}
+\label{group__HybridCore2D}\index{Hybrid\+Core2D@{Hybrid\+Core2D}}
+
+
+Classes providing tools to implement schemes having polynomial unknowns on the edges and in the cells.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classHArDCore2D_1_1HybridCore}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__HybridCore2D_ga3c33c8cec55dbe2d8873e53fcd43d01f}\label{group__HybridCore2D_ga3c33c8cec55dbe2d8873e53fcd43d01f}} 
+{\footnotesize template$<$typename Function $>$ }\\void \hyperlink{group__HybridCore2D_ga3c33c8cec55dbe2d8873e53fcd43d01f}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::quadrature\+\_\+over\+\_\+cell} (const size\+\_\+t iT, const Function \&f) const
+\begin{DoxyCompactList}\small\item\em To integrate a function over a cell. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore2D_gafbf9c61f2d929331197ba971b52b8710}\label{group__HybridCore2D_gafbf9c61f2d929331197ba971b52b8710}} 
+{\footnotesize template$<$typename Function $>$ }\\void \hyperlink{group__HybridCore2D_gafbf9c61f2d929331197ba971b52b8710}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::quadrature\+\_\+over\+\_\+edge} (const size\+\_\+t iF, const Function \&f) const
+\begin{DoxyCompactList}\small\item\em To integrate a function over an edge. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore2D_ga64ffbc44306e06018efe3cea5a62f652}\label{group__HybridCore2D_ga64ffbc44306e06018efe3cea5a62f652}} 
+{\footnotesize template$<$typename Function $>$ }\\double \hyperlink{group__HybridCore2D_ga64ffbc44306e06018efe3cea5a62f652}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::integrate\+\_\+over\+\_\+cell} (const size\+\_\+t iT, const Function \&f) const
+\begin{DoxyCompactList}\small\item\em Integrates a function over a cell. Use with parcimony, expensive (re-\/compute quadrature points) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore2D_ga03f276ea9c905d64662c39b7555d560c}\label{group__HybridCore2D_ga03f276ea9c905d64662c39b7555d560c}} 
+{\footnotesize template$<$typename Function $>$ }\\double \hyperlink{group__HybridCore2D_ga03f276ea9c905d64662c39b7555d560c}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::integrate\+\_\+over\+\_\+edge} (const size\+\_\+t iF, const Function \&f) const
+\begin{DoxyCompactList}\small\item\em Integrates a function over an edge. Use with parcimony, expensive (re-\/compute quadrature points) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore2D_gab058c4e54d1e33c49e537b8d0f602848}\label{group__HybridCore2D_gab058c4e54d1e33c49e537b8d0f602848}} 
+{\footnotesize template$<$typename Function $>$ }\\double \hyperlink{group__HybridCore2D_gab058c4e54d1e33c49e537b8d0f602848}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::integrate\+\_\+over\+\_\+domain} (const Function \&f) const
+\begin{DoxyCompactList}\small\item\em Integrates a function over the domaine. Use with parcimony, expensive (re-\/compute quadrature points) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore2D_ga71c953efc96f467cb24faa1b60ee9bb2}\label{group__HybridCore2D_ga71c953efc96f467cb24faa1b60ee9bb2}} 
+{\footnotesize template$<$typename Function $>$ }\\Eigen\+::\+Vector\+Xd \hyperlink{group__HybridCore2D_ga71c953efc96f467cb24faa1b60ee9bb2}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::interpolate} (const Function \&f, size\+\_\+t doe) const
+\begin{DoxyCompactList}\small\item\em Compute the interpolant in the discrete space of a continuous function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore2D_ga6faceb46cc896cd6d82a821828518730}\label{group__HybridCore2D_ga6faceb46cc896cd6d82a821828518730}} 
+size\+\_\+t \hyperlink{group__HybridCore2D_ga6faceb46cc896cd6d82a821828518730}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::nlocal\+\_\+cell\+\_\+dofs} ()
+\begin{DoxyCompactList}\small\item\em number of degrees of freedom in each cell (dimension of polynomial space) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore2D_gaf97e3efcc37ac51074c7136af3ca517b}\label{group__HybridCore2D_gaf97e3efcc37ac51074c7136af3ca517b}} 
+size\+\_\+t \hyperlink{group__HybridCore2D_gaf97e3efcc37ac51074c7136af3ca517b}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::ntotal\+\_\+cell\+\_\+dofs} ()
+\begin{DoxyCompactList}\small\item\em total number of cell degrees of freedom \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore2D_ga6a45e5ff09d21b18874e1446cd9de9bc}\label{group__HybridCore2D_ga6a45e5ff09d21b18874e1446cd9de9bc}} 
+size\+\_\+t \hyperlink{group__HybridCore2D_ga6a45e5ff09d21b18874e1446cd9de9bc}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::nlocal\+\_\+edge\+\_\+dofs} ()
+\begin{DoxyCompactList}\small\item\em number of degrees of freedom on each cell (dimension of polynomial space) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore2D_ga49a703b6786215e5acf8bb59ecdbc9ea}\label{group__HybridCore2D_ga49a703b6786215e5acf8bb59ecdbc9ea}} 
+size\+\_\+t \hyperlink{group__HybridCore2D_ga49a703b6786215e5acf8bb59ecdbc9ea}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::ntotal\+\_\+edge\+\_\+dofs} ()
+\begin{DoxyCompactList}\small\item\em total number of cell degrees of freedom \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore2D_gaa7f78bc066429a18ad596d45a79d37bc}\label{group__HybridCore2D_gaa7f78bc066429a18ad596d45a79d37bc}} 
+size\+\_\+t \hyperlink{group__HybridCore2D_gaa7f78bc066429a18ad596d45a79d37bc}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::nhighorder\+\_\+dofs} ()
+\begin{DoxyCompactList}\small\item\em total number of cell degrees of freedom with polynomials up to order k+1 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore2D_ga6f7c5ef5103bed8a3e0ecc18d592b1f9}\label{group__HybridCore2D_ga6f7c5ef5103bed8a3e0ecc18d592b1f9}} 
+size\+\_\+t \hyperlink{group__HybridCore2D_ga6f7c5ef5103bed8a3e0ecc18d592b1f9}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::ngradient\+\_\+dofs} ()
+\begin{DoxyCompactList}\small\item\em total number of degrees of freedom for gradients \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore2D_gae6e771ab58f248db8f051d47de982cf5}\label{group__HybridCore2D_gae6e771ab58f248db8f051d47de982cf5}} 
+size\+\_\+t \hyperlink{group__HybridCore2D_gae6e771ab58f248db8f051d47de982cf5}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::ninternal\+\_\+edge\+\_\+dofs} ()
+\begin{DoxyCompactList}\small\item\em total number of edge degrees of freedom for internal edges \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore2D_ga5fd63afc45211d3005f6e25682c533b2}\label{group__HybridCore2D_ga5fd63afc45211d3005f6e25682c533b2}} 
+size\+\_\+t \hyperlink{group__HybridCore2D_ga5fd63afc45211d3005f6e25682c533b2}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::nboundary\+\_\+edge\+\_\+dofs} ()
+\begin{DoxyCompactList}\small\item\em total number of edge degrees of freedom for boundary edges \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__HybridCore2D_ga728e5b5aa3675a64e7dbc593ed9761f8}\label{group__HybridCore2D_ga728e5b5aa3675a64e7dbc593ed9761f8}} 
+size\+\_\+t \hyperlink{group__HybridCore2D_ga728e5b5aa3675a64e7dbc593ed9761f8}{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core\+::ntotal\+\_\+dofs} ()
+\begin{DoxyCompactList}\small\item\em Total number of degrees of freedom. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classes providing tools to implement schemes having polynomial unknowns on the edges and in the cells. 
+
