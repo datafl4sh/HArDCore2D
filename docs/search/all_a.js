@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['measure',['measure',['../group__Mesh2D.html#ga2a06116757ca98552878eef4c1bb3694',1,'HArDCore2D::Cell2D::measure()'],['../classHArDCore2D_1_1Edge2D.html#a31769e23163cddee4bacfdbd8278095b',1,'HArDCore2D::Edge2D::measure()']]],
-  ['mesh',['mesh',['../group__Mesh2D.html#ga1114eb09e456abb04ab7b5f2c98b958e',1,'HArDCore2D::Mesh2DBuilder']]],
-  ['mesh2d',['Mesh2D',['../classHArDCore2D_1_1Mesh2D.html',1,'HArDCore2D::Mesh2D'],['../classHArDCore2D_1_1Mesh2D.html#a04b6cd67a13e59ec44be0b19739610e7',1,'HArDCore2D::Mesh2D::Mesh2D()'],['../group__Mesh2D.html',1,'(Global Namespace)']]],
-  ['mesh2dbuilder',['Mesh2DBuilder',['../classHArDCore2D_1_1Mesh2DBuilder.html',1,'HArDCore2D::Mesh2DBuilder'],['../classHArDCore2D_1_1Mesh2DBuilder.html#aace3b9d1ce3b4e0b53590b75f734dd96',1,'HArDCore2D::Mesh2DBuilder::Mesh2DBuilder()']]],
-  ['mesh2dreadertyp2',['Mesh2DReaderTyp2',['../classHArDCore2D_1_1Mesh2DReaderTyp2.html',1,'HArDCore2D::Mesh2DReaderTyp2'],['../classHArDCore2D_1_1Mesh2DReaderTyp2.html#a7a45023236b7fb6d1d56a21d16c345f3',1,'HArDCore2D::Mesh2DReaderTyp2::Mesh2DReaderTyp2()']]]
+  ['measure',['measure',['../group__Mesh.html#gac19ec98507a18d255bd54b1e55b16653',1,'HArDCore2D::Cell::measure()'],['../classHArDCore2D_1_1Edge.html#a6c00cbb57ddc2e80e3c07849eadc68a8',1,'HArDCore2D::Edge::measure()']]],
+  ['mesh',['Mesh',['../classHArDCore2D_1_1Mesh.html',1,'HArDCore2D::Mesh'],['../group__Mesh.html#ga0cf325394142e077ffe05dd723cdeddc',1,'HArDCore2D::MeshBuilder::mesh()'],['../classHArDCore2D_1_1Mesh.html#a2af137f1571af89172b9c102302c416b',1,'HArDCore2D::Mesh::Mesh()'],['../group__Mesh.html',1,'(Global Namespace)']]],
+  ['meshbuilder',['MeshBuilder',['../classHArDCore2D_1_1MeshBuilder.html',1,'HArDCore2D::MeshBuilder'],['../classHArDCore2D_1_1MeshBuilder.html#a13fe22fd14a85f789dc9d7d4a8d2419d',1,'HArDCore2D::MeshBuilder::MeshBuilder()']]],
+  ['meshreadertyp2',['MeshReaderTyp2',['../classHArDCore2D_1_1MeshReaderTyp2.html',1,'HArDCore2D::MeshReaderTyp2'],['../classHArDCore2D_1_1MeshReaderTyp2.html#a0b4f74d0e71a0efba9699e6960d43205',1,'HArDCore2D::MeshReaderTyp2::MeshReaderTyp2()']]]
 ];

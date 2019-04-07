@@ -2,6 +2,9 @@
 #
 # Execute hho file on series of meshes, and calculate outputs
 #
+
+executable="./hho-diffusion";
+
 # Options:
 if [[ $1 == "help" ]]; then
 	echo -e "\nExecute tests, calculate rates and create .tex file.\n";
@@ -41,28 +44,31 @@ do
 	meshfile=$meshdir${mesh[$i]}".typ2"
 	echo -e "\n*************************\nmesh $i out of $nbmesh: ${mesh[$i]}.typ2"
 	# Execute code
-	./hho-diffusion -m $meshfile -k $k -l $l -b $bc -c $tcsol $tcdiff --solver_type $solver_type
+	$executable -m $meshfile -k $k -l $l -b $bc -c $tcsol $tcdiff --solver_type $solver_type
 	r=$?
 	if [ "$r" != "0" ]; then
 		exit
 	fi
 	# Move outputs
 	mv results.txt $outdir/results-$i.txt
+	if [ -f T-solution.vtu ]; then
 	mv T-solution.vtu $outdir/T-solution-$i.vtu
-	mv E-solution.vtu $outdir/E-solution-$i.vtu
+	fi
+	mv solution.vtu $outdir/solution-$i.vtu
 	mv exact-solution.vtu $outdir/exact-solution-$i.vtu
 done;
 
 # CREATE DATA FILE FOR LATEX
 cd $outdir
-echo -e "meshsize L2error H1error NbEdgeDOFs" > $errorsfile
+echo -e "meshsize L2error H1error EnergyError NbEdgeDOFs" > $errorsfile
 for i in `seq 1 $nbmesh`; 
 do
 	meshsize=$(awk '/MeshSize:/ {print $NF}' results-$i.txt)
 	L2error=$(awk '/L2error:/ {print $NF}' results-$i.txt)
 	H1error=$(awk '/H1error:/ {print $NF}' results-$i.txt)
+	EnergyError=$(awk '/EnergyError:/ {print $NF}' results-$i.txt)
 	NbEdgeDOFs=$(awk '/NbEdgeDOFs:/ {print $NF}' results-$i.txt)
-	echo -e "$meshsize $L2error $H1error $NbEdgeDOFs" >> $errorsfile
+	echo -e "$meshsize $L2error $H1error $EnergyError $NbEdgeDOFs" >> $errorsfile
 done;
 
 ## CREATE AND COMPILE LATEX
@@ -94,19 +100,25 @@ echo -e "\\\documentclass{article}
 \t\t			   legend pos = south east
 \t\t			 }
 \t\t		 ]
-\t\t		% H1 error
-\t\t     \\\addplot table[x=meshsize,y={create col/linear regression={y=H1error}}] {$errorsfile}
-\t\t     coordinate [pos=0.75] (A)
-\t\t     coordinate [pos=1.00] (B);
-\t\t     \\\xdef\\\slopeb{\\\pgfplotstableregressiona}
-\t\t     \\\draw (A) -| (B) node[pos=0.75,anchor=east] {\\\pgfmathprintnumber{\\\slopeb}};
 \t\t		% L2 error
 \t\t     \\\addplot table[x=meshsize,y={create col/linear regression={y=L2error}}] {$errorsfile}
 \t\t     coordinate [pos=0.75] (A)
 \t\t     coordinate [pos=1.00] (B);
 \t\t     \\\xdef\\\slopea{\\\pgfplotstableregressiona}
 \t\t     \\\draw (A) -| (B) node[pos=0.75,anchor=east] {\\\pgfmathprintnumber{\\\slopea}};
-\t\t     \\\legend{H1 error,L2 error};
+\t\t		% H1 error
+\t\t     \\\addplot table[x=meshsize,y={create col/linear regression={y=H1error}}] {$errorsfile}
+\t\t     coordinate [pos=0.75] (A)
+\t\t     coordinate [pos=1.00] (B);
+\t\t     \\\xdef\\\slopeb{\\\pgfplotstableregressiona}
+\t\t     \\\draw (A) -| (B) node[pos=0.75,anchor=east] {\\\pgfmathprintnumber{\\\slopeb}};
+\t\t		% Energy error
+\t\t     \\\addplot table[x=meshsize,y={create col/linear regression={y=EnergyError}}] {$errorsfile}
+\t\t     coordinate [pos=0.75] (A)
+\t\t     coordinate [pos=1.00] (B);
+\t\t     \\\xdef\\\slopeb{\\\pgfplotstableregressiona}
+\t\t     \\\draw (A) -| (B) node[pos=0.75,anchor=east] {\\\pgfmathprintnumber{\\\slopeb}};
+\t\t     \\\legend{L2 error,H1 error,Energy error};
 \t\t   \\\end{loglogaxis}
 \t\t \\\end{tikzpicture}
 \t\t\\\end{figure}

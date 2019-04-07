@@ -36,6 +36,7 @@ public:
     * @param warn
     */
     QuadRuleTriangle(size_t doe, bool warn);
+		~QuadRuleTriangle();
 
     size_t nq();             /// <\brief returns number of points
     double xq(size_t i);  /// <\brief

@@ -7,7 +7,7 @@ The \hyperlink{classTestCase}{Test\+Case} class provides definition of test case
 
 
 
-{\ttfamily \#include $<$Test\+Case2d.\+hpp$>$}
+{\ttfamily \#include $<$Test\+Case.\+hpp$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -32,7 +32,9 @@ double \hyperlink{classTestCase_a0f23ed8e9ad5e04e6599f4cd90fd5fd4}{source} (cons
 \begin{DoxyCompactList}\small\item\em Returns the source term at the points x, y. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classTestCase_a1f428652eb476f6eb4973ef1f478e8ce}\label{classTestCase_a1f428652eb476f6eb4973ef1f478e8ce}} 
 void \hyperlink{classTestCase_a1f428652eb476f6eb4973ef1f478e8ce}{validate} ()
-\begin{DoxyCompactList}\small\item\em Check if the provided test cases are valid (within range, and combination of solution/diffusion valid) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Check if the provided test cases are valid (within range, and combination of solution/diffusion valid) \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{group__TestCases_ga3dd2daaebb012281b252ab65db0045b2}{get\+\_\+deg\+\_\+diff} ()
+\begin{DoxyCompactList}\small\item\em Returns the degree of the diffusion tensor (useful to set up quadrature rules of proper degree) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -87,9 +89,11 @@ i\+TC\mbox{[}0\mbox{]}=2\+: u(x,y)=cos(pi x) $\ast$ cos(pi y)
 
 i\+TC\mbox{[}0\mbox{]}=3\+: u(x,y)= x
 
-i\+TC\mbox{[}0\mbox{]}=3\+: u(x,y)= y 
+i\+TC\mbox{[}0\mbox{]}=3\+: u(x,y)= y
+
+i\+TC\mbox{[}0\mbox{]}=4\+: u(x,y)= x$^\wedge$2 + y$^\wedge$2 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Schemes/\+Test\+Case/Test\+Case2d.\+hpp\item 
-Schemes/\+Test\+Case/Test\+Case2d.\+cpp\end{DoxyCompactItemize}
+Schemes/\+Test\+Case/Test\+Case.\+hpp\item 
+Schemes/\+Test\+Case/Test\+Case.\+cpp\end{DoxyCompactItemize}

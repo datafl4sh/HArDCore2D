@@ -2,9 +2,10 @@ H\+Ar\+D\+::\+Core provides a suite of tools, in C++, to implement numerical sch
 
 
 \begin{DoxyItemize}
-\item \href{#build}{\tt Build instructions} -- How to build the libraries and the schemes
-\item \href{#mesh}{\tt The mesh structure} -- The principles of the data structure representing the mesh, and how to load a mesh
-\item \href{#hybridcore}{\tt The Hybrid\+Core structure} -- How to use the \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core2d} structure to compute integrals on the cells and faces of the mesh, and how to use the polynomial basis functions
+\item \href{#build}{\tt Build instructions} -- How to build the libraries and the schemes.
+\item \href{#mesh}{\tt The mesh structure} -- The principles of the data structure representing the mesh, and how to load a mesh.
+\item \href{#hybridcore}{\tt The Hybrid\+Core structure} -- How to use the \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} structure to compute integrals on the cells and faces of the mesh, and how to use the polynomial basis functions.
+\item \href{#schemes}{\tt Schemes} -- The list of schemes currently implemented in H\+Ar\+D\+::\+Core2D, and scripts to run them.
 \end{DoxyItemize}
 
 \label{_build}%
@@ -17,14 +18,10 @@ To build the libraries and implemented schemes, the minimal requirements are\+:
 \item C\+Make version 2.\+6 or above (\href{https://cmake.org/}{\tt https\+://cmake.\+org/})
 \item A C++ compiler that supports the C++14 standard, eg. G\+CC (\href{https://gcc.gnu.org/}{\tt https\+://gcc.\+gnu.\+org/}) or Clang (\href{https://clang.llvm.org/}{\tt https\+://clang.\+llvm.\+org/})
 \item Eigen C++ library, version 3.\+3 or above (\href{http://eigen.tuxfamily.org/}{\tt http\+://eigen.\+tuxfamily.\+org/})
-\item The follwing Boost C++ libraries (\href{http://www.boost.org/}{\tt http\+://www.\+boost.\+org/})
-\begin{DoxyItemize}
-\item Boost filesystem
-\item Boost program options
-\end{DoxyItemize}
+\item The follwing Boost C++ libraries (\href{http://www.boost.org/}{\tt http\+://www.\+boost.\+org/})\+: filesystem, program options, timer, chrono.
 \end{DoxyItemize}
 
-Make sure that you have the development version of boost installed. On Linux, install {\ttfamily libboost-\/dev}, {\ttfamily libboost-\/filesystem-\/dev} and {\ttfamily libboost-\/program-\/options-\/dev} from your package manager.
+Make sure that you have the development version of boost installed. On Linux, install {\ttfamily libboost-\/dev}, {\ttfamily libboost-\/filesystem-\/dev}, {\ttfamily libboost-\/program-\/options-\/dev}, {\ttfamily libboost-\/chrono-\/dev} and {\ttfamily libboost-\/timer-\/dev} from your package manager.
 
 The linear systems resulting from the assembled scheme are solved using the Bi\+C\+G\+Stab implementation of Eigen. An alternative (currently commented out in the schemes\textquotesingle{} implementations) is to use the M\+A41 solver of the H\+SL library. To use this alternative you will need\+:
 
@@ -52,13 +49,13 @@ The mesh documentation is built with Doxygen (\href{http://www.stack.nl/~dimitri
 \label{_mesh}%
  \hypertarget{index_mesh}{}\section{The mesh}\label{index_mesh}
 \hypertarget{index_meshpple}{}\subsection{Principles}\label{index_meshpple}
-After it is loaded, the mesh is represented by classes describing a vertex, an edge and a mesh\+: \hyperlink{classHArDCore2D_1_1Vertex2D}{Vertex2D}, \hyperlink{classHArDCore2D_1_1Edge2D}{Edge2D}, and \hyperlink{classHArDCore2D_1_1Cell2D}{Cell2D}. Each of these classes contains methods to access useful information for the corresponding element, including other geometrical quantities it is related to. The mesh itself is represented by an element of the \hyperlink{classHArDCore2D_1_1Mesh2D}{Mesh2D} class with methods to access all the vertices, edges and cells (or a particular vertex, edge or cell). In this class, each cell has a unique identifier, numbered from 0.
+After it is loaded, the mesh is represented by classes describing a vertex, an edge and a mesh\+: \hyperlink{classHArDCore2D_1_1Vertex}{Vertex}, \hyperlink{classHArDCore2D_1_1Edge}{Edge}, and \hyperlink{classHArDCore2D_1_1Cell}{Cell}. Each of these classes contains methods to access useful information for the corresponding element, including other geometrical quantities it is related to. The mesh itself is represented by an element of the \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} class with methods to access all the vertices, edges and cells (or a particular vertex, edge or cell). In this class, each cell has a unique identifier, numbered from 0.
 
-For example, if {\ttfamily mesh\+\_\+ptr} is a pointer to a Mesh2D class, 
+For example, if {\ttfamily mesh\+\_\+ptr} is a pointer to a Mesh class, 
 \begin{DoxyCode}
-Vertex2D* vertex = mesh\_ptr->\hyperlink{classHArDCore2D_1_1Mesh2D_ac29a7c5c0c36b3aa519520fbb9cf20de}{vertex}(5);
+Vertex* vertex = mesh\_ptr->\hyperlink{classHArDCore2D_1_1Mesh_ad099224c697c05a57fad6a47fdcd9e76}{vertex}(5);
 
-Eigen::Vector2d vert\_coord = vertex->\hyperlink{group__Mesh2D_gaa4022dfbf307b635bd6e57a942ab336e}{coords}()
+Eigen::Vector2d vert\_coord = vertex->\hyperlink{group__Mesh_gade92964c93627c034b021c1d23075a79}{coords}()
 \end{DoxyCode}
  would store the coordinates of the fifth vertex into the Eigen vector vert\+\_\+coord. As a generic rule, all geometrical vectors and matrices are Eigen classes. Vectors describing lists (e.\+g. of cells, of functions...) are instances of {\ttfamily std\+::vector$<$...$>$}.
 
@@ -67,10 +64,10 @@ Here is an example that loops over all cells, grabs all the edges of the cell, a
 
 \begin{DoxyCode}
 \textcolor{comment}{// Loop over all cells of the mesh}
-\textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} iC = 0; iC < mesh\_ptr->\hyperlink{group__Mesh2D_ga49d8009eeb74fd880ef9bb61c37fa672}{n\_cells}() iC++) \{
+\textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} iC = 0; iC < mesh\_ptr->\hyperlink{group__Mesh_ga2202a0715196c41356692d8adcfe3893}{n\_cells}() iC++) \{
 
     \textcolor{comment}{// We grab the edges of the iC-th cell}
-    std::vector<Edge2D *> edges = mesh\_ptr->\hyperlink{classHArDCore2D_1_1Mesh2D_a1d8c40ea85f0abe3ae5aea23e4a95583}{cell}(iC)->\hyperlink{classHArDCore2D_1_1Cell2D_ad3c7842a181976770dff4d8ce71c525d}{get\_edges}();
+    std::vector<Edge *> edges = mesh\_ptr->\hyperlink{classHArDCore2D_1_1Mesh_ae07b938c57cf57e3bb9c76d3df1eb549}{cell}(iC)->\hyperlink{classHArDCore2D_1_1Cell_abac3633d6b17df44320054664d9581b1}{get\_edges}();
 
     \textcolor{comment}{// Loop over the edges of the cell}
     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} ilE = 0; ilE < cell->n\_edges(); ilE++) \{
@@ -89,13 +86,13 @@ The mesh classes and other auxilliary classes are located inside the namespace H
 There is no direct access from a high-\/level geometrical entity to elements purely associated with lower-\/level entities. For example, if {\ttfamily mesh\+\_\+ptr} is a pointer to the mesh, there is no direct method to access the coordinates of the i-\/th vertex of the mesh (no {\ttfamily mesh\+\_\+ptr-\/$>$coords\+\_\+vertex()} exists). Instead, this is done through {\ttfamily mesh\+\_\+ptr-\/$>$vertex(i)-\/$>$coords()}. This choice is deliberate as it preserves the logical organisation of the data structure, and facilitates the memorisation of the various methods. Of course, writing a wrapper providing a direct access is easy...\hypertarget{index_loading_mesh}{}\subsection{Loading a mesh}\label{index_loading_mesh}
 H\+Ar\+D\+Core2D can currently read meshes in the {\ttfamily typ2} format designed for the F\+V\+C\+A5 Benchmark. A short documentation describing this format is provided in the {\ttfamily typ2\+\_\+meshes} directory (see R\+E\+A\+D\+M\+E.\+pdf there). Several meshes can also be found in this directory.
 
-A mesh file must be read using an instance of the {\ttfamily Mesh2\+D\+Reader\+Typ2} class, and then built using {\ttfamily Mesh2\+D\+Builder}. A working example is given below (assuming the executable will be in {\ttfamily build/\+Schemes} for example).
+A mesh file must be read using an instance of the {\ttfamily Mesh\+Reader\+Typ2} class, and then built using {\ttfamily Mesh\+Builder}. A working example is given below (assuming the executable will be in {\ttfamily build/\+Schemes} for example).
 
 
 \begin{DoxyCode}
-\textcolor{preprocessor}{#include "mesh2d.hpp"}
-\textcolor{preprocessor}{#include "import\_mesh2d.hpp"}
-\textcolor{preprocessor}{#include "mesh2d\_builder.hpp"}
+\textcolor{preprocessor}{#include "mesh.hpp"}
+\textcolor{preprocessor}{#include "import\_mesh.hpp"}
+\textcolor{preprocessor}{#include "mesh\_builder.hpp"}
 
 \textcolor{keyword}{using namespace }\hyperlink{namespaceHArDCore2D}{HArDCore2D};
 
@@ -105,7 +102,7 @@ A mesh file must be read using an instance of the {\ttfamily Mesh2\+D\+Reader\+T
     std::string mesh\_file = \textcolor{stringliteral}{"../../typ2\_meshes/cart5x5.typ2"};
 
     \textcolor{comment}{// Read the mesh file}
-    \hyperlink{classHArDCore2D_1_1Mesh2DReaderTyp2}{Mesh2DReaderTyp2} mesh(mesh\_file);
+    \hyperlink{classHArDCore2D_1_1MeshReaderTyp2}{MeshReaderTyp2} mesh(mesh\_file);
     std::vector<std::vector<double> > vertices;
     std::vector<std::vector<size\_t> > cells;
     std::vector<std::vector<double> > centers;
@@ -114,10 +111,10 @@ A mesh file must be read using an instance of the {\ttfamily Mesh2\+D\+Reader\+T
         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
     \};
     \textcolor{comment}{// Build the mesh}
-    \hyperlink{classHArDCore2D_1_1Mesh2DBuilder}{Mesh2DBuilder}* builder = \textcolor{keyword}{new} \hyperlink{classHArDCore2D_1_1Mesh2DBuilder}{Mesh2DBuilder}();
-    \hyperlink{classHArDCore2D_1_1Mesh2D}{Mesh2D}* mesh\_ptr = builder->\hyperlink{classHArDCore2D_1_1Mesh2DBuilder_a66379a977bf320cc456c4693b78707c8}{build\_the\_mesh}(vertices, cells);
+    \hyperlink{classHArDCore2D_1_1MeshBuilder}{MeshBuilder}* builder = \textcolor{keyword}{new} \hyperlink{classHArDCore2D_1_1MeshBuilder}{MeshBuilder}();
+    \hyperlink{classHArDCore2D_1_1Mesh}{Mesh}* mesh\_ptr = builder->\hyperlink{classHArDCore2D_1_1MeshBuilder_a1c392d732ae962e5355786ff04d19024}{build\_the\_mesh}(vertices, cells);
 
-    std::cout << \textcolor{stringliteral}{"There are "} << mesh\_ptr->\hyperlink{group__Mesh2D_ga49d8009eeb74fd880ef9bb61c37fa672}{n\_cells}() << \textcolor{stringliteral}{" cells in the mesh.\(\backslash\)n"};
+    std::cout << \textcolor{stringliteral}{"There are "} << mesh\_ptr->\hyperlink{group__Mesh_ga2202a0715196c41356692d8adcfe3893}{n\_cells}() << \textcolor{stringliteral}{" cells in the mesh.\(\backslash\)n"};
 \}
 \end{DoxyCode}
 
@@ -130,7 +127,7 @@ The \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} structure encapsulat
 
 
 \begin{DoxyCode}
-\textcolor{preprocessor}{#include "hybridcore2d.hpp"}
+\textcolor{preprocessor}{#include "hybridcore.hpp"}
 \end{DoxyCode}
 \hypertarget{index_init_core}{}\subsection{Initialising the Hybrid\+Core structure}\label{index_init_core}
 To initialise a \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} structure, we must first have a mesh loaded as a pointer (see \href{#loading_mesh}{\tt loading a mesh}). The structure is then created by specifying the desired degree of the polynomial spaces on the edges and in the cells.
@@ -171,14 +168,14 @@ A number of convenient quantities relating to the basis functions are available 
 \hline
 \rowcolor{\tableheadbgcolor}\textbf{ Symbol name }&\textbf{ Meaning  }\\\cline{1-2}
 \endhead
-\hyperlink{group__HybridCore2D_ga6faceb46cc896cd6d82a821828518730}{nlocal\+\_\+cell\+\_\+dofs} &The number of degrees of freedom of a cell polynomial (ie. the dimension of the space of polynomials of degree $\le L$ in two variables) \\\cline{1-2}
-\hyperlink{group__HybridCore2D_ga6a45e5ff09d21b18874e1446cd9de9bc}{nlocal\+\_\+face\+\_\+dofs} &The number of degrees of freedom of a face polynomial (ie. the dimension of the space of polynomials of degree $\le K$ in one variable) \\\cline{1-2}
-\hyperlink{group__HybridCore2D_gaa7f78bc066429a18ad596d45a79d37bc}{nhighorder\+\_\+dofs} &The number of degrees of freedom of a degree $(K+1)$ cell polynomial (ie. the dimension of the space of polynomials of degree $\le K+1$ in two variables) \\\cline{1-2}
-\hyperlink{group__HybridCore2D_ga6f7c5ef5103bed8a3e0ecc18d592b1f9}{ngradient\+\_\+dofs} &The dimension of the gradient space of degree $(K+1)$ cell polynomials \\\cline{1-2}
-\hyperlink{group__HybridCore2D_gaf97e3efcc37ac51074c7136af3ca517b}{ntotal\+\_\+cell\+\_\+dofs} &The total number of degrees of freedom over all cell polynomials over the entire mesh (i.\+e. the number of cells times the dimension of the space of polynomials of degree $\le L$ in two variables) \\\cline{1-2}
-\hyperlink{group__HybridCore2D_ga49a703b6786215e5acf8bb59ecdbc9ea}{ntotal\+\_\+face\+\_\+dofs} &The total number of degrees of freedom over all face polynomials over the entire mesh (i.\+e. the number of edges times the dimension of the space of polynomials of degree $\le K$ in one variables) \\\cline{1-2}
-\hyperlink{group__HybridCore2D_gae6e771ab58f248db8f051d47de982cf5}{ninternal\+\_\+face\+\_\+dofs} &The total number of degrees of freedom over all internal faces over the entire mesh \\\cline{1-2}
-\hyperlink{group__HybridCore2D_ga728e5b5aa3675a64e7dbc593ed9761f8}{ntotal\+\_\+dofs} &The total number of cell and face degrees of freedom over the entire mesh \\\cline{1-2}
+\hyperlink{group__HybridCore_ga6faceb46cc896cd6d82a821828518730}{nlocal\+\_\+cell\+\_\+dofs} &The number of degrees of freedom of a cell polynomial (ie. the dimension of the space of polynomials of degree $\le L$ in two variables) \\\cline{1-2}
+\hyperlink{group__HybridCore_ga6a45e5ff09d21b18874e1446cd9de9bc}{nlocal\+\_\+face\+\_\+dofs} &The number of degrees of freedom of a face polynomial (ie. the dimension of the space of polynomials of degree $\le K$ in one variable) \\\cline{1-2}
+\hyperlink{group__HybridCore_gaa7f78bc066429a18ad596d45a79d37bc}{nhighorder\+\_\+dofs} &The number of degrees of freedom of a degree $(K+1)$ cell polynomial (ie. the dimension of the space of polynomials of degree $\le K+1$ in two variables) \\\cline{1-2}
+\hyperlink{group__HybridCore_ga6f7c5ef5103bed8a3e0ecc18d592b1f9}{ngradient\+\_\+dofs} &The dimension of the gradient space of degree $(K+1)$ cell polynomials \\\cline{1-2}
+\hyperlink{group__HybridCore_gaf97e3efcc37ac51074c7136af3ca517b}{ntotal\+\_\+cell\+\_\+dofs} &The total number of degrees of freedom over all cell polynomials over the entire mesh (i.\+e. the number of cells times the dimension of the space of polynomials of degree $\le L$ in two variables) \\\cline{1-2}
+\hyperlink{group__HybridCore_ga49a703b6786215e5acf8bb59ecdbc9ea}{ntotal\+\_\+face\+\_\+dofs} &The total number of degrees of freedom over all face polynomials over the entire mesh (i.\+e. the number of edges times the dimension of the space of polynomials of degree $\le K$ in one variables) \\\cline{1-2}
+\hyperlink{group__HybridCore_gae6e771ab58f248db8f051d47de982cf5}{ninternal\+\_\+face\+\_\+dofs} &The total number of degrees of freedom over all internal faces over the entire mesh \\\cline{1-2}
+\hyperlink{group__HybridCore_ga728e5b5aa3675a64e7dbc593ed9761f8}{ntotal\+\_\+dofs} &The total number of cell and face degrees of freedom over the entire mesh \\\cline{1-2}
 \end{longtabu}
 \hypertarget{index_integrate_mesh}{}\subsection{Integration over cells and edges}\label{index_integrate_mesh}
 The \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} structure provides routines to integrate generic functions on the cells and the edges. These routines are however expensive as they re-\/compute the quadrature points and weights every time they are called. They should therefore only be used with parsimony; computing quadrature nodes and values of basis functions at these nodes is more efficient, see \href{#quad_rules}{\tt Quadratures rules}.
@@ -246,4 +243,18 @@ Eigen::MatrixXd MFT = hho.gram\_matrix(phiF\_quadF, phiT\_quadF, hho.nlocal\_edg
 \end{DoxyCode}
 
 
-At present, the quadrature rules available in the code support a total degree of exactness in the cells or on the edges up to 20. 
+At present, the quadrature rules available in the code support a total degree of exactness in the cells or on the edges up to 20.
+
+\label{_schemes}%
+ \hypertarget{index_schemes}{}\section{Schemes}\label{index_schemes}
+The schemes currently available in H\+Ar\+D\+::\+Core2D are\+:
+
+
+\begin{DoxyItemize}
+\item H\+H\+O\+\_\+diffusion\+: Hybrid High-\/\+Order for $-\mathrm{div}(K\nabla u)=f$, for Dirichlet or Neumann boundary conditions, with $K$ a diffusion tensor that is piecewise constant on the mesh.
+\item H\+H\+O\+\_\+locvar\+: Hybrid High-\/\+Order for $-\mathrm{div}(K\nabla u)=f$, for Dirichlet or Neumann boundary conditions, with $K$ a diffusion tensor that can vary in each cell.
+\end{DoxyItemize}
+
+The directory {\ttfamily runs} contains B\+A\+SH to run series of tests on families of meshes. The files {\ttfamily data.\+sh} describe the parameters of the test cases (polynomial degrees, boundary conditions, mesh families, etc.). The script produces results in the {\ttfamily output} directory, including a pdf file {\ttfamily rate.\+pdf} describing the rates of convergence in various energy norms.
+
+To run the scripts as they are, you will need {\ttfamily pdflatex} and a F\+O\+R\+T\+R\+AN compiler, and to adjust the {\ttfamily Makefile} to your compiler, to run {\ttfamily compute\+\_\+rates.\+f90} and compute the rates of convergence in the various norms. 

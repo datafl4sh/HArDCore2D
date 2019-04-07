@@ -1,11 +1,14 @@
 var searchData=
 [
-  ['add_5fb_5fcell',['add_b_cell',['../group__Mesh2D.html#ga4e3e091b5164de9e3bb189c699810d3d',1,'HArDCore2D::Mesh2D']]],
-  ['add_5fb_5fedge',['add_b_edge',['../group__Mesh2D.html#ga4b7d71e891c3141a4dea979c8dda2a99',1,'HArDCore2D::Mesh2D']]],
-  ['add_5fb_5fvertex',['add_b_vertex',['../group__Mesh2D.html#gaa56f578853eec0ddba252cb2c0399986',1,'HArDCore2D::Mesh2D']]],
-  ['add_5fcell',['add_cell',['../classHArDCore2D_1_1Edge2D.html#a206bd371085de27b2d404eef6c1cadae',1,'HArDCore2D::Edge2D::add_cell()'],['../group__Mesh2D.html#gac5e6d42c9fa1f3d0a55be60e119f5278',1,'HArDCore2D::Mesh2D::add_cell()'],['../classHArDCore2D_1_1Vertex2D.html#ae2b51139ae320115c0a732cb68dd5d91',1,'HArDCore2D::Vertex2D::add_cell()']]],
-  ['add_5fedge',['add_edge',['../classHArDCore2D_1_1Mesh2D.html#af9587d7b5a27cc83df1c51d5eaa43aaf',1,'HArDCore2D::Mesh2D::add_edge()'],['../classHArDCore2D_1_1Vertex2D.html#a99d9e89fc5a01f960ca48179137dbd2f',1,'HArDCore2D::Vertex2D::add_edge()']]],
-  ['add_5fneighbour',['add_neighbour',['../classHArDCore2D_1_1Cell2D.html#a292fc40f47362fd33ba6eeea8181b444',1,'HArDCore2D::Cell2D']]],
-  ['add_5fvertex',['add_vertex',['../group__Mesh2D.html#gab7fe3d51faf7828161648636ddaebfa1',1,'HArDCore2D::Mesh2D::add_vertex()'],['../classHArDCore2D_1_1Vertex2D.html#a44556af3aa22a09d2442fb87833085af',1,'HArDCore2D::Vertex2D::add_vertex()']]],
-  ['ari_5fcoords',['ari_coords',['../classHArDCore2D_1_1Cell2D.html#adea88b0500005fa433bc4bb63b74a29b',1,'HArDCore2D::Cell2D']]]
+  ['add_5fb_5fcell',['add_b_cell',['../group__Mesh.html#ga440c6f4a38af3d6c48d25fa416f24366',1,'HArDCore2D::Mesh']]],
+  ['add_5fb_5fedge',['add_b_edge',['../group__Mesh.html#ga170b0f0bf5751a8e0cba0f5efccc66c4',1,'HArDCore2D::Mesh']]],
+  ['add_5fb_5fvertex',['add_b_vertex',['../group__Mesh.html#ga75f0405bae618848b2349ebb26eec675',1,'HArDCore2D::Mesh']]],
+  ['add_5fcell',['add_cell',['../classHArDCore2D_1_1Edge.html#a364bacf89dfa0be36abbbadbb2dd4f78',1,'HArDCore2D::Edge::add_cell()'],['../group__Mesh.html#ga59082af6b1da515cdb99c4daacf5e2fd',1,'HArDCore2D::Mesh::add_cell()'],['../classHArDCore2D_1_1Vertex.html#a133647cd83e7d3b92a9ac55fe5878808',1,'HArDCore2D::Vertex::add_cell()']]],
+  ['add_5fedge',['add_edge',['../classHArDCore2D_1_1Mesh.html#a7ed3868e665ca96c2b40641524c183a1',1,'HArDCore2D::Mesh::add_edge()'],['../classHArDCore2D_1_1Vertex.html#abc7880abdf7299a56b38b1cb2302ed19',1,'HArDCore2D::Vertex::add_edge()']]],
+  ['add_5fi_5fcell',['add_i_cell',['../group__Mesh.html#ga3a47d6ebfdb4254c57b7b672b51a992b',1,'HArDCore2D::Mesh']]],
+  ['add_5fi_5fedge',['add_i_edge',['../group__Mesh.html#ga1e55100bee1027f4ab3980bf020c5df7',1,'HArDCore2D::Mesh']]],
+  ['add_5fi_5fvertex',['add_i_vertex',['../group__Mesh.html#gae0eac0c28f63b2106e97e595cb95248e',1,'HArDCore2D::Mesh']]],
+  ['add_5fneighbour',['add_neighbour',['../classHArDCore2D_1_1Cell.html#a6e29b140b5f4a286ed694f2851fe76e1',1,'HArDCore2D::Cell']]],
+  ['add_5fvertex',['add_vertex',['../group__Mesh.html#ga9dc43dcebaa54356ddbaa45fbd94fa1a',1,'HArDCore2D::Mesh::add_vertex()'],['../classHArDCore2D_1_1Vertex.html#aeffe35d0d60a1ee284f645a5642ff75c',1,'HArDCore2D::Vertex::add_vertex()']]],
+  ['ari_5fcoords',['ari_coords',['../classHArDCore2D_1_1Cell.html#a23fe549c562fac9ca1eef82c04948546',1,'HArDCore2D::Cell']]]
 ];

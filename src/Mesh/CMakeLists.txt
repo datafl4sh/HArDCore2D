@@ -1,5 +1,5 @@
-# Library: mesh2d
+# Library: mesh
 
-FILE(GLOB source_list mesh2d.* mesh2d_builder.* import_mesh2d.* cell2d.* edge2d.* vertex2d.*)
-ADD_LIBRARY(mesh2d ${source_list})
+FILE(GLOB source_list mesh.* mesh_builder.* import_mesh.* cell.* edge.* vertex.*)
+ADD_LIBRARY(mesh ${source_list})
 

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['hho_5fdiffusion',['HHO_diffusion',['../group__HHO__diffusion.html',1,'']]],
-  ['hybridcore2d',['HybridCore2D',['../group__HybridCore2D.html',1,'']]]
+  ['hho_5fdiffusion',['HHO_Diffusion',['../group__HHO__Diffusion.html',1,'']]],
+  ['hho_5flocvardiff',['HHO_LocVarDiff',['../group__HHO__LocVarDiff.html',1,'']]],
+  ['hybridcore',['HybridCore',['../group__HybridCore.html',1,'']]]
 ];

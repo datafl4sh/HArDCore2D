@@ -6,7 +6,7 @@
 
 #include <quad2d.hpp>
 #include <iostream>
-#include <mesh2d.hpp>
+#include <mesh.hpp>
 using namespace HArDCore2D;
 QuadRuleTriangle::QuadRuleTriangle(size_t doe, bool warn)
     : _npts(dunavant_order_num(doe)),
@@ -28,6 +28,12 @@ QuadRuleTriangle::QuadRuleTriangle(size_t doe, bool warn)
     //    Output, double W[ORDER_NUM], the weights of the rule.
 
     dunavant_rule(doe, _npts, _xy, _w);
+}
+
+QuadRuleTriangle::~QuadRuleTriangle(){
+    delete[] _xy;
+    delete[] _w;
+    delete[] _xyphys;
 }
 
 size_t QuadRuleTriangle::nq() { return _npts; }
@@ -65,6 +71,4 @@ void QuadRuleTriangle::setup(double xV[], double yV[]) {
     //    physical triangle.
     reference_to_physical_t3(t, _npts, _xy, _xyphys);
 		area = triangle_area(t);
-
-//std::cout << std::abs(area) << "\n";
 };

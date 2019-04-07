@@ -1,0 +1,15 @@
+BC: 0
+Solution: 1
+Diffusion: 2
+Mesh: hexa1_2.typ2
+EdgeDegree: 1
+CellDegree: 1
+AssemblyTime: 0.08
+Solving time: 0.01
+L2error: 0.000113106
+H1error: 0.00262617
+EnergyError: 0.0027605
+MeshSize: 0.129713
+NbCells: 441
+NbEdges: 1400
+NbEdgeDOFs: 2800

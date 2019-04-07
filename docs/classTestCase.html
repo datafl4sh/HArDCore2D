@@ -70,7 +70,7 @@ $(function() {
 <p>The <a class="el" href="classTestCase.html" title="The TestCase class provides definition of test cases. ">TestCase</a> class provides definition of test cases.  
  <a href="classTestCase.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="TestCase2d_8hpp_source.html">TestCase2d.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="TestCase_8hpp_source.html">TestCase.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -103,6 +103,10 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCase.html#a1f428652eb476f6eb4973ef1f478e8ce">validate</a> ()</td></tr>
 <tr class="memdesc:a1f428652eb476f6eb4973ef1f478e8ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the provided test cases are valid (within range, and combination of solution/diffusion valid) <br /></td></tr>
 <tr class="separator:a1f428652eb476f6eb4973ef1f478e8ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3dd2daaebb012281b252ab65db0045b2"><td class="memItemLeft" align="right" valign="top">
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__TestCases.html#ga3dd2daaebb012281b252ab65db0045b2">get_deg_diff</a> ()</td></tr>
+<tr class="memdesc:ga3dd2daaebb012281b252ab65db0045b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the degree of the diffusion tensor (useful to set up quadrature rules of proper degree) <br /></td></tr>
+<tr class="separator:ga3dd2daaebb012281b252ab65db0045b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classTestCase.html" title="The TestCase class provides definition of test cases. ">TestCase</a> class provides definition of test cases. </p>
@@ -197,13 +201,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>iTC[0]=1: u(x,y)=sin(pi x) * sin(pi y)</p>
 <p>iTC[0]=2: u(x,y)=cos(pi x) * cos(pi y)</p>
 <p>iTC[0]=3: u(x,y)= x</p>
-<p>iTC[0]=3: u(x,y)= y </p>
+<p>iTC[0]=3: u(x,y)= y</p>
+<p>iTC[0]=4: u(x,y)= x^2 + y^2 </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Schemes/TestCase/<a class="el" href="TestCase2d_8hpp_source.html">TestCase2d.hpp</a></li>
-<li>Schemes/TestCase/TestCase2d.cpp</li>
+<li>Schemes/TestCase/<a class="el" href="TestCase_8hpp_source.html">TestCase.hpp</a></li>
+<li>Schemes/TestCase/TestCase.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

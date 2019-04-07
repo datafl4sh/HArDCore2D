@@ -10,3 +10,7 @@
 \form#9:$(\int weight*f_i*g_j)_{ij}$
 \form#10:$(f_1,\ldots,f_{Nf})$
 \form#11:$(g_1,\ldots,g_{Ng})$
+\form#12:$-\div(K\nabla u)=f$
+\form#13:$K\fK a diffusion tensor that is piecewise constant on the mesh. - [HHO-locvar](@ref HArDCore2D::HHO-locvar) Hybrid High-Order for $
+\form#14:$, for Dirichlet or Neumann boundary conditions, with $
+\form#15:$-\mathrm{div}(K\nabla u)=f$

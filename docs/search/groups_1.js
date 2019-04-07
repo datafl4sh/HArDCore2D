@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mesh2d',['Mesh2D',['../group__Mesh2D.html',1,'']]]
+  ['mesh',['Mesh',['../group__Mesh.html',1,'']]]
 ];

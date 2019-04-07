@@ -1,0 +1,50 @@
+\hypertarget{classHArDCore2D_1_1LocVarDiff}{}\section{H\+Ar\+D\+Core2D\+:\+:Loc\+Var\+Diff Class Reference}
+\label{classHArDCore2D_1_1LocVarDiff}\index{H\+Ar\+D\+Core2\+D\+::\+Loc\+Var\+Diff@{H\+Ar\+D\+Core2\+D\+::\+Loc\+Var\+Diff}}
+
+
+The \hyperlink{classHArDCore2D_1_1LocVarDiff}{Loc\+Var\+Diff} class provides tools to implement the H\+HO method for the diffusion problem.  
+
+
+
+
+{\ttfamily \#include $<$Loc\+Var\+Diff2d.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1LocVarDiff_a1bb6dadd227f308545e68ec2b18d457c}\label{classHArDCore2D_1_1LocVarDiff_a1bb6dadd227f308545e68ec2b18d457c}} 
+using \hyperlink{classHArDCore2D_1_1LocVarDiff_a1bb6dadd227f308545e68ec2b18d457c}{scalar\+\_\+function\+\_\+type} = std\+::function$<$ double(double, double)$>$
+\begin{DoxyCompactList}\small\item\em type for function R$^\wedge$2-\/$>$R \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1LocVarDiff_a44128fac430109885d14ac8582a68809}\label{classHArDCore2D_1_1LocVarDiff_a44128fac430109885d14ac8582a68809}} 
+using \hyperlink{classHArDCore2D_1_1LocVarDiff_a44128fac430109885d14ac8582a68809}{vector\+\_\+function\+\_\+type} = std\+::function$<$ Eigen\+::\+Vector\+Xd(double, double)$>$
+\begin{DoxyCompactList}\small\item\em type for function R$^\wedge$2-\/$>$R$^\wedge$2 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1LocVarDiff_a68ac1fa2f65fa77a2f21c8ff28f8c36f}\label{classHArDCore2D_1_1LocVarDiff_a68ac1fa2f65fa77a2f21c8ff28f8c36f}} 
+using \hyperlink{classHArDCore2D_1_1LocVarDiff_a68ac1fa2f65fa77a2f21c8ff28f8c36f}{tensor\+\_\+function\+\_\+type} = std\+::function$<$ Eigen\+::\+Matrix2d(double, double)$>$
+\begin{DoxyCompactList}\small\item\em type for function R$^\wedge$2-\/$>$R$^\wedge$\{2x2\} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__HHO__locvar_ga3e1466c2595b771c1afd4f73ec5f27bc}{Loc\+Var\+Diff} (\hyperlink{classHArDCore2D_1_1LocVarDiff_a68ac1fa2f65fa77a2f21c8ff28f8c36f}{tensor\+\_\+function\+\_\+type} kappa, size\+\_\+t deg\+\_\+kappa, \hyperlink{classHArDCore2D_1_1LocVarDiff_a1bb6dadd227f308545e68ec2b18d457c}{scalar\+\_\+function\+\_\+type} source, size\+\_\+t BC, \hyperlink{classHArDCore2D_1_1LocVarDiff_a1bb6dadd227f308545e68ec2b18d457c}{scalar\+\_\+function\+\_\+type} exact\+\_\+solution, \hyperlink{classHArDCore2D_1_1LocVarDiff_a44128fac430109885d14ac8582a68809}{vector\+\_\+function\+\_\+type} grad\+\_\+exact\+\_\+solution, std\+::string solver\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector\+Xd \hyperlink{group__HHO__locvar_ga80c75c7c386169ef8b96763a36dd2a92}{solve} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho)
+\begin{DoxyCompactList}\small\item\em Assemble and solve the scheme. \end{DoxyCompactList}\item 
+double \hyperlink{group__HHO__locvar_ga42adf784c096036d90422baa41fc17c2}{H1\+Norm} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho, const Eigen\+::\+Vector\+Xd X\+TF)
+\begin{DoxyCompactList}\small\item\em Discrete H1 norm of an hybrid function. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector\+Xd \hyperlink{group__HHO__locvar_ga60a0da4f13e1da374bc3d686004ab439}{Vertex\+Values} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho, const Eigen\+::\+Vector\+Xd X\+TF, const char from\+\_\+dofs)
+\begin{DoxyCompactList}\small\item\em From a hybrid function, computes a vector of values at the vertices of the mesh. \end{DoxyCompactList}\item 
+double \hyperlink{group__HHO__locvar_gae772fea2b994fc7b91bf5464cdc3ba1e}{get\+\_\+assembly\+\_\+time} () const
+\begin{DoxyCompactList}\small\item\em cpu time to assemble the scheme \end{DoxyCompactList}\item 
+double \hyperlink{group__HHO__locvar_ga2a88d6a8c9b52e620a346f5d01e15bbb}{get\+\_\+solving\+\_\+time} () const
+\begin{DoxyCompactList}\small\item\em cpu time to solve the scheme \end{DoxyCompactList}\item 
+double \hyperlink{group__HHO__locvar_gaa2d93fad6446a1648cd898fcf19be40a}{get\+\_\+solving\+\_\+error} () const
+\begin{DoxyCompactList}\small\item\em residual after solving the scheme \end{DoxyCompactList}\item 
+double \hyperlink{group__HHO__locvar_gab6163348bd0188208049a1ad1c10d105}{get\+\_\+itime} (size\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em various intermediate assembly times \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classHArDCore2D_1_1LocVarDiff}{Loc\+Var\+Diff} class provides tools to implement the H\+HO method for the diffusion problem. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Schemes/\+H\+H\+O-\/locvar/Loc\+Var\+Diff2d.\+hpp\end{DoxyCompactItemize}

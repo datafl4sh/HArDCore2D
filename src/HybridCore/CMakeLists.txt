@@ -1,7 +1,7 @@
-# Library: hybridcore2d
+# Library: hybridcore
 
-FILE(GLOB source_list hybridcore2d.*)
-ADD_LIBRARY(hybridcore2d ${source_list})
-TARGET_LINK_LIBRARIES(hybridcore2d mesh2d quadrature)
+FILE(GLOB source_list hybridcore.*)
+ADD_LIBRARY(hybridcore ${source_list})
+TARGET_LINK_LIBRARIES(hybridcore mesh quadrature)
 
 

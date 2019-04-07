@@ -1,7 +1,13 @@
 # TestCase
-ADD_LIBRARY(TestCase OBJECT TestCase/TestCase2d.cpp)
+ADD_LIBRARY(TestCase OBJECT TestCase/TestCase.cpp)
 
-# HHO
-ADD_EXECUTABLE(hho-diffusion $<TARGET_OBJECTS:TestCase> HHO-diffusion/DiffusionEquation2d.cpp)
-TARGET_LINK_LIBRARIES(hho-diffusion mesh2d quadrature hybridcore2d plot ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE})
+# HHO Diffusion
+ADD_EXECUTABLE(hho-diffusion $<TARGET_OBJECTS:TestCase> HHO-diffusion/HHO_Diffusion.cpp)
+TARGET_LINK_LIBRARIES(hho-diffusion mesh quadrature hybridcore plot ${Boost_LIBRARIES})
 TARGET_INCLUDE_DIRECTORIES(hho-diffusion PUBLIC ${EIGEN3_INCLUDE_DIR})
+
+# HHO Locally variable diffusion
+ADD_EXECUTABLE(hho-locvardiff $<TARGET_OBJECTS:TestCase> HHO-locvardiff/HHO_LocVarDiff.cpp)
+TARGET_LINK_LIBRARIES(hho-locvardiff mesh quadrature hybridcore plot ${Boost_LIBRARIES})
+TARGET_INCLUDE_DIRECTORIES(hho-locvardiff PUBLIC ${EIGEN3_INCLUDE_DIR})
+
