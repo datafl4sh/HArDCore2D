@@ -29,6 +29,7 @@ SET(CMAKE_MODULE_PATH ${HOME_DIR}/CMake)
 
 FIND_PACKAGE(Boost COMPONENTS filesystem program_options timer chrono REQUIRED)
 FIND_PACKAGE(Eigen3 3.3.4)
+INCLUDE_DIRECTORIES(${EIGEN3_INCLUDE_DIRS})
 
 #------------------------------------------------------------------------------#
 #                             Directories for compiled libraries
