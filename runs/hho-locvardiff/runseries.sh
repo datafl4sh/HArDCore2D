@@ -24,6 +24,9 @@ outdir=$(pwd)"/outputs/"
 errorsfile="data_rates.dat"
 latexfile="rates.tex"
 
+if [ ! -d $outdir ]; then
+	mkdir $outdir
+fi
 \rm -r $outdir/*
 
 ###
