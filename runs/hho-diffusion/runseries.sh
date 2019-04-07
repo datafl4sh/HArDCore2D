@@ -7,11 +7,7 @@ executable="./hho-diffusion";
 
 # Options:
 if [[ $1 == "help" ]]; then
-	echo -e "\nExecute tests, calculate rates and create .tex file.\n";
-	echo -e "Options:\n\t-a : execute tests, compile .tex and visualise.";
-	echo -e "\t-v : compile .tex without re-executing tests.";
-	echo -e "\t-q : execte tests, does not compute rates or .tex.";
-	echo -e "\t-n=<NAME> : gives NAME to the series of tests.\n";
+	echo -e "\nExecute tests using parameters in data.sh, creates and compile latex file, and calculate rates.\n";
 	exit;
 fi;
 
