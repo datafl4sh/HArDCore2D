@@ -1,5 +1,5 @@
 # HArDCore2D
-Hybrid Arbitrary Degree::Core 2D - Library to implement 2D schemes with edge and cell polynomials as unknowns
+Hybrid Arbitrary Degree::Core 2D - Library to implement schemes with edge and cell polynomial unknowns on generic 2D polygonal meshes.
 
 The complete documentation is available here:
 
