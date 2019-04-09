@@ -13,6 +13,9 @@
 #include <vector>
 
 #include <Eigen/Dense>
+#include "cell.hpp"
+
+using namespace HArDCore2D;
 
 /*!
 * @defgroup TestCases
@@ -44,32 +47,37 @@ public:
 	/// Returns the gradient of the exact solution at the points x, y
 	Eigen::VectorXd grad_sol(
 		const double x,
-		const double y
+		const double y,
+		const Cell* cell			///< In case of discontinuity, we need to know the cell we're in to select the correct formula
 	);
 
 	/// Returns the Hessian of the exact solution at the points x, y
 	Eigen::MatrixXd hess_sol(
 		const double x,
-		const double y
+		const double y,
+		const Cell* cell			///< In case of discontinuity, we need to know the cell we're in to select the correct formula
 	);
 
 
 	/// Returns the diffusion matrix at the points x, y
 	Eigen::MatrixXd diff(
 		const double x,
-		const double y
+		const double y,
+		const Cell* cell			///< In case of discontinuity, we need to know the cell we're in to select the correct formula
 	);
 
 	/// Returns the divergence by row of the diffusion matrix at the points x, y
 	Eigen::VectorXd div_diff(
 		const double x,
-		const double y
+		const double y,
+		const Cell* cell			///< In case of discontinuity, we need to know the cell we're in to select the correct formula
 	);
 
 	/// Returns the source term at the points x, y
 	double source(
 		const double x,
-		const double y
+		const double y,
+		const Cell* cell			///< In case of discontinuity, we need to know the cell we're in to select the correct formula
 	);
 
 	/// Check if the provided test cases are valid (within range, and combination of solution/diffusion valid)

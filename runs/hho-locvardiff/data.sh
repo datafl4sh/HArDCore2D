@@ -21,6 +21,7 @@ solver_type="bicgstab"
 #mesh[2]="cart20x20"
 #mesh[3]="cart40x40"
 #mesh[4]="cart80x80"
+#mesh[5]="cart160x160"
 
 #mesh[1]="mesh1_2"
 #mesh[2]="mesh1_3"

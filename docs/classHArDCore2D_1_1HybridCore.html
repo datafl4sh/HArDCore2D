@@ -151,11 +151,11 @@ template&lt;typename Function &gt; </td></tr>
 <tr class="memitem:ga71c953efc96f467cb24faa1b60ee9bb2"><td class="memTemplItemLeft" align="right" valign="top">Eigen::VectorXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga71c953efc96f467cb24faa1b60ee9bb2">interpolate</a> (const Function &amp;f, size_t doe) const</td></tr>
 <tr class="memdesc:ga71c953efc96f467cb24faa1b60ee9bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the interpolant in the discrete space of a continuous function. <br /></td></tr>
 <tr class="separator:ga71c953efc96f467cb24faa1b60ee9bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f34d7feff2d992c1004d1c67a660320"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HybridCore.html#a0f34d7feff2d992c1004d1c67a660320">gram_matrix</a> (const std::vector&lt; Eigen::VectorXd &gt; &amp;f_quad, const std::vector&lt; Eigen::VectorXd &gt; &amp;g_quad, const size_t &amp;nrows, const size_t &amp;ncols, const std::vector&lt; <a class="el" href="structHArDCore2D_1_1HybridCore_1_1qrule.html">HybridCore::qrule</a> &gt; &amp;quad, const bool &amp;sym, std::function&lt; double(double, double)&gt; weight=[&amp;](double x, double y){ return 1;}) const</td></tr>
-<tr class="separator:a0f34d7feff2d992c1004d1c67a660320"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a633814c5b4f35034d04b74f09802303d"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HybridCore.html#a633814c5b4f35034d04b74f09802303d">gram_matrix</a> (const std::vector&lt; Eigen::MatrixXd &gt; &amp;F_quad, const std::vector&lt; Eigen::MatrixXd &gt; &amp;G_quad, const size_t &amp;nrows, const size_t &amp;ncols, const std::vector&lt; <a class="el" href="structHArDCore2D_1_1HybridCore_1_1qrule.html">HybridCore::qrule</a> &gt; &amp;quad, const bool &amp;sym, std::function&lt; Eigen::Matrix2d(double, double)&gt; Weight=[&amp;](double x, double y){ return Eigen::Matrix2d::Identity();}) const</td></tr>
-<tr class="memdesc:a633814c5b4f35034d04b74f09802303d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded version of the previous one for vector-valued functions.  <a href="#a633814c5b4f35034d04b74f09802303d">More...</a><br /></td></tr>
-<tr class="separator:a633814c5b4f35034d04b74f09802303d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b9e2d375b5a3a578b79fb2cc0100b6b"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HybridCore.html#a1b9e2d375b5a3a578b79fb2cc0100b6b">gram_matrix</a> (const std::vector&lt; Eigen::VectorXd &gt; &amp;f_quad, const std::vector&lt; Eigen::VectorXd &gt; &amp;g_quad, const size_t &amp;nrows, const size_t &amp;ncols, const std::vector&lt; <a class="el" href="structHArDCore2D_1_1HybridCore_1_1qrule.html">HybridCore::qrule</a> &gt; &amp;quad, const bool &amp;sym, std::vector&lt; double &gt; L2weight={}) const</td></tr>
+<tr class="separator:a1b9e2d375b5a3a578b79fb2cc0100b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a161a38925425d27eeea8eee890e05b"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HybridCore.html#a2a161a38925425d27eeea8eee890e05b">gram_matrix</a> (const std::vector&lt; Eigen::MatrixXd &gt; &amp;F_quad, const std::vector&lt; Eigen::MatrixXd &gt; &amp;G_quad, const size_t &amp;nrows, const size_t &amp;ncols, const std::vector&lt; <a class="el" href="structHArDCore2D_1_1HybridCore_1_1qrule.html">HybridCore::qrule</a> &gt; &amp;quad, const bool &amp;sym, std::vector&lt; Eigen::Matrix2d &gt; L2Weight={}) const</td></tr>
+<tr class="memdesc:a2a161a38925425d27eeea8eee890e05b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded version of the previous one for vector-valued functions: the functions (F_i) and (G_j) are vector-valued functions.  <a href="#a2a161a38925425d27eeea8eee890e05b">More...</a><br /></td></tr>
+<tr class="separator:a2a161a38925425d27eeea8eee890e05b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06825c5d156026d465a2798389aa952b"><td class="memItemLeft" align="right" valign="top"><a id="a06825c5d156026d465a2798389aa952b"></a>
 Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HybridCore.html#a06825c5d156026d465a2798389aa952b">compute_weights</a> (size_t iT) const</td></tr>
 <tr class="memdesc:a06825c5d156026d465a2798389aa952b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weights to compute cell unknowns from edge unknowns when l=-1. <br /></td></tr>
@@ -637,8 +637,8 @@ template&lt;typename Function &gt; </td></tr>
 
 </div>
 </div>
-<a id="a0f34d7feff2d992c1004d1c67a660320"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f34d7feff2d992c1004d1c67a660320">&#9670;&nbsp;</a></span>gram_matrix() <span class="overload">[1/2]</span></h2>
+<a id="a1b9e2d375b5a3a578b79fb2cc0100b6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b9e2d375b5a3a578b79fb2cc0100b6b">&#9670;&nbsp;</a></span>gram_matrix() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -682,8 +682,8 @@ template&lt;typename Function &gt; </td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; double(double, double)&gt;&#160;</td>
-          <td class="paramname"><em>weight</em> = <code>[&amp;](double&#160;x,double&#160;y){&#160;return&#160;1;}</code>&#160;</td>
+          <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>L2weight</em> = <code>{}</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -692,24 +692,24 @@ template&lt;typename Function &gt; </td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Create the matrix of L2 products of two families (f_i) and (g_j) of functions (this is not really a Gram matrix, unless the two families are the same) </p><dl class="section return"><dt>Returns</dt><dd>The matrix of the integral of f_i * g_j </dd></dl>
+<p>Create the matrix of L2 products of two families (f_i) and (g_j) of functions (this is not really a Gram matrix, unless the two families are the same) </p><dl class="section return"><dt>Returns</dt><dd>The matrix <img class="formulaInl" alt="$(\int f_i g_j)_{i=1\ldots nrows; j=1\ldots ncols}$" src="form_20.png"/> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">f_quad</td><td>Values of functions (f1,f2,...) at the quadrature points </td></tr>
     <tr><td class="paramname">g_quad</td><td>Values of functions (g1,g2,...) at the quadrature points </td></tr>
-    <tr><td class="paramname">nrows</td><td>Number of rows of the matrix - typically number of functions fi </td></tr>
-    <tr><td class="paramname">ncols</td><td>Number of columns of the matrix - typically number of functions gj </td></tr>
+    <tr><td class="paramname">nrows</td><td>Number of rows of the matrix - typically number of functions f_i (but could be less) </td></tr>
+    <tr><td class="paramname">ncols</td><td>Number of columns of the matrix - typically number of functions g_j (but could be less) </td></tr>
     <tr><td class="paramname">quad</td><td>Quadrature points for integration </td></tr>
     <tr><td class="paramname">sym</td><td>True if the matrix is pseudo-symmetric (that is, #f&lt;=#g and f_i=g_i if i&lt;=#f) </td></tr>
-    <tr><td class="paramname">weight</td><td>Optional weight for the L2 product </td></tr>
+    <tr><td class="paramname">L2weight</td><td>Optional weight for the L2 product. If provided, should be a std::vector&lt;double&gt; of the weight at the quadrature points </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a633814c5b4f35034d04b74f09802303d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a633814c5b4f35034d04b74f09802303d">&#9670;&nbsp;</a></span>gram_matrix() <span class="overload">[2/2]</span></h2>
+<a id="a2a161a38925425d27eeea8eee890e05b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a161a38925425d27eeea8eee890e05b">&#9670;&nbsp;</a></span>gram_matrix() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -753,8 +753,8 @@ template&lt;typename Function &gt; </td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; Eigen::Matrix2d(double, double)&gt;&#160;</td>
-          <td class="paramname"><em>Weight</em> = <code>[&amp;](double&#160;x,double&#160;y){&#160;return&#160;Eigen::Matrix2d::Identity();}</code>&#160;</td>
+          <td class="paramtype">std::vector&lt; Eigen::Matrix2d &gt;&#160;</td>
+          <td class="paramname"><em>L2Weight</em> = <code>{}</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -764,8 +764,20 @@ template&lt;typename Function &gt; </td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Overloaded version of the previous one for vector-valued functions. </p>
-<p>F_i and G_j are vector-valued functions </p>
+<p>Overloaded version of the previous one for vector-valued functions: the functions (F_i) and (G_j) are vector-valued functions. </p>
+<dl class="section return"><dt>Returns</dt><dd>The matrix <img class="formulaInl" alt="$(\int F_i \cdot G_j)_{i=1\ldots nrows; j=1\ldots ncols}$" src="form_19.png"/> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">F_quad</td><td>Values of functions (F1,F2,...) at the quadrature points </td></tr>
+    <tr><td class="paramname">G_quad</td><td>Values of functions (G1,G2,...) at the quadrature points </td></tr>
+    <tr><td class="paramname">nrows</td><td>Number of rows of the matrix - typically number of functions F_i (but could be less) </td></tr>
+    <tr><td class="paramname">ncols</td><td>Number of rows of the matrix - typically number of functions G_j (but could be less) </td></tr>
+    <tr><td class="paramname">quad</td><td>Quadrature points for integration </td></tr>
+    <tr><td class="paramname">sym</td><td>True if the matrix is pseudo-symmetric (that is, #F&lt;=#G and F_i=G_i if i&lt;=#F) </td></tr>
+    <tr><td class="paramname">L2Weight</td><td>Optional weight for the L2 product. If provided, should be a std::vector&lt;Eigen::Matrix2d&gt; of the weight at the quadrature points </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

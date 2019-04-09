@@ -10,3 +10,4 @@ TARGET_INCLUDE_DIRECTORIES(hho-diffusion PUBLIC ${EIGEN3_INCLUDE_DIR})
 ADD_EXECUTABLE(hho-locvardiff $<TARGET_OBJECTS:TestCase> HHO-locvardiff/HHO_LocVarDiff.cpp)
 TARGET_LINK_LIBRARIES(hho-locvardiff mesh quadrature hybridcore plot ${Boost_LIBRARIES})
 TARGET_INCLUDE_DIRECTORIES(hho-locvardiff PUBLIC ${EIGEN3_INCLUDE_DIR})
+

@@ -79,24 +79,28 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a8b00c073fd089f8c5a642f8dab63f2a3"><td class="memItemLeft" align="right" valign="top"><a id="a8b00c073fd089f8c5a642f8dab63f2a3"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__LocVarDiff.html#a8b00c073fd089f8c5a642f8dab63f2a3">scalar_function_type</a> = std::function&lt; double(double, double)&gt;</td></tr>
-<tr class="memdesc:a8b00c073fd089f8c5a642f8dab63f2a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for function R^2-&gt;R <br /></td></tr>
-<tr class="separator:a8b00c073fd089f8c5a642f8dab63f2a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9951a7b7866719b71956c455f1e3d937"><td class="memItemLeft" align="right" valign="top"><a id="a9951a7b7866719b71956c455f1e3d937"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__LocVarDiff.html#a9951a7b7866719b71956c455f1e3d937">vector_function_type</a> = std::function&lt; Eigen::VectorXd(double, double)&gt;</td></tr>
-<tr class="memdesc:a9951a7b7866719b71956c455f1e3d937"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for function R^2-&gt;R^2 <br /></td></tr>
-<tr class="separator:a9951a7b7866719b71956c455f1e3d937"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65b5cbf39a759b6ce3b097536f32f5cb"><td class="memItemLeft" align="right" valign="top"><a id="a65b5cbf39a759b6ce3b097536f32f5cb"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__LocVarDiff.html#a65b5cbf39a759b6ce3b097536f32f5cb">tensor_function_type</a> = std::function&lt; Eigen::Matrix2d(double, double)&gt;</td></tr>
-<tr class="memdesc:a65b5cbf39a759b6ce3b097536f32f5cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for function R^2-&gt;R^{2x2} <br /></td></tr>
-<tr class="separator:a65b5cbf39a759b6ce3b097536f32f5cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bb87b6170b8a77e14d343bf76cac3d6"><td class="memItemLeft" align="right" valign="top"><a id="a8bb87b6170b8a77e14d343bf76cac3d6"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__LocVarDiff.html#a8bb87b6170b8a77e14d343bf76cac3d6">solution_function_type</a> = std::function&lt; double(double, double)&gt;</td></tr>
+<tr class="memdesc:a8bb87b6170b8a77e14d343bf76cac3d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for solution <br /></td></tr>
+<tr class="separator:a8bb87b6170b8a77e14d343bf76cac3d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bd07aa3ccc1aa9dd3c9573a5ab1c7dd"><td class="memItemLeft" align="right" valign="top"><a id="a0bd07aa3ccc1aa9dd3c9573a5ab1c7dd"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__LocVarDiff.html#a0bd07aa3ccc1aa9dd3c9573a5ab1c7dd">source_function_type</a> = std::function&lt; double(double, double, <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *)&gt;</td></tr>
+<tr class="memdesc:a0bd07aa3ccc1aa9dd3c9573a5ab1c7dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for source <br /></td></tr>
+<tr class="separator:a0bd07aa3ccc1aa9dd3c9573a5ab1c7dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00b073818ecee542bb74860b1c204d49"><td class="memItemLeft" align="right" valign="top"><a id="a00b073818ecee542bb74860b1c204d49"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__LocVarDiff.html#a00b073818ecee542bb74860b1c204d49">grad_function_type</a> = std::function&lt; Eigen::Vector2d(double, double, <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *)&gt;</td></tr>
+<tr class="memdesc:a00b073818ecee542bb74860b1c204d49"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for gradient <br /></td></tr>
+<tr class="separator:a00b073818ecee542bb74860b1c204d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15bd0c2320b456efcc07c11842c13492"><td class="memItemLeft" align="right" valign="top"><a id="a15bd0c2320b456efcc07c11842c13492"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__LocVarDiff.html#a15bd0c2320b456efcc07c11842c13492">tensor_function_type</a> = std::function&lt; Eigen::Matrix2d(double, double, <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *)&gt;</td></tr>
+<tr class="memdesc:a15bd0c2320b456efcc07c11842c13492"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for diffusion tensor <br /></td></tr>
+<tr class="separator:a15bd0c2320b456efcc07c11842c13492"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ga57daa01081647a684101ea854b4336b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HHO__LocVarDiff.html#ga57daa01081647a684101ea854b4336b4">HHO_LocVarDiff</a> (<a class="el" href="classHArDCore2D_1_1HHO__LocVarDiff.html#a65b5cbf39a759b6ce3b097536f32f5cb">tensor_function_type</a> kappa, size_t deg_kappa, <a class="el" href="classHArDCore2D_1_1HHO__LocVarDiff.html#a8b00c073fd089f8c5a642f8dab63f2a3">scalar_function_type</a> source, size_t BC, <a class="el" href="classHArDCore2D_1_1HHO__LocVarDiff.html#a8b00c073fd089f8c5a642f8dab63f2a3">scalar_function_type</a> exact_solution, <a class="el" href="classHArDCore2D_1_1HHO__LocVarDiff.html#a9951a7b7866719b71956c455f1e3d937">vector_function_type</a> grad_exact_solution, std::string solver_type)</td></tr>
-<tr class="memdesc:ga57daa01081647a684101ea854b4336b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of the class.  <a href="group__HHO__LocVarDiff.html#ga57daa01081647a684101ea854b4336b4">More...</a><br /></td></tr>
-<tr class="separator:ga57daa01081647a684101ea854b4336b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5f2ab34d1e5afb3d83b548a1cb09f83a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HHO__LocVarDiff.html#ga5f2ab34d1e5afb3d83b548a1cb09f83a">HHO_LocVarDiff</a> (<a class="el" href="classHArDCore2D_1_1HHO__LocVarDiff.html#a15bd0c2320b456efcc07c11842c13492">tensor_function_type</a> kappa, size_t deg_kappa, <a class="el" href="classHArDCore2D_1_1HHO__LocVarDiff.html#a0bd07aa3ccc1aa9dd3c9573a5ab1c7dd">source_function_type</a> source, size_t BC, <a class="el" href="classHArDCore2D_1_1HHO__LocVarDiff.html#a8bb87b6170b8a77e14d343bf76cac3d6">solution_function_type</a> exact_solution, <a class="el" href="classHArDCore2D_1_1HHO__LocVarDiff.html#a00b073818ecee542bb74860b1c204d49">grad_function_type</a> grad_exact_solution, std::string solver_type)</td></tr>
+<tr class="memdesc:ga5f2ab34d1e5afb3d83b548a1cb09f83a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of the class.  <a href="group__HHO__LocVarDiff.html#ga5f2ab34d1e5afb3d83b548a1cb09f83a">More...</a><br /></td></tr>
+<tr class="separator:ga5f2ab34d1e5afb3d83b548a1cb09f83a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga74eac0904256440c429fb9502112a867"><td class="memItemLeft" align="right" valign="top">
 Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HHO__LocVarDiff.html#ga74eac0904256440c429fb9502112a867">solve</a> (<a class="el" href="classHArDCore2D_1_1HybridCore.html">HybridCore</a> &amp;hho)</td></tr>
 <tr class="memdesc:ga74eac0904256440c429fb9502112a867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assemble and solve the scheme. <br /></td></tr>

@@ -14,3 +14,8 @@
 \form#13:$K\fK a diffusion tensor that is piecewise constant on the mesh. - [HHO-locvar](@ref HArDCore2D::HHO-locvar) Hybrid High-Order for $
 \form#14:$, for Dirichlet or Neumann boundary conditions, with $
 \form#15:$-\mathrm{div}(K\nabla u)=f$
+\form#16:$(\int F_i . G_j)_{i=1,nrows; j=1,ncols}$
+\form#17:$(\int F_i . G_j)_{i=1\ldots nrows; j=1\ldots ncols}$
+\form#18:$\displaystyle(\int F_i . G_j)_{i=1\ldots nrows; j=1\ldots ncols}$
+\form#19:$(\int F_i \cdot G_j)_{i=1\ldots nrows; j=1\ldots ncols}$
+\form#20:$(\int f_i g_j)_{i=1\ldots nrows; j=1\ldots ncols}$

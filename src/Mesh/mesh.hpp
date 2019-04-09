@@ -95,6 +95,8 @@ public:
     inline bool add_i_vertex(Vertex* vertex);  ///<  adds an interior vertex to the mesh
 
     inline size_t next_edge_idx();  ///< gets the next global edge index
+
+		double regularity(); ///< returns a regularity factor
 		
 		/// Re-index the cells, edges or vertices
 		void renum(											

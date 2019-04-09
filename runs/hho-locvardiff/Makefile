@@ -23,7 +23,7 @@ COMPUTE_RATES: compute_rates.f90
 	$(COMP) $(OPTS) $< -o COMPUTE_RATES
 
 compute_rates_run: COMPUTE_RATES
-	./COMPUTE_RATES
+	@ ./COMPUTE_RATES
 
 ##
 # NETTOYAGE

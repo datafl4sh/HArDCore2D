@@ -12,19 +12,22 @@ The \hyperlink{classHArDCore2D_1_1HHO__Diffusion}{H\+H\+O\+\_\+\+Diffusion} clas
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_abe94c05310207687b5f3a4af2ea1c97b}\label{classHArDCore2D_1_1HHO__Diffusion_abe94c05310207687b5f3a4af2ea1c97b}} 
-using \hyperlink{classHArDCore2D_1_1HHO__Diffusion_abe94c05310207687b5f3a4af2ea1c97b}{scalar\+\_\+function\+\_\+type} = std\+::function$<$ double(double, double)$>$
-\begin{DoxyCompactList}\small\item\em type for function R$^\wedge$2-\/$>$R \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_adad1657301e86deba6abcb5e7e6048e4}\label{classHArDCore2D_1_1HHO__Diffusion_adad1657301e86deba6abcb5e7e6048e4}} 
-using \hyperlink{classHArDCore2D_1_1HHO__Diffusion_adad1657301e86deba6abcb5e7e6048e4}{vector\+\_\+function\+\_\+type} = std\+::function$<$ Eigen\+::\+Vector\+Xd(double, double)$>$
-\begin{DoxyCompactList}\small\item\em type for function R$^\wedge$2-\/$>$R$^\wedge$2 \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_af2d9bd4031a898a3619812343aa5c2c9}\label{classHArDCore2D_1_1HHO__Diffusion_af2d9bd4031a898a3619812343aa5c2c9}} 
-using \hyperlink{classHArDCore2D_1_1HHO__Diffusion_af2d9bd4031a898a3619812343aa5c2c9}{tensor\+\_\+function\+\_\+type} = std\+::function$<$ Eigen\+::\+Matrix2d(double, double)$>$
-\begin{DoxyCompactList}\small\item\em type for function R$^\wedge$2-\/$>$R$^\wedge$\{2x2\} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_ac2ddc18a37be70e4767a9040fb6a09f6}\label{classHArDCore2D_1_1HHO__Diffusion_ac2ddc18a37be70e4767a9040fb6a09f6}} 
+using \hyperlink{classHArDCore2D_1_1HHO__Diffusion_ac2ddc18a37be70e4767a9040fb6a09f6}{solution\+\_\+function\+\_\+type} = std\+::function$<$ double(double, double)$>$
+\begin{DoxyCompactList}\small\item\em type for solution \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_ade095df766ff04bf09385a163136e5c0}\label{classHArDCore2D_1_1HHO__Diffusion_ade095df766ff04bf09385a163136e5c0}} 
+using \hyperlink{classHArDCore2D_1_1HHO__Diffusion_ade095df766ff04bf09385a163136e5c0}{source\+\_\+function\+\_\+type} = std\+::function$<$ double(double, double, \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$)$>$
+\begin{DoxyCompactList}\small\item\em type for source \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_a14797a72cc96ee5ea6fc45e4986d6a84}\label{classHArDCore2D_1_1HHO__Diffusion_a14797a72cc96ee5ea6fc45e4986d6a84}} 
+using \hyperlink{classHArDCore2D_1_1HHO__Diffusion_a14797a72cc96ee5ea6fc45e4986d6a84}{grad\+\_\+function\+\_\+type} = std\+::function$<$ Eigen\+::\+Vector2d(double, double, \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$)$>$
+\begin{DoxyCompactList}\small\item\em type for gradient \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_acc4abb92b452d6407d45a87823fb47f9}\label{classHArDCore2D_1_1HHO__Diffusion_acc4abb92b452d6407d45a87823fb47f9}} 
+using \hyperlink{classHArDCore2D_1_1HHO__Diffusion_acc4abb92b452d6407d45a87823fb47f9}{tensor\+\_\+function\+\_\+type} = std\+::function$<$ Eigen\+::\+Matrix2d(double, double, \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$)$>$
+\begin{DoxyCompactList}\small\item\em type for diffusion tensor \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{group__HHO__Diffusion_ga32ee13003e4eda510daa25737fa60e47}{H\+H\+O\+\_\+\+Diffusion} (\hyperlink{classHArDCore2D_1_1HHO__Diffusion_af2d9bd4031a898a3619812343aa5c2c9}{tensor\+\_\+function\+\_\+type} kappa, \hyperlink{classHArDCore2D_1_1HHO__Diffusion_abe94c05310207687b5f3a4af2ea1c97b}{scalar\+\_\+function\+\_\+type} source, size\+\_\+t BC, \hyperlink{classHArDCore2D_1_1HHO__Diffusion_abe94c05310207687b5f3a4af2ea1c97b}{scalar\+\_\+function\+\_\+type} exact\+\_\+solution, \hyperlink{classHArDCore2D_1_1HHO__Diffusion_adad1657301e86deba6abcb5e7e6048e4}{vector\+\_\+function\+\_\+type} grad\+\_\+exact\+\_\+solution, std\+::string solver\+\_\+type)
+\hyperlink{group__HHO__Diffusion_ga9ab2e2cdf0c77f60069f7572c587c4f1}{H\+H\+O\+\_\+\+Diffusion} (\hyperlink{classHArDCore2D_1_1HHO__Diffusion_acc4abb92b452d6407d45a87823fb47f9}{tensor\+\_\+function\+\_\+type} kappa, \hyperlink{classHArDCore2D_1_1HHO__Diffusion_ade095df766ff04bf09385a163136e5c0}{source\+\_\+function\+\_\+type} source, size\+\_\+t BC, \hyperlink{classHArDCore2D_1_1HHO__Diffusion_ac2ddc18a37be70e4767a9040fb6a09f6}{solution\+\_\+function\+\_\+type} exact\+\_\+solution, \hyperlink{classHArDCore2D_1_1HHO__Diffusion_a14797a72cc96ee5ea6fc45e4986d6a84}{grad\+\_\+function\+\_\+type} grad\+\_\+exact\+\_\+solution, std\+::string solver\+\_\+type)
 \begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
 Eigen\+::\+Vector\+Xd \hyperlink{group__HHO__Diffusion_ga1aebf22f19de92c115aed69ba394de88}{solve} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho)
 \begin{DoxyCompactList}\small\item\em Assemble and solve the scheme. \end{DoxyCompactList}\item 

@@ -49,17 +49,18 @@ class HHO_Diffusion {
 
 // Types
 public:
-  using scalar_function_type = std::function<double(double,double)>;		///< type for function R^2->R
-  using vector_function_type = std::function<Eigen::VectorXd(double,double)>;		///< type for function R^2->R^2
-  using tensor_function_type = std::function<Eigen::Matrix2d(double,double)>;		///< type for function R^2->R^{2x2}
+  using solution_function_type = std::function<double(double,double)>;		///< type for solution
+  using source_function_type = std::function<double(double,double,Cell*)>;		///< type for source
+  using grad_function_type = std::function<Eigen::Vector2d(double,double,Cell*)>;		///< type for gradient
+  using tensor_function_type = std::function<Eigen::Matrix2d(double,double,Cell*)>;		///< type for diffusion tensor
 
 	///@brief Constructor of the class
   HHO_Diffusion(
 		tensor_function_type kappa, 	///< diffusion tensor
-		scalar_function_type source,  ///< source term
+		source_function_type source,  ///< source term
 		size_t BC, 										///< type of boundary conditions (0 for Dirichlet, 1 for Neumann)
-		scalar_function_type exact_solution, 	///< exact solution
-		vector_function_type grad_exact_solution, 	///< gradient of the exact solution
+		solution_function_type exact_solution, 	///< exact solution
+		grad_function_type grad_exact_solution, 	///< gradient of the exact solution
 		std::string solver_type		///< type of solver to use for the global system (bicgstab at the moment)
 		);
 
@@ -89,10 +90,10 @@ private:
   Eigen::VectorXd load_operator(HybridCore& hho, const size_t iT) const;
 
   const tensor_function_type kappa;
-  const scalar_function_type source;
+  const source_function_type source;
 	const size_t BC;
-  const scalar_function_type exact_solution;
-  const vector_function_type grad_exact_solution;
+  const solution_function_type exact_solution;
+  const grad_function_type grad_exact_solution;
 	const std::string solver_type;
 
 	// To store local bilinear forms
@@ -106,7 +107,7 @@ private:
 
 };
 
-HHO_Diffusion::HHO_Diffusion(tensor_function_type kappa, scalar_function_type source, size_t BC, scalar_function_type exact_solution, vector_function_type grad_exact_solution, std::string solver_type)
+HHO_Diffusion::HHO_Diffusion(tensor_function_type kappa, source_function_type source, size_t BC, solution_function_type exact_solution, grad_function_type grad_exact_solution, std::string solver_type)
   : kappa(std::move(kappa)),
     source(std::move(source)),
 		BC(std::move(BC)),
@@ -364,7 +365,8 @@ Eigen::MatrixXd HHO_Diffusion::diffusion_operator(HybridCore &hho, const size_t 
 	boost::timer::cpu_timer timeint;
 
   const auto mesh = hho.get_mesh_ptr();
-	const size_t nedgesT = mesh->cell(iT)->n_edges();
+	Cell* cell = mesh->cell(iT);
+	const size_t nedgesT = cell->n_edges();
 
   // Total number of degrees of freedom local to this cell (cell and its adjacent faces)
   size_t local_dofs = hho.nlocal_cell_dofs() + nedgesT * hho.nlocal_edge_dofs();
@@ -374,19 +376,24 @@ Eigen::MatrixXd HHO_Diffusion::diffusion_operator(HybridCore &hho, const size_t 
 //timeint.restart();
 	
 	// Diffusion in the cell.
-	tensor_function_type kappaT = [&](double x, double y){
+	std::function<Eigen::Matrix2d(double,double)> kappaT = [&](double x, double y){
 		// Constant in the cell
-//		Eigen::Vector2d cellcenter = mesh->cell(iT)->center_mass();
-//			return kappa(cellcenter.x(), cellcenter.y());
+		Eigen::Vector2d cellcenter = cell->center_mass();
+		return kappa(cellcenter.x(), cellcenter.y(), cell);
 		// Variable in the cell - the scheme may not provide optimal convergence rate if the diffusion is actually variable in the cell!
 		// If the diffusion is piecewise constant, choosing the previous version ensures that, for edge integrals, it's the value inside the cell that is computed (essential in case kappa is discontinuous across the edges)
-			return kappa(x, y);
+//			return kappa(x, y, cell);
 	};
 
 	// Compute cell quadrature points and values of cell basis functions and gradients at these points
 	std::vector<HybridCore::qrule> quadT = hho.cell_qrule(iT, hho.Ldeg()+hho.K()+1);
 	std::vector<Eigen::VectorXd> phi_quadT = hho.basis_quad('T', iT, quadT, hho.nhighorder_dofs());
 	std::vector<Eigen::MatrixXd> dphiT_quadT = hho.grad_basis_quad(iT, quadT, hho.nhighorder_dofs());
+	// Diffusion tensor at the quadrature points
+	std::vector<Eigen::Matrix2d> kappaT_quadT(quadT.size());
+	std::transform(quadT.begin(), quadT.end(), kappaT_quadT.begin(),
+			[&kappaT,&cell](HybridCore::qrule qr) -> Eigen::MatrixXd { return kappaT(qr.x, qr.y); });
+
 
 //itime[0] += timeint.elapsed();
 //timeint.restart();
@@ -403,7 +410,7 @@ Eigen::MatrixXd HHO_Diffusion::diffusion_operator(HybridCore &hho, const size_t 
   //-------------------- Compute PT, matrix of potential reconstruction ---------//
 
 	// Stiffness matrix (kappaT dphi_i,dphi_j)_T for phi_i, phi_j up to degree K+1
-	Eigen::MatrixXd StiffT = hho.gram_matrix(dphiT_quadT, dphiT_quadT, hho.nhighorder_dofs(), hho.nhighorder_dofs(), quadT, true, kappaT);  
+	Eigen::MatrixXd StiffT = hho.gram_matrix(dphiT_quadT, dphiT_quadT, hho.nhighorder_dofs(), hho.nhighorder_dofs(), quadT, true, kappaT_quadT);  
 
 	// Mass matrix of (phi_i,phi_j)_T for phi_i up to degree L and phi_j up to degree K+1
 	Eigen::MatrixXd MTT = hho.gram_matrix(phi_quadT, phi_quadT, hho.nlocal_cell_dofs(), hho.nhighorder_dofs(), quadT, true);
@@ -511,7 +518,8 @@ Eigen::MatrixXd HHO_Diffusion::diffusion_operator(HybridCore &hho, const size_t 
 Eigen::VectorXd HHO_Diffusion::load_operator(HybridCore &hho, const size_t iT) const {
 	// Load for the cell DOFs (first indices) and face DOFs (last indices)
   const auto mesh = hho.get_mesh_ptr();
-	size_t cell_edge_dofs = hho.nlocal_cell_dofs() + mesh->cell(iT)->n_edges()*hho.nlocal_edge_dofs();
+	Cell* cell = mesh->cell(iT);
+	size_t cell_edge_dofs = hho.nlocal_cell_dofs() + cell->n_edges()*hho.nlocal_edge_dofs();
   Eigen::VectorXd b = Eigen::VectorXd::Zero(cell_edge_dofs);
 
 	// Quadrature points and values of cell basis functions at these points
@@ -522,31 +530,31 @@ Eigen::VectorXd HHO_Diffusion::load_operator(HybridCore &hho, const size_t iT) c
 	// Value of source times quadrature weights at the quadrature points
 	Eigen::VectorXd weight_source_quad = Eigen::VectorXd::Zero(nbq);
 	for (size_t iqn = 0; iqn < nbq; iqn++){
-		weight_source_quad(iqn) = quadT[iqn].w * source(quadT[iqn].x, quadT[iqn].y);
+		weight_source_quad(iqn) = quadT[iqn].w * source(quadT[iqn].x, quadT[iqn].y, cell);
 	}
 
 	for (size_t i=0; i < hho.nlocal_cell_dofs(); i++){
 		b(i) = weight_source_quad.dot(phiT_quadT[i]);
 	}
 	// Boundary values, if we have a boundary cell
-	if (mesh->cell(iT)->is_boundary()){
+	if (cell->is_boundary()){
 		if (BC==0){
 			// Dirichlet BCs: no source terms on these edges
 		} else if (BC==1) {
 			// Neumann BCs
-			for (size_t ilF = 0; ilF < mesh->cell(iT)->n_edges(); ilF++) {
-			  const size_t iF = mesh->cell(iT)->edge(ilF)->global_index(); 
+			for (size_t ilF = 0; ilF < cell->n_edges(); ilF++) {
+			  const size_t iF = cell->edge(ilF)->global_index(); 
 				// BC on boundary faces
-				if (mesh->cell(iT)->edge(ilF)->is_boundary()){
+				if (cell->edge(ilF)->is_boundary()){
 				  // Offset for face unknowns
 				  const size_t offset_F = hho.nlocal_cell_dofs() + ilF * hho.nlocal_edge_dofs();
 					// Normal to the face
-				  const auto& nTF = mesh->cell(iT)->edge_normal(ilF);
+				  const auto& nTF = cell->edge_normal(ilF);
 					// for each DOF of the boundary face
 					for (size_t i = 0; i < hho.nlocal_edge_dofs(); i++){
 				    const auto& phi_i = hho.edge_basis(iF, i);
 						b(offset_F + i) = hho.integrate_over_edge(iF, [&](double x, double y){
-								return nTF.dot(kappa(x,y) * grad_exact_solution(x,y)) * phi_i(x,y);
+								return nTF.dot(kappa(x,y,cell) * grad_exact_solution(x,y,cell)) * phi_i(x,y);
 							});
 					}
 				}

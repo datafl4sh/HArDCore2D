@@ -244,6 +244,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga950e099c278cd367de1a87c6dcaefafe">next_edge_idx</a> ()</td></tr>
 <tr class="memdesc:ga950e099c278cd367de1a87c6dcaefafe"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the next global edge index <br /></td></tr>
 <tr class="separator:ga950e099c278cd367de1a87c6dcaefafe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bdfdf3e4528832da6925f96edc5ad8f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1Mesh.html#a9bdfdf3e4528832da6925f96edc5ad8f">regularity</a> ()</td></tr>
+<tr class="memdesc:a9bdfdf3e4528832da6925f96edc5ad8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a regularity factor  <a href="#a9bdfdf3e4528832da6925f96edc5ad8f">More...</a><br /></td></tr>
+<tr class="separator:a9bdfdf3e4528832da6925f96edc5ad8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af77873bbc892a7a5b37bf4773c55aefc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1Mesh.html#af77873bbc892a7a5b37bf4773c55aefc">renum</a> (const char B, const std::vector&lt; size_t &gt; new_to_old)</td></tr>
 <tr class="memdesc:af77873bbc892a7a5b37bf4773c55aefc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-index the cells, edges or vertices.  <a href="#af77873bbc892a7a5b37bf4773c55aefc">More...</a><br /></td></tr>
 <tr class="separator:af77873bbc892a7a5b37bf4773c55aefc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -270,6 +273,29 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9bdfdf3e4528832da6925f96edc5ad8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bdfdf3e4528832da6925f96edc5ad8f">&#9670;&nbsp;</a></span>regularity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Mesh::regularity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns a regularity factor </p>
+<p>Regularity factor = maximum of</p><ul>
+<li>diameter of cell / (measure of cell)^{1/2}</li>
+<li>diameter of cell / diameter of edge [for each edge of the cell] </li>
+</ul>
+
+</div>
+</div>
 <a id="af77873bbc892a7a5b37bf4773c55aefc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af77873bbc892a7a5b37bf4773c55aefc">&#9670;&nbsp;</a></span>renum()</h2>
 

@@ -12,6 +12,7 @@
 
 #include <Eigen/Dense>
 
+using namespace HArDCore2D;
 
 // ----------------------------------------------------------------------------
 //                          Implementation
@@ -54,7 +55,7 @@ double TestCase::sol(const double x, const double y){
 }
 
 // Gradient of the solution
-Eigen::VectorXd TestCase::grad_sol(const double x, const double y){
+Eigen::VectorXd TestCase::grad_sol(const double x, const double y, const Cell* cell){
 	Eigen::VectorXd G = Eigen::VectorXd::Zero(2);
 	switch(iTC[0]){
 		case 1: G(0) = pi * cos(pi*x) * sin(pi*y);
@@ -83,7 +84,7 @@ Eigen::VectorXd TestCase::grad_sol(const double x, const double y){
 }
 
 // Hessian of the solution
-Eigen::MatrixXd TestCase::hess_sol(const double x, const double y){
+Eigen::MatrixXd TestCase::hess_sol(const double x, const double y, const Cell* cell){
 	Eigen::MatrixXd H = Eigen::MatrixXd::Zero(2,2);
 	switch(iTC[0]){
 
@@ -109,15 +110,15 @@ Eigen::MatrixXd TestCase::hess_sol(const double x, const double y){
 //////////////////////////// DIFFUSION /////////////////////////////
 
 // Diffusion matrix
-Eigen::MatrixXd TestCase::diff(const double x, const double y){
+Eigen::MatrixXd TestCase::diff(const double x, const double y, const Cell* cell){
 	Eigen::MatrixXd K = Eigen::MatrixXd::Identity(2,2);
 	switch(iTC[1]){
 		case 1: break;		/// iTC[1]=1: Diff = Id
 		case 2: K.row(0) << pow(y,2)+1, -x*y;				/// iTC[1]=2: Diff = [y^2+1  -xy; -xy  x^2+1]
 						K.row(1) << -x*y , pow(x,2)+1;
 						break;
-		case 3: if (x>0.5){				/// iTC[1]=3: Diff=Id if x<=1/2, Diff=[2 0; 0 1] if x>1/2. Only valid with iTC[0]=1;
-							K.row(0) << 2, 0;
+		case 3: if (cell->center_mass().x()>0.5){			/// iTC[1]=3: Diff=Id if x<=1/2, Diff=[2 0; 0 1] if x>1/2. Only valid with iTC[0]=1;
+							K.row(0) << pow(10, 3), 0;
 						}else{
 							K.row(0) << 1, 0;
 						}
@@ -129,7 +130,7 @@ Eigen::MatrixXd TestCase::diff(const double x, const double y){
 }
 
 // Divergence by row of the diffusion matrix
-Eigen::VectorXd TestCase::div_diff(const double x, const double y){
+Eigen::VectorXd TestCase::div_diff(const double x, const double y, const Cell* cell){
 	Eigen::VectorXd divK = Eigen::VectorXd::Zero(2);
 	switch(iTC[1]){
 		case 1: break;
@@ -145,11 +146,11 @@ Eigen::VectorXd TestCase::div_diff(const double x, const double y){
 ///////////////////////////// SOURCE TERM ///////////////////////////
 
 // Source term
-double TestCase::source(const double x, const double y){
+double TestCase::source(const double x, const double y, const Cell* cell){
 
-	Eigen::MatrixXd AHu = diff(x,y) * hess_sol(x,y);
+	Eigen::MatrixXd AHu = diff(x,y,cell) * hess_sol(x,y,cell);
 
-	return -AHu.trace() - div_diff(x,y).dot(grad_sol(x,y));
+	return -AHu.trace() - div_diff(x,y,cell).dot(grad_sol(x,y,cell));
 }
 
 

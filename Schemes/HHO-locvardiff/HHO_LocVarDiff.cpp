@@ -111,7 +111,6 @@ std::cout << std::abs(int(K)-L);
 		new_to_old[mesh_ptr->n_i_edges()+idx] = mesh_ptr->b_edge(idx)->global_index();
 	}
 	mesh_ptr->renum('E', new_to_old);
-
  
   // Create the HHO structure
   HybridCore hho(mesh_ptr, K, L);
@@ -128,22 +127,22 @@ std::cout << std::abs(int(K)-L);
 	TestCase tcase(id_tcase);
 
   // Diffusion tensor
-  HHO_LocVarDiff::tensor_function_type kappa = [&](double x, double y) {
-			return tcase.diff(x,y);
+  HHO_LocVarDiff::tensor_function_type kappa = [&](double x, double y, Cell* cell) {
+			return tcase.diff(x,y,cell);
   };
 	size_t deg_kappa = tcase.get_deg_diff();
 
   // Source term
-  HHO_LocVarDiff::scalar_function_type source = [&](double x, double y) {
-			return tcase.source(x,y);
+  HHO_LocVarDiff::source_function_type source = [&](double x, double y, Cell* cell) {
+			return tcase.source(x,y,cell);
   };
 
   // Exact solution and gradient
-  HHO_LocVarDiff::scalar_function_type exact_solution = [&](double x, double y) {
+  HHO_LocVarDiff::solution_function_type exact_solution = [&](double x, double y) {
 			return tcase.sol(x,y);
   };
-  HHO_LocVarDiff::vector_function_type grad_exact_solution = [&](double x, double y) {
-			return tcase.grad_sol(x,y);
+  HHO_LocVarDiff::grad_function_type grad_exact_solution = [&](double x, double y, Cell* cell) {
+			return tcase.grad_sol(x,y,cell);
   };
 
   // Create the model equation
@@ -161,7 +160,8 @@ std::cout << std::abs(int(K)-L);
 	std::cout << "Test case: solution = " << id_tcase[0] << "; diffusion = " << id_tcase[1] << "\n";
 	size_t found = mesh_file.find_last_of("/\\");
 	std::string mesh_name = mesh_file.substr(found+1);
-	std::cout << "Mesh = " << mesh_name << " (nb cells= " << mesh_ptr->n_cells() << ", nb edges= " << mesh_ptr->n_edges() << ")\n";
+	double meshreg = mesh_ptr->regularity();
+	std::cout << "Mesh = " << mesh_name << " (nb cells= " << mesh_ptr->n_cells() << ", nb edges= " << mesh_ptr->n_edges() << ", reg= " << meshreg << ")\n";
 	size_t nbedgedofs = mesh_ptr->n_edges()*hho.nlocal_edge_dofs();
 	std::cout << "Degrees: edge = " << K << "; cell = " << L << " | Nb edge DOFs = " << nbedgedofs << "\n\n";
 
@@ -269,6 +269,7 @@ std::cout << std::abs(int(K)-L);
 		out << "NbCells: " << mesh_ptr->n_cells() << "\n";
 		out << "NbEdges: " << mesh_ptr->n_edges() << "\n";
 		out << "NbEdgeDOFs: " << nbedgedofs << "\n";
+		out << "MeshReg: " << meshreg << "\n";
 		out << std::flush;
     out.close();
 

@@ -226,9 +226,13 @@ std::vector<HybridCore::qrule> HybridCore::edge_qrule(const size_t iE,
 // ------  Gram matrices for scalar and vector-valued functions
 // -------------------------------------------------------------------
 
-Eigen::MatrixXd HybridCore::gram_matrix(const std::vector<Eigen::VectorXd>& f_quad, const std::vector<Eigen::VectorXd>& g_quad, const size_t& nrows, const size_t& ncols, const std::vector<HybridCore::qrule>& quad, const bool& sym, std::function<double(double,double)> weight) const {
+Eigen::MatrixXd HybridCore::gram_matrix(const std::vector<Eigen::VectorXd>& f_quad, const std::vector<Eigen::VectorXd>& g_quad, const size_t& nrows, const size_t& ncols, const std::vector<HybridCore::qrule>& quad, const bool& sym, std::vector<double> L2weight) const {
 
 	Eigen::MatrixXd GGM = Eigen::MatrixXd::Zero(nrows, ncols);
+
+	if (L2weight.size() == 0){
+		L2weight.resize(quad.size(), 1.0);
+	}
 
 	size_t nbq = quad.size();
 	for (size_t i = 0; i < nrows; i++){
@@ -240,7 +244,7 @@ Eigen::MatrixXd HybridCore::gram_matrix(const std::vector<Eigen::VectorXd>& f_qu
 		for (size_t j = jcut; j < ncols; j++){
 			// Integrate f_i * g_j
 			for (size_t iqn = 0; iqn < nbq; iqn++){
-				GGM(i, j) += quad[iqn].w * weight(quad[iqn].x, quad[iqn].y) * f_quad[i](iqn) * g_quad[j](iqn);
+				GGM(i, j) += quad[iqn].w * L2weight[iqn] * f_quad[i](iqn) * g_quad[j](iqn);
 			}
 		}
 	}
@@ -248,9 +252,13 @@ Eigen::MatrixXd HybridCore::gram_matrix(const std::vector<Eigen::VectorXd>& f_qu
 	return GGM;
 }
 
-Eigen::MatrixXd HybridCore::gram_matrix(const std::vector<Eigen::MatrixXd>& F_quad, const std::vector<Eigen::MatrixXd>& G_quad, const size_t& nrows, const size_t& ncols, const std::vector<HybridCore::qrule>& quad, const bool& sym, std::function<Eigen::Matrix2d(double,double)> Weight) const {
+Eigen::MatrixXd HybridCore::gram_matrix(const std::vector<Eigen::MatrixXd>& F_quad, const std::vector<Eigen::MatrixXd>& G_quad, const size_t& nrows, const size_t& ncols, const std::vector<HybridCore::qrule>& quad, const bool& sym, std::vector<Eigen::Matrix2d> L2Weight) const {
 
 	Eigen::MatrixXd GSM = Eigen::MatrixXd::Zero(nrows, ncols);
+
+	if (L2Weight.size() == 0){
+		L2Weight.resize(quad.size(), Eigen::Matrix2d::Identity());
+	}
 
 	size_t nbq = quad.size();
 	for (size_t i = 0; i < nrows; i++){
@@ -262,7 +270,7 @@ Eigen::MatrixXd HybridCore::gram_matrix(const std::vector<Eigen::MatrixXd>& F_qu
 		for (size_t j = jcut; j < ncols; j++){
 			// Integrate f_i * g_j
 			for (size_t iqn = 0; iqn < nbq; iqn++){
-				GSM(i, j) += quad[iqn].w * (Weight(quad[iqn].x, quad[iqn].y) * F_quad[i].col(iqn)).dot(G_quad[j].col(iqn));
+				GSM(i, j) += quad[iqn].w * (L2Weight[iqn] * F_quad[i].col(iqn)).dot(G_quad[j].col(iqn));
 			}
 		}
 	}

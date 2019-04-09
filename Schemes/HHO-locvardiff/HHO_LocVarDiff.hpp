@@ -49,18 +49,19 @@ class HHO_LocVarDiff {
 
 // Types
 public:
-  using scalar_function_type = std::function<double(double,double)>;		///< type for function R^2->R
-  using vector_function_type = std::function<Eigen::VectorXd(double,double)>;		///< type for function R^2->R^2
-  using tensor_function_type = std::function<Eigen::Matrix2d(double,double)>;		///< type for function R^2->R^{2x2}
+  using solution_function_type = std::function<double(double,double)>;		///< type for solution
+  using source_function_type = std::function<double(double,double,Cell*)>;		///< type for source
+  using grad_function_type = std::function<Eigen::Vector2d(double,double,Cell*)>;		///< type for gradient
+  using tensor_function_type = std::function<Eigen::Matrix2d(double,double,Cell*)>;		///< type for diffusion tensor
 
 	///@brief Constructor of the class
   HHO_LocVarDiff(
 		tensor_function_type kappa, 	///< diffusion tensor
 		size_t deg_kappa,							///< polynomial degree of the diffusion tensor
-		scalar_function_type source,  ///< source term
+		source_function_type source,  ///< source term
 		size_t BC, 										///< type of boundary conditions (0 for Dirichlet, 1 for Neumann)
-		scalar_function_type exact_solution, 	///< exact solution
-		vector_function_type grad_exact_solution, 	///< gradient of the exact solution
+		solution_function_type exact_solution, 	///< exact solution
+		grad_function_type grad_exact_solution, 	///< gradient of the exact solution
 		std::string solver_type		///< type of solver to use for the global system (bicgstab at the moment)
 		);
 
@@ -91,10 +92,10 @@ private:
 
   const tensor_function_type kappa;
 	size_t _deg_kappa;
-  const scalar_function_type source;
+  const source_function_type source;
 	const size_t BC;
-  const scalar_function_type exact_solution;
-  const vector_function_type grad_exact_solution;
+  const solution_function_type exact_solution;
+  const grad_function_type grad_exact_solution;
 	const std::string solver_type;
 
 	// To store local bilinear forms
@@ -108,7 +109,7 @@ private:
 
 };
 
-HHO_LocVarDiff::HHO_LocVarDiff(tensor_function_type kappa, size_t deg_kappa, scalar_function_type source, size_t BC, scalar_function_type exact_solution, vector_function_type grad_exact_solution, std::string solver_type)
+HHO_LocVarDiff::HHO_LocVarDiff(tensor_function_type kappa, size_t deg_kappa, source_function_type source, size_t BC, solution_function_type exact_solution, grad_function_type grad_exact_solution, std::string solver_type)
   : kappa(std::move(kappa)),
 		_deg_kappa(deg_kappa),
     source(std::move(source)),
@@ -369,7 +370,8 @@ Eigen::MatrixXd HHO_LocVarDiff::diffusion_operator(HybridCore &hho, const size_t
   const auto mesh = hho.get_mesh_ptr();
 	const size_t dimPKcell = hho.dim_Pcell(hho.K());
 	const size_t dimPKcell_vec = mesh->dim() * dimPKcell;
-	const size_t nedgesT = mesh->cell(iT)->n_edges();
+	Cell* cell = mesh->cell(iT);
+	const size_t nedgesT = cell->n_edges();
 
   // Total number of degrees of freedom local to this cell (cell and its adjacent faces)
   size_t local_dofs = hho.nlocal_cell_dofs() + nedgesT * hho.nlocal_edge_dofs();
@@ -385,11 +387,6 @@ Eigen::MatrixXd HHO_LocVarDiff::diffusion_operator(HybridCore &hho, const size_t
 	//	We do not explicitly build this basis function, but we compute the values of these functions at the
 	//		quadrature points, using the values computed for the scalar basis functions
 
-	// Diffusion in the cell.
-	tensor_function_type kappa_T = [&](double x, double y){
-		// Does not work if kappa has a discontinuity on an edge
-			return kappa(x, y);
-	};
 
 	// QUADRATURES
 	// Cell quadrature points, and values of cell basis functions (up to degree K+1), gradients of them,
@@ -404,6 +401,10 @@ Eigen::MatrixXd HHO_LocVarDiff::diffusion_operator(HybridCore &hho, const size_t
 			vec_phiT_quadT[r * dimPKcell + i].row(r) = phiT_quadT[i].transpose();
 		}
 	}
+	// Diffusion tensor at the quadrature points
+	std::vector<Eigen::Matrix2d> kappaT_quadT(quadT.size());
+	std::transform(quadT.begin(), quadT.end(), kappaT_quadT.begin(),
+			[this,&cell](HybridCore::qrule qr) -> Eigen::MatrixXd { return kappa(qr.x, qr.y, cell); });
 
 _itime[0] += timeint.elapsed().user + timeint.elapsed().system;
 timeint.start();
@@ -426,7 +427,7 @@ timeint.start();
   std::vector<Eigen::MatrixXd> MFT(nedgesT, Eigen::MatrixXd::Zero(hho.nlocal_edge_dofs(), hho.nhighorder_dofs()));
   std::vector<Eigen::MatrixXd> MTT_on_F(nedgesT, Eigen::MatrixXd::Zero(dimPKcell, hho.nlocal_cell_dofs()));
   for (size_t ilF = 0; ilF < nedgesT; ilF++) {
-    const size_t iF = mesh->cell(iT)->edge(ilF)->global_index();
+    const size_t iF = cell->edge(ilF)->global_index();
 
 		// Face quadrature points and values of cell and face basis functions (and gradients) at these points
 		size_t doeF = 2*hho.K() + 1;
@@ -460,7 +461,7 @@ timeint.start();
 	  for (size_t ilF = 0; ilF < nedgesT; ilF++) {
   	  // Offset for face unknowns
   	  const size_t offset_F = hho.nlocal_cell_dofs() + ilF * hho.nlocal_edge_dofs();
-  	  const auto& nTF = mesh->cell(iT)->edge_normal(ilF);
+  	  const auto& nTF = cell->edge_normal(ilF);
 
 			// Contribution of cell unknowns, and then face unknowns on F
 			RHS_GT.block(r*dimPKcell, 0, dimPKcell, hho.nlocal_cell_dofs()) -= nTF(r) * MTT_on_F[ilF];
@@ -476,7 +477,7 @@ timeint.start();
 
 	//  Weighted mass matrix	(K Phi_i, Phi_j)_T of the basis (Phi_i)_i of (P^k)^d
 	Eigen::MatrixXd kappaVecMTT = Eigen::MatrixXd::Zero(dimPKcell_vec, dimPKcell_vec);
-	kappaVecMTT = hho.gram_matrix(vec_phiT_quadT, vec_phiT_quadT, dimPKcell_vec, dimPKcell_vec, quadT, true, kappa_T);
+	kappaVecMTT = hho.gram_matrix(vec_phiT_quadT, vec_phiT_quadT, dimPKcell_vec, dimPKcell_vec, quadT, true, kappaT_quadT);
 
 	Eigen::MatrixXd ATF = GT.transpose() * kappaVecMTT * GT;
 
@@ -515,10 +516,10 @@ timeint.start();
         Eigen::MatrixXd::Identity(hho.nlocal_cell_dofs(), hho.nlocal_cell_dofs());
 
   for (size_t ilF = 0; ilF < nedgesT; ilF++) {
-		auto hF = mesh->cell(iT)->edge(ilF)->measure();
-    auto xF = mesh->cell(iT)->edge(ilF)->center_mass();
+		auto hF = cell->edge(ilF)->measure();
+    auto xF = cell->edge(ilF)->center_mass();
 
-    auto kappa_TF = kappa_T(xF.x(), xF.y()).trace();
+    auto kappa_TF = kappa(xF.x(), xF.y(), cell).trace();
 
 		// Face residual delta_TF^k = pi_F^k (rT uT) - u_F
 		Eigen::MatrixXd MFFinv = MFF[ilF].inverse();
@@ -550,7 +551,8 @@ _itime[3] += timeint.elapsed().user + timeint.elapsed().system;
 Eigen::VectorXd HHO_LocVarDiff::load_operator(HybridCore &hho, const size_t iT) const {
 	// Load for the cell DOFs (first indices) and face DOFs (last indices)
   const auto mesh = hho.get_mesh_ptr();
-	size_t cell_edge_dofs = hho.nlocal_cell_dofs() + mesh->cell(iT)->n_edges()*hho.nlocal_edge_dofs();
+	Cell* cell = mesh->cell(iT);
+	size_t cell_edge_dofs = hho.nlocal_cell_dofs() + cell->n_edges()*hho.nlocal_edge_dofs();
   Eigen::VectorXd b = Eigen::VectorXd::Zero(cell_edge_dofs);
 
 	// Quadrature points and values of cell basis functions at these points
@@ -561,31 +563,31 @@ Eigen::VectorXd HHO_LocVarDiff::load_operator(HybridCore &hho, const size_t iT) 
 	// Value of source times quadrature weights at the quadrature points
 	Eigen::VectorXd weight_source_quad = Eigen::VectorXd::Zero(nbq);
 	for (size_t iqn = 0; iqn < nbq; iqn++){
-		weight_source_quad(iqn) = quadT[iqn].w * source(quadT[iqn].x, quadT[iqn].y);
+		weight_source_quad(iqn) = quadT[iqn].w * source(quadT[iqn].x, quadT[iqn].y, cell);
 	}
 
 	for (size_t i=0; i < hho.nlocal_cell_dofs(); i++){
 		b(i) = weight_source_quad.dot(phiT_quadT[i]);
 	}
 	// Boundary values, if we have a boundary cell
-	if (mesh->cell(iT)->is_boundary()){
+	if (cell->is_boundary()){
 		if (BC==0){
 			// Dirichlet BCs: no source terms on these edges
 		} else if (BC==1) {
 			// Neumann BCs
-			for (size_t ilF = 0; ilF < mesh->cell(iT)->n_edges(); ilF++) {
-			  const size_t iF = mesh->cell(iT)->edge(ilF)->global_index(); 
+			for (size_t ilF = 0; ilF < cell->n_edges(); ilF++) {
+			  const size_t iF = cell->edge(ilF)->global_index(); 
 				// BC on boundary faces
-				if (mesh->cell(iT)->edge(ilF)->is_boundary()){
+				if (cell->edge(ilF)->is_boundary()){
 				  // Offset for face unknowns
 				  const size_t offset_F = hho.nlocal_cell_dofs() + ilF * hho.nlocal_edge_dofs();
 					// Normal to the face
-				  const auto& nTF = mesh->cell(iT)->edge_normal(ilF);
+				  const auto& nTF = cell->edge_normal(ilF);
 					// for each DOF of the boundary face
 					for (size_t i = 0; i < hho.nlocal_edge_dofs(); i++){
 				    const auto& phi_i = hho.edge_basis(iF, i);
 						b(offset_F + i) = hho.integrate_over_edge(iF, [&](double x, double y){
-								return nTF.dot(kappa(x,y) * grad_exact_solution(x,y)) * phi_i(x,y);
+								return nTF.dot(kappa(x,y,cell) * grad_exact_solution(x,y,cell)) * phi_i(x,y);
 							});
 					}
 				}

@@ -60,10 +60,10 @@ double \hyperlink{classHArDCore2D_1_1HybridCore_ac8878fba08f008f5ecbaa69a9a08490
 \begin{DoxyCompactList}\small\item\em Compute maximum of the coefficients on the edge basis functions. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Function $>$ }\\Eigen\+::\+Vector\+Xd \hyperlink{group__HybridCore_ga71c953efc96f467cb24faa1b60ee9bb2}{interpolate} (const Function \&f, size\+\_\+t doe) const
 \begin{DoxyCompactList}\small\item\em Compute the interpolant in the discrete space of a continuous function. \end{DoxyCompactList}\item 
-Eigen\+::\+Matrix\+Xd \hyperlink{classHArDCore2D_1_1HybridCore_a0f34d7feff2d992c1004d1c67a660320}{gram\+\_\+matrix} (const std\+::vector$<$ Eigen\+::\+Vector\+Xd $>$ \&f\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Vector\+Xd $>$ \&g\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const std\+::vector$<$ \hyperlink{structHArDCore2D_1_1HybridCore_1_1qrule}{Hybrid\+Core\+::qrule} $>$ \&quad, const bool \&sym, std\+::function$<$ double(double, double)$>$ weight=\mbox{[}\&\mbox{]}(double x, double y)\{ return 1;\}) const
+Eigen\+::\+Matrix\+Xd \hyperlink{classHArDCore2D_1_1HybridCore_a1b9e2d375b5a3a578b79fb2cc0100b6b}{gram\+\_\+matrix} (const std\+::vector$<$ Eigen\+::\+Vector\+Xd $>$ \&f\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Vector\+Xd $>$ \&g\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const std\+::vector$<$ \hyperlink{structHArDCore2D_1_1HybridCore_1_1qrule}{Hybrid\+Core\+::qrule} $>$ \&quad, const bool \&sym, std\+::vector$<$ double $>$ L2weight=\{\}) const
 \item 
-Eigen\+::\+Matrix\+Xd \hyperlink{classHArDCore2D_1_1HybridCore_a633814c5b4f35034d04b74f09802303d}{gram\+\_\+matrix} (const std\+::vector$<$ Eigen\+::\+Matrix\+Xd $>$ \&F\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Matrix\+Xd $>$ \&G\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const std\+::vector$<$ \hyperlink{structHArDCore2D_1_1HybridCore_1_1qrule}{Hybrid\+Core\+::qrule} $>$ \&quad, const bool \&sym, std\+::function$<$ Eigen\+::\+Matrix2d(double, double)$>$ Weight=\mbox{[}\&\mbox{]}(double x, double y)\{ return Eigen\+::\+Matrix2d\+::\+Identity();\}) const
-\begin{DoxyCompactList}\small\item\em Overloaded version of the previous one for vector-\/valued functions. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \hyperlink{classHArDCore2D_1_1HybridCore_a2a161a38925425d27eeea8eee890e05b}{gram\+\_\+matrix} (const std\+::vector$<$ Eigen\+::\+Matrix\+Xd $>$ \&F\+\_\+quad, const std\+::vector$<$ Eigen\+::\+Matrix\+Xd $>$ \&G\+\_\+quad, const size\+\_\+t \&nrows, const size\+\_\+t \&ncols, const std\+::vector$<$ \hyperlink{structHArDCore2D_1_1HybridCore_1_1qrule}{Hybrid\+Core\+::qrule} $>$ \&quad, const bool \&sym, std\+::vector$<$ Eigen\+::\+Matrix2d $>$ L2\+Weight=\{\}) const
+\begin{DoxyCompactList}\small\item\em Overloaded version of the previous one for vector-\/valued functions\+: the functions (F\+\_\+i) and (G\+\_\+j) are vector-\/valued functions. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a06825c5d156026d465a2798389aa952b}\label{classHArDCore2D_1_1HybridCore_a06825c5d156026d465a2798389aa952b}} 
 Eigen\+::\+Vector\+Xd \hyperlink{classHArDCore2D_1_1HybridCore_a06825c5d156026d465a2798389aa952b}{compute\+\_\+weights} (size\+\_\+t iT) const
 \begin{DoxyCompactList}\small\item\em Weights to compute cell unknowns from edge unknowns when l=-\/1. \end{DoxyCompactList}\item 
@@ -312,14 +312,14 @@ dphi\+\_\+quad\mbox{[}i\mbox{]}\+: 2$\ast$nb of quad points matrix, with each co
 {\em nbasis} & number of basis functions phi\+\_\+i to consider \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a0f34d7feff2d992c1004d1c67a660320}\label{classHArDCore2D_1_1HybridCore_a0f34d7feff2d992c1004d1c67a660320}} 
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a1b9e2d375b5a3a578b79fb2cc0100b6b}\label{classHArDCore2D_1_1HybridCore_a1b9e2d375b5a3a578b79fb2cc0100b6b}} 
 \index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!gram\+\_\+matrix@{gram\+\_\+matrix}}
 \index{gram\+\_\+matrix@{gram\+\_\+matrix}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
 \subsubsection{\texorpdfstring{gram\+\_\+matrix()}{gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Hybrid\+Core\+::gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Eigen\+::\+Vector\+Xd $>$ \&}]{f\+\_\+quad,  }\item[{const std\+::vector$<$ Eigen\+::\+Vector\+Xd $>$ \&}]{g\+\_\+quad,  }\item[{const size\+\_\+t \&}]{nrows,  }\item[{const size\+\_\+t \&}]{ncols,  }\item[{const std\+::vector$<$ \hyperlink{structHArDCore2D_1_1HybridCore_1_1qrule}{Hybrid\+Core\+::qrule} $>$ \&}]{quad,  }\item[{const bool \&}]{sym,  }\item[{std\+::function$<$ double(double, double)$>$}]{weight = {\ttfamily \mbox{[}\&\mbox{]}(double~x,double~y)\{~return~1;\}} }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Hybrid\+Core\+::gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Eigen\+::\+Vector\+Xd $>$ \&}]{f\+\_\+quad,  }\item[{const std\+::vector$<$ Eigen\+::\+Vector\+Xd $>$ \&}]{g\+\_\+quad,  }\item[{const size\+\_\+t \&}]{nrows,  }\item[{const size\+\_\+t \&}]{ncols,  }\item[{const std\+::vector$<$ \hyperlink{structHArDCore2D_1_1HybridCore_1_1qrule}{Hybrid\+Core\+::qrule} $>$ \&}]{quad,  }\item[{const bool \&}]{sym,  }\item[{std\+::vector$<$ double $>$}]{L2weight = {\ttfamily \{\}} }\end{DoxyParamCaption}) const}
 
 Create the matrix of L2 products of two families (f\+\_\+i) and (g\+\_\+j) of functions (this is not really a Gram matrix, unless the two families are the same) \begin{DoxyReturn}{Returns}
-The matrix of the integral of f\+\_\+i $\ast$ g\+\_\+j 
+The matrix $(\int f_i g_j)_{i=1\ldots nrows; j=1\ldots ncols}$ 
 \end{DoxyReturn}
 
 \begin{DoxyParams}{Parameters}
@@ -327,28 +327,48 @@ The matrix of the integral of f\+\_\+i $\ast$ g\+\_\+j
 \hline
 {\em g\+\_\+quad} & Values of functions (g1,g2,...) at the quadrature points \\
 \hline
-{\em nrows} & Number of rows of the matrix -\/ typically number of functions fi \\
+{\em nrows} & Number of rows of the matrix -\/ typically number of functions f\+\_\+i (but could be less) \\
 \hline
-{\em ncols} & Number of columns of the matrix -\/ typically number of functions gj \\
+{\em ncols} & Number of columns of the matrix -\/ typically number of functions g\+\_\+j (but could be less) \\
 \hline
 {\em quad} & Quadrature points for integration \\
 \hline
 {\em sym} & True if the matrix is pseudo-\/symmetric (that is, \#f$<$=\#g and f\+\_\+i=g\+\_\+i if i$<$=\#f) \\
 \hline
-{\em weight} & Optional weight for the L2 product \\
+{\em L2weight} & Optional weight for the L2 product. If provided, should be a std\+::vector$<$double$>$ of the weight at the quadrature points \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a633814c5b4f35034d04b74f09802303d}\label{classHArDCore2D_1_1HybridCore_a633814c5b4f35034d04b74f09802303d}} 
+\mbox{\Hypertarget{classHArDCore2D_1_1HybridCore_a2a161a38925425d27eeea8eee890e05b}\label{classHArDCore2D_1_1HybridCore_a2a161a38925425d27eeea8eee890e05b}} 
 \index{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}!gram\+\_\+matrix@{gram\+\_\+matrix}}
 \index{gram\+\_\+matrix@{gram\+\_\+matrix}!H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core@{H\+Ar\+D\+Core2\+D\+::\+Hybrid\+Core}}
 \subsubsection{\texorpdfstring{gram\+\_\+matrix()}{gram\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Hybrid\+Core\+::gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Eigen\+::\+Matrix\+Xd $>$ \&}]{F\+\_\+quad,  }\item[{const std\+::vector$<$ Eigen\+::\+Matrix\+Xd $>$ \&}]{G\+\_\+quad,  }\item[{const size\+\_\+t \&}]{nrows,  }\item[{const size\+\_\+t \&}]{ncols,  }\item[{const std\+::vector$<$ \hyperlink{structHArDCore2D_1_1HybridCore_1_1qrule}{Hybrid\+Core\+::qrule} $>$ \&}]{quad,  }\item[{const bool \&}]{sym,  }\item[{std\+::function$<$ Eigen\+::\+Matrix2d(double, double)$>$}]{Weight = {\ttfamily \mbox{[}\&\mbox{]}(double~x,double~y)\{~return~Eigen\+:\+:Matrix2d\+:\+:Identity();\}} }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Hybrid\+Core\+::gram\+\_\+matrix (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Eigen\+::\+Matrix\+Xd $>$ \&}]{F\+\_\+quad,  }\item[{const std\+::vector$<$ Eigen\+::\+Matrix\+Xd $>$ \&}]{G\+\_\+quad,  }\item[{const size\+\_\+t \&}]{nrows,  }\item[{const size\+\_\+t \&}]{ncols,  }\item[{const std\+::vector$<$ \hyperlink{structHArDCore2D_1_1HybridCore_1_1qrule}{Hybrid\+Core\+::qrule} $>$ \&}]{quad,  }\item[{const bool \&}]{sym,  }\item[{std\+::vector$<$ Eigen\+::\+Matrix2d $>$}]{L2\+Weight = {\ttfamily \{\}} }\end{DoxyParamCaption}) const}
 
 
 
-Overloaded version of the previous one for vector-\/valued functions. 
+Overloaded version of the previous one for vector-\/valued functions\+: the functions (F\+\_\+i) and (G\+\_\+j) are vector-\/valued functions. 
 
-F\+\_\+i and G\+\_\+j are vector-\/valued functions 
+\begin{DoxyReturn}{Returns}
+The matrix $(\int F_i \cdot G_j)_{i=1\ldots nrows; j=1\ldots ncols}$ 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em F\+\_\+quad} & Values of functions (F1,F2,...) at the quadrature points \\
+\hline
+{\em G\+\_\+quad} & Values of functions (G1,G2,...) at the quadrature points \\
+\hline
+{\em nrows} & Number of rows of the matrix -\/ typically number of functions F\+\_\+i (but could be less) \\
+\hline
+{\em ncols} & Number of rows of the matrix -\/ typically number of functions G\+\_\+j (but could be less) \\
+\hline
+{\em quad} & Quadrature points for integration \\
+\hline
+{\em sym} & True if the matrix is pseudo-\/symmetric (that is, \#F$<$=\#G and F\+\_\+i=G\+\_\+i if i$<$=\#F) \\
+\hline
+{\em L2\+Weight} & Optional weight for the L2 product. If provided, should be a std\+::vector$<$\+Eigen\+::\+Matrix2d$>$ of the weight at the quadrature points \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

@@ -126,23 +126,23 @@ public:
 	Eigen::MatrixXd gram_matrix(
 			const std::vector<Eigen::VectorXd>& f_quad, ///< Values of functions (f1,f2,...) at the quadrature points 
 			const std::vector<Eigen::VectorXd>& g_quad, ///< Values of functions (g1,g2,...) at the quadrature points 
-			const size_t& nrows, ///< Number of rows of the matrix - typically number of functions fi 
-			const size_t& ncols, ///< Number of columns of the matrix - typically number of functions gj
+			const size_t& nrows, ///< Number of rows of the matrix - typically number of functions f_i (but could be less) 
+			const size_t& ncols, ///< Number of columns of the matrix - typically number of functions g_j (but could be less)
 			const std::vector<HybridCore::qrule>& quad, 	///< Quadrature points for integration 
 			const bool& sym,		///< True if the matrix is pseudo-symmetric (that is, #f<=#g and f_i=g_i if i<=#f) 
-			std::function<double(double,double)> weight = [&](double x,double y){ return 1;} 	///< Optional weight for the L2 product 
-	) const;	/**< @returns The matrix of the integral of f_i * g_j */
+			std::vector<double> L2weight = {} 	///< Optional weight for the L2 product. If provided, should be a std::vector<double> of the weight at the quadrature points
+	) const;	/**< @returns The matrix \f$(\int f_i g_j)_{i=1\ldots nrows; j=1\ldots ncols}\f$ */
 
-	/// Overloaded version of the previous one for vector-valued functions
+	/// Overloaded version of the previous one for vector-valued functions: the functions (F_i) and (G_j) are vector-valued functions
 	Eigen::MatrixXd gram_matrix(
-			const std::vector<Eigen::MatrixXd>& F_quad,
-			const std::vector<Eigen::MatrixXd>& G_quad,
-			const size_t& nrows,
-			const size_t& ncols,
-			const std::vector<HybridCore::qrule>& quad,
-			const bool& sym,
-			std::function<Eigen::Matrix2d(double,double)> Weight = [&](double x,double y){ return Eigen::Matrix2d::Identity();}
-		) const ;  /**< F_i and G_j are vector-valued functions */
+			const std::vector<Eigen::MatrixXd>& F_quad,		///< Values of functions (F1,F2,...) at the quadrature points 
+			const std::vector<Eigen::MatrixXd>& G_quad,		///< Values of functions (G1,G2,...) at the quadrature points 
+			const size_t& nrows,		///< Number of rows of the matrix - typically number of functions F_i (but could be less) 
+			const size_t& ncols,		///< Number of rows of the matrix - typically number of functions G_j (but could be less) 
+			const std::vector<HybridCore::qrule>& quad,		///< Quadrature points for integration 
+			const bool& sym,		///< True if the matrix is pseudo-symmetric (that is, #F<=#G and F_i=G_i if i<=#F) 
+			std::vector<Eigen::Matrix2d> L2Weight = {}	///< Optional weight for the L2 product. If provided, should be a std::vector<Eigen::Matrix2d> of the weight at the quadrature points
+		) const ;  /**< @returns The matrix \f$(\int F_i \cdot G_j)_{i=1\ldots nrows; j=1\ldots ncols}\f$ */
 	
 	
 	Eigen::VectorXd compute_weights(size_t iT) const; ///< Weights to compute cell unknowns from edge unknowns when l=-1

@@ -59,7 +59,7 @@ done;
 
 # CREATE DATA FILE FOR LATEX
 cd $outdir
-echo -e "meshsize L2error H1error EnergyError NbEdgeDOFs" > $errorsfile
+echo -e "meshsize L2error H1error EnergyError NbEdgeDOFs MeshReg" > $errorsfile
 for i in `seq 1 $nbmesh`; 
 do
 	meshsize=$(awk '/MeshSize:/ {print $NF}' results-$i.txt)
@@ -67,7 +67,8 @@ do
 	H1error=$(awk '/H1error:/ {print $NF}' results-$i.txt)
 	EnergyError=$(awk '/EnergyError:/ {print $NF}' results-$i.txt)
 	NbEdgeDOFs=$(awk '/NbEdgeDOFs:/ {print $NF}' results-$i.txt)
-	echo -e "$meshsize $L2error $H1error $EnergyError $NbEdgeDOFs" >> $errorsfile
+	MeshReg=$(awk '/MeshReg:/ {print $NF}' results-$i.txt)
+	echo -e "$meshsize $L2error $H1error $EnergyError $NbEdgeDOFs $MeshReg" >> $errorsfile
 done;
 
 ## CREATE AND COMPILE LATEX
@@ -148,10 +149,10 @@ done
 ##
 # COMPUTATION OF CONVERGENCE RATES
 #
-echo -e "\n-----------------------------------\nData:"
+echo -e "\n ----------- Data -----------"
 echo "degrees: (edge) k=$k, (cell) l=$l"
 echo "boundary conditions bc=$bc"
-echo -e "test case: solution=$tcsol, diffusion=$tcdiff\n"
+echo "test case: solution=$tcsol, diffusion=$tcdiff"
 cd ..
 make compute_rates_run
 

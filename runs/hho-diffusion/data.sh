@@ -3,10 +3,10 @@
 
 # Edge and cell degrees
 k=1
-l=1
+l=0
 
 # Boundary conditions (0=Dirichlet, 1=Neumann)
-bc=0
+bc=1
 
 # Test case
 tcsol=1

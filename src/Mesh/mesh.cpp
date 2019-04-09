@@ -161,6 +161,30 @@ size_t Mesh::n_i_vertices() const {
     return _i_vertices.size();
 }
 
+double Mesh::regularity(){
+		/// Regularity factor = maximum of
+		///			* diameter of cell / (measure of cell)^{1/2}
+		///			* diameter of cell / diameter of edge  [for each edge of the cell]
+
+		double value = 0.0;
+		for (size_t iC = 0; iC < n_cells(); iC++){
+			Cell* icell = cell(iC);
+			double hC = icell->diam();
+
+			value = std::max(value, hC / pow(icell->measure(), 1/this->dim()));
+
+			for (size_t ilF = 0; ilF < icell->n_edges(); ilF++){
+				Edge* iedge = icell->edge(ilF);
+				double hF = iedge->measure();
+
+				value = std::max(value, hC / hF);
+			}
+		}
+
+		return value;
+
+}
+
 void Mesh::renum(const char B, const std::vector<size_t> new_to_old){
 	
 	switch (B) {

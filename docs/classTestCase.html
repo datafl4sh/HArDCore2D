@@ -80,25 +80,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aede719dac81c460c713d930a379c537e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCase.html#aede719dac81c460c713d930a379c537e">sol</a> (const double x, const double y)</td></tr>
 <tr class="memdesc:aede719dac81c460c713d930a379c537e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the exact solution at the points x, y.  <a href="#aede719dac81c460c713d930a379c537e">More...</a><br /></td></tr>
 <tr class="separator:aede719dac81c460c713d930a379c537e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6ea8a6757e14702acde6aa73270c5b8"><td class="memItemLeft" align="right" valign="top"><a id="ac6ea8a6757e14702acde6aa73270c5b8"></a>
-Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCase.html#ac6ea8a6757e14702acde6aa73270c5b8">grad_sol</a> (const double x, const double y)</td></tr>
-<tr class="memdesc:ac6ea8a6757e14702acde6aa73270c5b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the gradient of the exact solution at the points x, y. <br /></td></tr>
-<tr class="separator:ac6ea8a6757e14702acde6aa73270c5b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefa0d363c18d007e5fa7c75df2c319fa"><td class="memItemLeft" align="right" valign="top"><a id="aefa0d363c18d007e5fa7c75df2c319fa"></a>
-Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCase.html#aefa0d363c18d007e5fa7c75df2c319fa">hess_sol</a> (const double x, const double y)</td></tr>
-<tr class="memdesc:aefa0d363c18d007e5fa7c75df2c319fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Hessian of the exact solution at the points x, y. <br /></td></tr>
-<tr class="separator:aefa0d363c18d007e5fa7c75df2c319fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74093020578afb0e658ae1dc77011b8a"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCase.html#a74093020578afb0e658ae1dc77011b8a">diff</a> (const double x, const double y)</td></tr>
-<tr class="memdesc:a74093020578afb0e658ae1dc77011b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the diffusion matrix at the points x, y.  <a href="#a74093020578afb0e658ae1dc77011b8a">More...</a><br /></td></tr>
-<tr class="separator:a74093020578afb0e658ae1dc77011b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a7a5456cfd75fa939179119a9c65955"><td class="memItemLeft" align="right" valign="top"><a id="a8a7a5456cfd75fa939179119a9c65955"></a>
-Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCase.html#a8a7a5456cfd75fa939179119a9c65955">div_diff</a> (const double x, const double y)</td></tr>
-<tr class="memdesc:a8a7a5456cfd75fa939179119a9c65955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the divergence by row of the diffusion matrix at the points x, y. <br /></td></tr>
-<tr class="separator:a8a7a5456cfd75fa939179119a9c65955"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f23ed8e9ad5e04e6599f4cd90fd5fd4"><td class="memItemLeft" align="right" valign="top"><a id="a0f23ed8e9ad5e04e6599f4cd90fd5fd4"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCase.html#a0f23ed8e9ad5e04e6599f4cd90fd5fd4">source</a> (const double x, const double y)</td></tr>
-<tr class="memdesc:a0f23ed8e9ad5e04e6599f4cd90fd5fd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the source term at the points x, y. <br /></td></tr>
-<tr class="separator:a0f23ed8e9ad5e04e6599f4cd90fd5fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a498bb6578e46551607ec6ceb164e18"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCase.html#a3a498bb6578e46551607ec6ceb164e18">grad_sol</a> (const double x, const double y, const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *cell)</td></tr>
+<tr class="memdesc:a3a498bb6578e46551607ec6ceb164e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the gradient of the exact solution at the points x, y.  <a href="#a3a498bb6578e46551607ec6ceb164e18">More...</a><br /></td></tr>
+<tr class="separator:a3a498bb6578e46551607ec6ceb164e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9293e0429bb3ce0c3312406405872329"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCase.html#a9293e0429bb3ce0c3312406405872329">hess_sol</a> (const double x, const double y, const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *cell)</td></tr>
+<tr class="memdesc:a9293e0429bb3ce0c3312406405872329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Hessian of the exact solution at the points x, y.  <a href="#a9293e0429bb3ce0c3312406405872329">More...</a><br /></td></tr>
+<tr class="separator:a9293e0429bb3ce0c3312406405872329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4015f763a8a2979e896766683c6dfbfd"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCase.html#a4015f763a8a2979e896766683c6dfbfd">diff</a> (const double x, const double y, const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *cell)</td></tr>
+<tr class="memdesc:a4015f763a8a2979e896766683c6dfbfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the diffusion matrix at the points x, y.  <a href="#a4015f763a8a2979e896766683c6dfbfd">More...</a><br /></td></tr>
+<tr class="separator:a4015f763a8a2979e896766683c6dfbfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1826d1e2781e2209512eac2dac5c84f7"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCase.html#a1826d1e2781e2209512eac2dac5c84f7">div_diff</a> (const double x, const double y, const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *cell)</td></tr>
+<tr class="memdesc:a1826d1e2781e2209512eac2dac5c84f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the divergence by row of the diffusion matrix at the points x, y.  <a href="#a1826d1e2781e2209512eac2dac5c84f7">More...</a><br /></td></tr>
+<tr class="separator:a1826d1e2781e2209512eac2dac5c84f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b2e54e9f17ac2ec9c1d675f97fbe335"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCase.html#a5b2e54e9f17ac2ec9c1d675f97fbe335">source</a> (const double x, const double y, const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *cell)</td></tr>
+<tr class="memdesc:a5b2e54e9f17ac2ec9c1d675f97fbe335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the source term at the points x, y.  <a href="#a5b2e54e9f17ac2ec9c1d675f97fbe335">More...</a><br /></td></tr>
+<tr class="separator:a5b2e54e9f17ac2ec9c1d675f97fbe335"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f428652eb476f6eb4973ef1f478e8ce"><td class="memItemLeft" align="right" valign="top"><a id="a1f428652eb476f6eb4973ef1f478e8ce"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestCase.html#a1f428652eb476f6eb4973ef1f478e8ce">validate</a> ()</td></tr>
 <tr class="memdesc:a1f428652eb476f6eb4973ef1f478e8ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the provided test cases are valid (within range, and combination of solution/diffusion valid) <br /></td></tr>
@@ -138,8 +134,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a74093020578afb0e658ae1dc77011b8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74093020578afb0e658ae1dc77011b8a">&#9670;&nbsp;</a></span>diff()</h2>
+<a id="a4015f763a8a2979e896766683c6dfbfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4015f763a8a2979e896766683c6dfbfd">&#9670;&nbsp;</a></span>diff()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +150,13 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const double&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *&#160;</td>
+          <td class="paramname"><em>cell</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -168,6 +170,138 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 <p>iTC[1]=1: Diff = Id</p>
 <p>iTC[1]=2: Diff = [y^2+1 -xy; -xy x^2+1]</p>
 <p>iTC[1]=3: Diff=Id if x&lt;=1/2, Diff=[2 0; 0 1] if x&gt;1/2. Only valid with iTC[0]=1; </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>In case of discontinuity, we need to know the cell we're in to select the correct formula </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1826d1e2781e2209512eac2dac5c84f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1826d1e2781e2209512eac2dac5c84f7">&#9670;&nbsp;</a></span>div_diff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::VectorXd TestCase::div_diff </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *&#160;</td>
+          <td class="paramname"><em>cell</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the divergence by row of the diffusion matrix at the points x, y. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>In case of discontinuity, we need to know the cell we're in to select the correct formula </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3a498bb6578e46551607ec6ceb164e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a498bb6578e46551607ec6ceb164e18">&#9670;&nbsp;</a></span>grad_sol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::VectorXd TestCase::grad_sol </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *&#160;</td>
+          <td class="paramname"><em>cell</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the gradient of the exact solution at the points x, y. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>In case of discontinuity, we need to know the cell we're in to select the correct formula </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9293e0429bb3ce0c3312406405872329"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9293e0429bb3ce0c3312406405872329">&#9670;&nbsp;</a></span>hess_sol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd TestCase::hess_sol </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *&#160;</td>
+          <td class="paramname"><em>cell</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the Hessian of the exact solution at the points x, y. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>In case of discontinuity, we need to know the cell we're in to select the correct formula </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -203,6 +337,48 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 <p>iTC[0]=3: u(x,y)= x</p>
 <p>iTC[0]=3: u(x,y)= y</p>
 <p>iTC[0]=4: u(x,y)= x^2 + y^2 </p>
+
+</div>
+</div>
+<a id="a5b2e54e9f17ac2ec9c1d675f97fbe335"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b2e54e9f17ac2ec9c1d675f97fbe335">&#9670;&nbsp;</a></span>source()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double TestCase::source </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *&#160;</td>
+          <td class="paramname"><em>cell</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the source term at the points x, y. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>In case of discontinuity, we need to know the cell we're in to select the correct formula </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

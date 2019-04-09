@@ -79,24 +79,28 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:abe94c05310207687b5f3a4af2ea1c97b"><td class="memItemLeft" align="right" valign="top"><a id="abe94c05310207687b5f3a4af2ea1c97b"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#abe94c05310207687b5f3a4af2ea1c97b">scalar_function_type</a> = std::function&lt; double(double, double)&gt;</td></tr>
-<tr class="memdesc:abe94c05310207687b5f3a4af2ea1c97b"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for function R^2-&gt;R <br /></td></tr>
-<tr class="separator:abe94c05310207687b5f3a4af2ea1c97b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adad1657301e86deba6abcb5e7e6048e4"><td class="memItemLeft" align="right" valign="top"><a id="adad1657301e86deba6abcb5e7e6048e4"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#adad1657301e86deba6abcb5e7e6048e4">vector_function_type</a> = std::function&lt; Eigen::VectorXd(double, double)&gt;</td></tr>
-<tr class="memdesc:adad1657301e86deba6abcb5e7e6048e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for function R^2-&gt;R^2 <br /></td></tr>
-<tr class="separator:adad1657301e86deba6abcb5e7e6048e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2d9bd4031a898a3619812343aa5c2c9"><td class="memItemLeft" align="right" valign="top"><a id="af2d9bd4031a898a3619812343aa5c2c9"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#af2d9bd4031a898a3619812343aa5c2c9">tensor_function_type</a> = std::function&lt; Eigen::Matrix2d(double, double)&gt;</td></tr>
-<tr class="memdesc:af2d9bd4031a898a3619812343aa5c2c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for function R^2-&gt;R^{2x2} <br /></td></tr>
-<tr class="separator:af2d9bd4031a898a3619812343aa5c2c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2ddc18a37be70e4767a9040fb6a09f6"><td class="memItemLeft" align="right" valign="top"><a id="ac2ddc18a37be70e4767a9040fb6a09f6"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#ac2ddc18a37be70e4767a9040fb6a09f6">solution_function_type</a> = std::function&lt; double(double, double)&gt;</td></tr>
+<tr class="memdesc:ac2ddc18a37be70e4767a9040fb6a09f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for solution <br /></td></tr>
+<tr class="separator:ac2ddc18a37be70e4767a9040fb6a09f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade095df766ff04bf09385a163136e5c0"><td class="memItemLeft" align="right" valign="top"><a id="ade095df766ff04bf09385a163136e5c0"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#ade095df766ff04bf09385a163136e5c0">source_function_type</a> = std::function&lt; double(double, double, <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *)&gt;</td></tr>
+<tr class="memdesc:ade095df766ff04bf09385a163136e5c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for source <br /></td></tr>
+<tr class="separator:ade095df766ff04bf09385a163136e5c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14797a72cc96ee5ea6fc45e4986d6a84"><td class="memItemLeft" align="right" valign="top"><a id="a14797a72cc96ee5ea6fc45e4986d6a84"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#a14797a72cc96ee5ea6fc45e4986d6a84">grad_function_type</a> = std::function&lt; Eigen::Vector2d(double, double, <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *)&gt;</td></tr>
+<tr class="memdesc:a14797a72cc96ee5ea6fc45e4986d6a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for gradient <br /></td></tr>
+<tr class="separator:a14797a72cc96ee5ea6fc45e4986d6a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc4abb92b452d6407d45a87823fb47f9"><td class="memItemLeft" align="right" valign="top"><a id="acc4abb92b452d6407d45a87823fb47f9"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#acc4abb92b452d6407d45a87823fb47f9">tensor_function_type</a> = std::function&lt; Eigen::Matrix2d(double, double, <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *)&gt;</td></tr>
+<tr class="memdesc:acc4abb92b452d6407d45a87823fb47f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for diffusion tensor <br /></td></tr>
+<tr class="separator:acc4abb92b452d6407d45a87823fb47f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ga32ee13003e4eda510daa25737fa60e47"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HHO__Diffusion.html#ga32ee13003e4eda510daa25737fa60e47">HHO_Diffusion</a> (<a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#af2d9bd4031a898a3619812343aa5c2c9">tensor_function_type</a> kappa, <a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#abe94c05310207687b5f3a4af2ea1c97b">scalar_function_type</a> source, size_t BC, <a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#abe94c05310207687b5f3a4af2ea1c97b">scalar_function_type</a> exact_solution, <a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#adad1657301e86deba6abcb5e7e6048e4">vector_function_type</a> grad_exact_solution, std::string solver_type)</td></tr>
-<tr class="memdesc:ga32ee13003e4eda510daa25737fa60e47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of the class.  <a href="group__HHO__Diffusion.html#ga32ee13003e4eda510daa25737fa60e47">More...</a><br /></td></tr>
-<tr class="separator:ga32ee13003e4eda510daa25737fa60e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9ab2e2cdf0c77f60069f7572c587c4f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HHO__Diffusion.html#ga9ab2e2cdf0c77f60069f7572c587c4f1">HHO_Diffusion</a> (<a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#acc4abb92b452d6407d45a87823fb47f9">tensor_function_type</a> kappa, <a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#ade095df766ff04bf09385a163136e5c0">source_function_type</a> source, size_t BC, <a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#ac2ddc18a37be70e4767a9040fb6a09f6">solution_function_type</a> exact_solution, <a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#a14797a72cc96ee5ea6fc45e4986d6a84">grad_function_type</a> grad_exact_solution, std::string solver_type)</td></tr>
+<tr class="memdesc:ga9ab2e2cdf0c77f60069f7572c587c4f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of the class.  <a href="group__HHO__Diffusion.html#ga9ab2e2cdf0c77f60069f7572c587c4f1">More...</a><br /></td></tr>
+<tr class="separator:ga9ab2e2cdf0c77f60069f7572c587c4f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1aebf22f19de92c115aed69ba394de88"><td class="memItemLeft" align="right" valign="top">
 Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HHO__Diffusion.html#ga1aebf22f19de92c115aed69ba394de88">solve</a> (<a class="el" href="classHArDCore2D_1_1HybridCore.html">HybridCore</a> &amp;hho)</td></tr>
 <tr class="memdesc:ga1aebf22f19de92c115aed69ba394de88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assemble and solve the scheme. <br /></td></tr>

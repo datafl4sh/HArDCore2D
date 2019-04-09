@@ -5,7 +5,7 @@ PROGRAM compute_rates
   INTEGER :: nbtests, i, io
   CHARACTER :: empty
   DOUBLE PRECISION, ALLOCATABLE, DIMENSION(:) :: meshsize, regmail, erl2p, erl2gradp, erlinfp, erflux, &
-		ersharp, ersharpPe, Pemax, h1error, energyerror
+		ersharp, ersharpPe, Pemax, h1error, energyerror, nbedgedofs
 	CHARACTER (LEN=50) :: nomtest
 	CHARACTER (LEN=400) :: commande
 	
@@ -26,11 +26,10 @@ PROGRAM compute_rates
 	REWIND(10)
 
 	! On lit les donnees
-  ALLOCATE(meshsize(nbtests),regmail(nbtests),erl2p(nbtests),h1error(nbtests),energyerror(nbtests))
+  ALLOCATE(meshsize(nbtests),regmail(nbtests),erl2p(nbtests),h1error(nbtests),energyerror(nbtests),nbedgedofs(nbtests))
 	READ(10,*) empty
   DO i=1,nbtests
-    READ(10,*) meshsize(i),erl2p(i),h1error(i),energyerror(i)
-		regmail(i)=1D0
+    READ(10,*) meshsize(i),erl2p(i),h1error(i),energyerror(i),nbedgedofs(i),regmail(i)
   ENDDO
   CLOSE(10)
 
@@ -48,7 +47,7 @@ PROGRAM compute_rates
 	
 	CLOSE(20)	
 
-  DEALLOCATE(meshsize,regmail,erl2p,h1error,energyerror)
+  DEALLOCATE(meshsize,regmail,erl2p,h1error,energyerror,nbedgedofs)
 
 !---------------------------------------!
 	CONTAINS
