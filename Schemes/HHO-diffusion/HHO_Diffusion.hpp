@@ -528,13 +528,13 @@ Eigen::VectorXd HHO_Diffusion::load_operator(HybridCore &hho, const size_t iT) c
 	std::vector<Eigen::ArrayXd> phiT_quadT = hho.basis_quad('T', iT, quadT, hho.nlocal_cell_dofs());
 
 	// Value of source times quadrature weights at the quadrature nodes
-	Eigen::VectorXd weight_source_quad = Eigen::VectorXd::Zero(nbq);
+	Eigen::ArrayXd weight_source_quad = Eigen::ArrayXd::Zero(nbq);
 	for (size_t iqn = 0; iqn < nbq; iqn++){
 		weight_source_quad(iqn) = quadT[iqn].w * source(quadT[iqn].x, quadT[iqn].y, cell);
 	}
 
 	for (size_t i=0; i < hho.nlocal_cell_dofs(); i++){
-		b(i) = weight_source_quad.dot(phiT_quadT[i].matrix());
+		b(i) = (weight_source_quad * phiT_quadT[i]).sum();
 	}
 	// Boundary values, if we have a boundary cell
 	if (cell->is_boundary()){
