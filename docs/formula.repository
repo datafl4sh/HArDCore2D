@@ -19,3 +19,7 @@
 \form#18:$\displaystyle(\int F_i . G_j)_{i=1\ldots nrows; j=1\ldots ncols}$
 \form#19:$(\int F_i \cdot G_j)_{i=1\ldots nrows; j=1\ldots ncols}$
 \form#20:$(\int f_i g_j)_{i=1\ldots nrows; j=1\ldots ncols}$
+\form#21:$(\nabla \phi_i)_{i\in I}$
+\form#22:$(\phi_i)_{i\in I}$
+\form#23:$phi_i$
+\form#24:$\nabla \phi_i$

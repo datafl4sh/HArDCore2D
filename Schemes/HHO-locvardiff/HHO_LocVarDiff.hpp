@@ -280,7 +280,7 @@ Eigen::VectorXd HHO_LocVarDiff::solve(HybridCore &hho) {
 			size_t iF = b_edges[ibF]->global_index();
 			// Mass matrix and boundary values
 			std::vector<HybridCore::qrule> quadF = hho.edge_qrule(iF, 2*hho.K());
-			std::vector<Eigen::VectorXd> phiF_quadF = hho.basis_quad('F', iF, quadF, hho.nlocal_edge_dofs());
+			std::vector<Eigen::ArrayXd> phiF_quadF = hho.basis_quad('F', iF, quadF, hho.nlocal_edge_dofs());
 			Eigen::MatrixXd MFF = hho.gram_matrix(phiF_quadF, phiF_quadF, hho.nlocal_edge_dofs(), hho.nlocal_edge_dofs(), quadF, true);
 
 			// Compute (uexact, phi_i)_F for all edge basis functions phi_i
@@ -385,23 +385,24 @@ Eigen::MatrixXd HHO_LocVarDiff::diffusion_operator(HybridCore &hho, const size_t
 	//	Hence, the first dimPKcell functions are on the first component of R^d, the next dimPKcell on the second
 	//		component etc.
 	//	We do not explicitly build this basis function, but we compute the values of these functions at the
-	//		quadrature points, using the values computed for the scalar basis functions
+	//		quadrature nodes, using the values computed for the scalar basis functions
 
 
 	// QUADRATURES
-	// Cell quadrature points, and values of cell basis functions (up to degree K+1), gradients of them,
-	//	 and vector basis functions (up to degree K) at these points
+	// Cell quadrature nodes, and values of cell basis functions (up to degree K+1) and gradients thereof.
 	size_t doeT = std::max(2*(hho.K()+1), 2*hho.K() + _deg_kappa);
 	std::vector<HybridCore::qrule> quadT = hho.cell_qrule(iT, doeT);
-	std::vector<Eigen::VectorXd> phiT_quadT = hho.basis_quad('T', iT, quadT, hho.nhighorder_dofs());
-	std::vector<Eigen::MatrixXd> dphiT_quadT = hho.grad_basis_quad(iT, quadT, hho.nhighorder_dofs());
-	std::vector<Eigen::MatrixXd> vec_phiT_quadT(dimPKcell_vec, Eigen::MatrixXd::Zero(mesh->dim(), quadT.size()));
+	std::vector<Eigen::ArrayXd> phiT_quadT = hho.basis_quad('T', iT, quadT, hho.nhighorder_dofs());
+	std::vector<Eigen::ArrayXXd> dphiT_quadT = hho.grad_basis_quad(iT, quadT, hho.nhighorder_dofs());
+	// Vector basis functions (up to degree K) at the quadrature nodes. Given that the chosen implicit vector basis
+	//  function, their values at the quadrature nodes are obtained from those of the scalar basis functions
+	std::vector<Eigen::ArrayXXd> vec_phiT_quadT(dimPKcell_vec, Eigen::ArrayXXd::Zero(mesh->dim(), quadT.size()));
 	for (size_t r=0; r < mesh->dim(); r++){
 		for (size_t i=0; i < dimPKcell; i++){
 			vec_phiT_quadT[r * dimPKcell + i].row(r) = phiT_quadT[i].transpose();
 		}
 	}
-	// Diffusion tensor at the quadrature points
+	// Diffusion tensor at the quadrature nodes
 	std::vector<Eigen::Matrix2d> kappaT_quadT(quadT.size());
 	std::transform(quadT.begin(), quadT.end(), kappaT_quadT.begin(),
 			[this,&cell](HybridCore::qrule qr) -> Eigen::MatrixXd { return kappa(qr.x, qr.y, cell); });
@@ -429,12 +430,12 @@ timeint.start();
   for (size_t ilF = 0; ilF < nedgesT; ilF++) {
     const size_t iF = cell->edge(ilF)->global_index();
 
-		// Face quadrature points and values of cell and face basis functions (and gradients) at these points
+		// Face quadrature nodes and values of cell and face basis functions (and gradients) at these nodes
 		size_t doeF = 2*hho.K() + 1;
 		std::vector<HybridCore::qrule> quadF = hho.edge_qrule(iF, doeF);
-		std::vector<Eigen::VectorXd> phiT_quadF = hho.basis_quad('T', iT, quadF, hho.nhighorder_dofs());
-		std::vector<Eigen::VectorXd> phiF_quadF = hho.basis_quad('F', iF, quadF, hho.nlocal_edge_dofs());
-		std::vector<Eigen::MatrixXd> dphiT_quadF = hho.grad_basis_quad(iT, quadF, hho.nhighorder_dofs());
+		std::vector<Eigen::ArrayXd> phiT_quadF = hho.basis_quad('T', iT, quadF, hho.nhighorder_dofs());
+		std::vector<Eigen::ArrayXd> phiF_quadF = hho.basis_quad('F', iF, quadF, hho.nlocal_edge_dofs());
+		std::vector<Eigen::ArrayXXd> dphiT_quadF = hho.grad_basis_quad(iT, quadF, hho.nhighorder_dofs());
 
 		// Mass matrices
 		MFF[ilF] = hho.gram_matrix(phiF_quadF, phiF_quadF, hho.nlocal_edge_dofs(), hho.nlocal_edge_dofs(), quadF, true);
@@ -555,19 +556,19 @@ Eigen::VectorXd HHO_LocVarDiff::load_operator(HybridCore &hho, const size_t iT) 
 	size_t cell_edge_dofs = hho.nlocal_cell_dofs() + cell->n_edges()*hho.nlocal_edge_dofs();
   Eigen::VectorXd b = Eigen::VectorXd::Zero(cell_edge_dofs);
 
-	// Quadrature points and values of cell basis functions at these points
+	// Quadrature nodes and values of cell basis functions at these nodes
 	std::vector<HybridCore::qrule> quadT = hho.cell_qrule(iT, 2*hho.K()+10);
 	size_t nbq = quadT.size();
-	std::vector<Eigen::VectorXd> phiT_quadT = hho.basis_quad('T', iT, quadT, hho.nlocal_cell_dofs());
+	std::vector<Eigen::ArrayXd> phiT_quadT = hho.basis_quad('T', iT, quadT, hho.nlocal_cell_dofs());
 
-	// Value of source times quadrature weights at the quadrature points
+	// Value of source times quadrature weights at the quadrature nodes
 	Eigen::VectorXd weight_source_quad = Eigen::VectorXd::Zero(nbq);
 	for (size_t iqn = 0; iqn < nbq; iqn++){
 		weight_source_quad(iqn) = quadT[iqn].w * source(quadT[iqn].x, quadT[iqn].y, cell);
 	}
 
 	for (size_t i=0; i < hho.nlocal_cell_dofs(); i++){
-		b(i) = weight_source_quad.dot(phiT_quadT[i]);
+		b(i) = weight_source_quad.dot(phiT_quadT[i].matrix());
 	}
 	// Boundary values, if we have a boundary cell
 	if (cell->is_boundary()){

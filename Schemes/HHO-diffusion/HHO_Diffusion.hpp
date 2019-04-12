@@ -277,7 +277,7 @@ Eigen::VectorXd HHO_Diffusion::solve(HybridCore &hho) {
 			size_t iF = b_edges[ibF]->global_index();
 			// Mass matrix and boundary values
 			std::vector<HybridCore::qrule> quadF = hho.edge_qrule(iF, 2*hho.K());
-			std::vector<Eigen::VectorXd> phiF_quadF = hho.basis_quad('F', iF, quadF, hho.nlocal_edge_dofs());
+			std::vector<Eigen::ArrayXd> phiF_quadF = hho.basis_quad('F', iF, quadF, hho.nlocal_edge_dofs());
 			Eigen::MatrixXd MFF = hho.gram_matrix(phiF_quadF, phiF_quadF, hho.nlocal_edge_dofs(), hho.nlocal_edge_dofs(), quadF, true);
 
 			// Compute (uexact, phi_i)_F for all edge basis functions phi_i
@@ -385,11 +385,11 @@ Eigen::MatrixXd HHO_Diffusion::diffusion_operator(HybridCore &hho, const size_t 
 //			return kappa(x, y, cell);
 	};
 
-	// Compute cell quadrature points and values of cell basis functions and gradients at these points
+	// Compute cell quadrature nodes and values of cell basis functions and gradients at these nodes
 	std::vector<HybridCore::qrule> quadT = hho.cell_qrule(iT, hho.Ldeg()+hho.K()+1);
-	std::vector<Eigen::VectorXd> phi_quadT = hho.basis_quad('T', iT, quadT, hho.nhighorder_dofs());
-	std::vector<Eigen::MatrixXd> dphiT_quadT = hho.grad_basis_quad(iT, quadT, hho.nhighorder_dofs());
-	// Diffusion tensor at the quadrature points
+	std::vector<Eigen::ArrayXd> phi_quadT = hho.basis_quad('T', iT, quadT, hho.nhighorder_dofs());
+	std::vector<Eigen::ArrayXXd> dphiT_quadT = hho.grad_basis_quad(iT, quadT, hho.nhighorder_dofs());
+	// Diffusion tensor at the quadrature nodes
 	std::vector<Eigen::Matrix2d> kappaT_quadT(quadT.size());
 	std::transform(quadT.begin(), quadT.end(), kappaT_quadT.begin(),
 			[&kappaT,&cell](HybridCore::qrule qr) -> Eigen::MatrixXd { return kappaT(qr.x, qr.y); });
@@ -430,15 +430,15 @@ Eigen::MatrixXd HHO_Diffusion::diffusion_operator(HybridCore &hho, const size_t 
     const size_t iF = mesh->cell(iT)->edge(ilF)->global_index();
     const auto& nTF = mesh->cell(iT)->edge_normal(ilF);
 
-		// Compute face quadrature points and values of basis functions (and gradients) at these points
+		// Compute face quadrature nodes and values of basis functions (and gradients) at these nodes
 		std::vector<HybridCore::qrule> quadF = hho.edge_qrule(iF, 2*hho.K()+2);
 		size_t nbqF = quadF.size();
 		
-		std::vector<Eigen::VectorXd> phiT_quadF = hho.basis_quad('T', iT, quadF, hho.nhighorder_dofs());
-		std::vector<Eigen::VectorXd> phiF_quadF = hho.basis_quad('F', iF, quadF, hho.nlocal_edge_dofs());
-		std::vector<Eigen::MatrixXd> dphiT_quadF = hho.grad_basis_quad(iT, quadF, hho.nhighorder_dofs());
+		std::vector<Eigen::ArrayXd> phiT_quadF = hho.basis_quad('T', iT, quadF, hho.nhighorder_dofs());
+		std::vector<Eigen::ArrayXd> phiF_quadF = hho.basis_quad('F', iF, quadF, hho.nlocal_edge_dofs());
+		std::vector<Eigen::ArrayXXd> dphiT_quadF = hho.grad_basis_quad(iT, quadF, hho.nhighorder_dofs());
 
-		// kappaT*nTF on quadrature points
+		// kappaT*nTF on quadrature nodes
 		std::vector<Eigen::Vector2d> kappaT_nTF_quadF(nbqF, Eigen::Vector2d::Zero());
 		for (size_t iqn = 0; iqn < nbqF; iqn++){
 			kappaT_nTF_quadF[iqn] = kappaT(quadF[iqn].x, quadF[iqn].y)*nTF;
@@ -448,12 +448,12 @@ Eigen::MatrixXd HHO_Diffusion::diffusion_operator(HybridCore &hho, const size_t 
 			// We do not need i=0 because it corresponds to dphi_i=0
       for (size_t j = 0; j < hho.nlocal_cell_dofs(); j++) {
 				for (size_t iqn = 0; iqn < nbqF; iqn++){
-					BP(i,j) -= quadF[iqn].w * (dphiT_quadF[i].col(iqn)).dot(kappaT_nTF_quadF[iqn]) * phiT_quadF[j](iqn);
+					BP(i,j) -= quadF[iqn].w * (dphiT_quadF[i].col(iqn).matrix()).dot(kappaT_nTF_quadF[iqn]) * phiT_quadF[j](iqn);
 				}
       }
       for (size_t j = 0; j < hho.nlocal_edge_dofs(); j++) {
 				for (size_t iqn=0; iqn < nbqF; iqn++){
-					BP(i, offset_F + j) += quadF[iqn].w * (dphiT_quadF[i].col(iqn)).dot(kappaT_nTF_quadF[iqn]) * phiF_quadF[j](iqn);
+					BP(i, offset_F + j) += quadF[iqn].w * (dphiT_quadF[i].col(iqn).matrix()).dot(kappaT_nTF_quadF[iqn]) * phiF_quadF[j](iqn);
 				}
       }
     }
@@ -522,19 +522,19 @@ Eigen::VectorXd HHO_Diffusion::load_operator(HybridCore &hho, const size_t iT) c
 	size_t cell_edge_dofs = hho.nlocal_cell_dofs() + cell->n_edges()*hho.nlocal_edge_dofs();
   Eigen::VectorXd b = Eigen::VectorXd::Zero(cell_edge_dofs);
 
-	// Quadrature points and values of cell basis functions at these points
+	// Quadrature nodes and values of cell basis functions at these nodes
 	std::vector<HybridCore::qrule> quadT = hho.cell_qrule(iT, 2*hho.K()+10);
 	size_t nbq = quadT.size();
-	std::vector<Eigen::VectorXd> phiT_quadT = hho.basis_quad('T', iT, quadT, hho.nlocal_cell_dofs());
+	std::vector<Eigen::ArrayXd> phiT_quadT = hho.basis_quad('T', iT, quadT, hho.nlocal_cell_dofs());
 
-	// Value of source times quadrature weights at the quadrature points
+	// Value of source times quadrature weights at the quadrature nodes
 	Eigen::VectorXd weight_source_quad = Eigen::VectorXd::Zero(nbq);
 	for (size_t iqn = 0; iqn < nbq; iqn++){
 		weight_source_quad(iqn) = quadT[iqn].w * source(quadT[iqn].x, quadT[iqn].y, cell);
 	}
 
 	for (size_t i=0; i < hho.nlocal_cell_dofs(); i++){
-		b(i) = weight_source_quad.dot(phiT_quadT[i]);
+		b(i) = weight_source_quad.dot(phiT_quadT[i].matrix());
 	}
 	// Boundary values, if we have a boundary cell
 	if (cell->is_boundary()){

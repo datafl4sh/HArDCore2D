@@ -3,7 +3,7 @@
 //
 // Provides:
 //  - Hybrid polynomial basis functions (on the cells and faces of the mesh)
-//  - Generic routines to create quadrature points over cells and faces of the mesh
+//  - Generic routines to create quadrature nodes over cells and faces of the mesh
 //  - Interpolation of general functions onto the HHO space
 //  - Methods for integrating, evaluating, and computing norms of HHO solutions
 //
@@ -56,7 +56,7 @@ public:
 	using edge_basis_type = std::function<double(double,double)>;   ///< type for edge basis
 	using tensor_function_type = std::function<Eigen::Matrix2d(double,double)>;   ///< type for 2D tensors basis
 
-	///@brief description of one point and one weight from a quadrature rule
+	///@brief description of one node and one weight from a quadrature rule
   struct qrule {			
       double x, y, w;
       qrule(double x, double y, double w) : x(x), y(y), w(w) {}
@@ -105,12 +105,12 @@ public:
 	/// Compute a quadrature rule of a given degree of exactness on a cell
   std::vector<HybridCore::qrule> cell_qrule(const size_t iT,		/**< Global index of the cell */
                                             const size_t doe		/**< Required degree of exactness */
-																					) const;		/**< @returns list of quadrature points and weights */
+																					) const;		/**< @returns list of quadrature nodes and weights */
 
 	/// Compute a quadrature rule of a given degree of exactness on an edge
   std::vector<HybridCore::qrule> edge_qrule(const size_t iE,	/**< Global index of the edge */
                                             const size_t doe		/**< Required degree of exactness */
-																					) const;  /**< @returns list of quadrature points and weights */
+																					) const;  /**< @returns list of quadrature nodes and weights */
 
 	Eigen::VectorXd restr(const Eigen::VectorXd &Xh, size_t iT) const;	///< Extract from a global vector Xh of unknowns the unknowns corresponding to cell iT
 	double L2norm(const Eigen::VectorXd &Xh) const; ///< Compute L2 norm of a discrete function (using cell values)
@@ -124,43 +124,43 @@ public:
 	/// Create the matrix of L2 products of two families (f_i) and (g_j) of functions
 	/// (this is not really a Gram matrix, unless the two families are the same)
 	Eigen::MatrixXd gram_matrix(
-			const std::vector<Eigen::VectorXd>& f_quad, ///< Values of functions (f1,f2,...) at the quadrature points 
-			const std::vector<Eigen::VectorXd>& g_quad, ///< Values of functions (g1,g2,...) at the quadrature points 
+			const std::vector<Eigen::ArrayXd>& f_quad, ///< Values of functions (f1,f2,...) at the quadrature nodes 
+			const std::vector<Eigen::ArrayXd>& g_quad, ///< Values of functions (g1,g2,...) at the quadrature nodes 
 			const size_t& nrows, ///< Number of rows of the matrix - typically number of functions f_i (but could be less) 
 			const size_t& ncols, ///< Number of columns of the matrix - typically number of functions g_j (but could be less)
-			const std::vector<HybridCore::qrule>& quad, 	///< Quadrature points for integration 
+			const std::vector<HybridCore::qrule>& quad, 	///< Quadrature nodes for integration 
 			const bool& sym,		///< True if the matrix is pseudo-symmetric (that is, #f<=#g and f_i=g_i if i<=#f) 
-			std::vector<double> L2weight = {} 	///< Optional weight for the L2 product. If provided, should be a std::vector<double> of the weight at the quadrature points
+			std::vector<double> L2weight = {} 	///< Optional weight for the L2 product. If provided, should be a std::vector<double> of the weight at the quadrature nodes
 	) const;	/**< @returns The matrix \f$(\int f_i g_j)_{i=1\ldots nrows; j=1\ldots ncols}\f$ */
 
 	/// Overloaded version of the previous one for vector-valued functions: the functions (F_i) and (G_j) are vector-valued functions
 	Eigen::MatrixXd gram_matrix(
-			const std::vector<Eigen::MatrixXd>& F_quad,		///< Values of functions (F1,F2,...) at the quadrature points 
-			const std::vector<Eigen::MatrixXd>& G_quad,		///< Values of functions (G1,G2,...) at the quadrature points 
+			const std::vector<Eigen::ArrayXXd>& F_quad,		///< Values of functions (F1,F2,...) at the quadrature nodes 
+			const std::vector<Eigen::ArrayXXd>& G_quad,		///< Values of functions (G1,G2,...) at the quadrature nodes 
 			const size_t& nrows,		///< Number of rows of the matrix - typically number of functions F_i (but could be less) 
 			const size_t& ncols,		///< Number of rows of the matrix - typically number of functions G_j (but could be less) 
-			const std::vector<HybridCore::qrule>& quad,		///< Quadrature points for integration 
+			const std::vector<HybridCore::qrule>& quad,		///< Quadrature nodes for integration 
 			const bool& sym,		///< True if the matrix is pseudo-symmetric (that is, #F<=#G and F_i=G_i if i<=#F) 
-			std::vector<Eigen::Matrix2d> L2Weight = {}	///< Optional weight for the L2 product. If provided, should be a std::vector<Eigen::Matrix2d> of the weight at the quadrature points
+			std::vector<Eigen::Matrix2d> L2Weight = {}	///< Optional weight for the L2 product. If provided, should be a std::vector<Eigen::Matrix2d> of the weight at the quadrature nodes
 		) const ;  /**< @returns The matrix \f$(\int F_i \cdot G_j)_{i=1\ldots nrows; j=1\ldots ncols}\f$ */
 	
 	
 	Eigen::VectorXd compute_weights(size_t iT) const; ///< Weights to compute cell unknowns from edge unknowns when l=-1
 	
-	/// Computes (cell or edge) basis functions at the quadrature points
-	std::vector<Eigen::VectorXd> basis_quad(
+	/// Computes (cell or edge) basis functions at the quadrature nodes
+	std::vector<Eigen::ArrayXd> basis_quad(
 			const char B, 			///< T for cell, E for edge
 			const size_t iTF, 		///<	global index of the cell/edge
-			const std::vector<qrule> quad, 	///< quadrature points and weights on the cell/edge
+			const std::vector<qrule> quad, 	///< quadrature nodes and weights on the cell/edge
 			const size_t nbasis		///< number of basis functions to consider
-	) const;	///< @returns phi_quad[i] = vector listing values of phi_i at the quadrature nodes
+	) const;	///< @returns phi_quad[i] = array listing values of phi_i at the quadrature nodes
 
-	/// Compute 'grad phi_i' at the quadrature points, where phi_i are the cell basis functions
-	std::vector<Eigen::MatrixXd> grad_basis_quad(
+	/// Compute \f$(\nabla \phi_i)_{i\in I}\f$ at the quadrature nodes, where \f$(\phi_i)_{i\in I}\f$ are the cell basis functions
+	std::vector<Eigen::ArrayXXd> grad_basis_quad(
 			const size_t iT, 											///< global index of the cell
 			const std::vector<qrule> quad, 				///< quadrature rules in the cell
-			const size_t nbasis										///< number of basis functions phi_i to consider
-	) const; ///< @returns dphi_quad[i]: 2*nb of quad points matrix, with each column being 'grad phi_i' at the corresponding quadrature point 
+			const size_t nbasis										///< number of basis functions \f$phi_i\f$ to consider
+	) const; ///< @returns dphi_quad[i]: array of size 2*nbq (where nbq=nb of quadrature nodes), with each column being \f$\nabla \phi_i\f$ at the corresponding quadrature node 
 
 
 	/// Computes the integral of a discrete function using cell unknowns
@@ -189,13 +189,13 @@ public:
 	/// To integrate a function over an edge
 	template <typename Function>
 	void quadrature_over_edge(const size_t iF, const Function& f) const;
-	///Integrates a function over a cell. Use with parcimony, expensive (re-compute quadrature points)
+	///Integrates a function over a cell. Use with parcimony, expensive (re-compute quadratures)
 	template <typename Function>
 	double integrate_over_cell(const size_t iT, const Function& f) const;
-	///Integrates a function over an edge. Use with parcimony, expensive (re-compute quadrature points)
+	///Integrates a function over an edge. Use with parcimony, expensive (re-compute quadratures)
 	template <typename Function>
 	double integrate_over_edge(const size_t iF, const Function& f) const;
-	///Integrates a function over the domaine. Use with parcimony, expensive (re-compute quadrature points)
+	///Integrates a function over the domaine. Use with parcimony, expensive (re-compute quadratures)
 	template <typename Function>
 	double integrate_over_domain(const Function& f) const;
 
@@ -319,7 +319,7 @@ Eigen::VectorXd HybridCore::interpolate(const Function& f, size_t doe) const {
 
     // Mass matrix in cell
 		std::vector<HybridCore::qrule> quadT = cell_qrule(iT, doe);
-		std::vector<Eigen::VectorXd> phi_quadT = basis_quad('T', iT, quadT, _nlocal_cell_dofs);
+		std::vector<Eigen::ArrayXd> phi_quadT = basis_quad('T', iT, quadT, _nlocal_cell_dofs);
 		Eigen::MatrixXd MT = gram_matrix(phi_quadT, phi_quadT, _nlocal_cell_dofs, _nlocal_cell_dofs, quadT, true);
 
 		// Vector of integrals of f against basis functions
@@ -343,7 +343,7 @@ Eigen::VectorXd HybridCore::interpolate(const Function& f, size_t doe) const {
 
 			// Mass matrix on face
 			std::vector<HybridCore::qrule> quadF = edge_qrule(iF, doe);
-			std::vector<Eigen::VectorXd> phiF_quadF = basis_quad('F', iF, quadF, _nlocal_edge_dofs);
+			std::vector<Eigen::ArrayXd> phiF_quadF = basis_quad('F', iF, quadF, _nlocal_edge_dofs);
 			Eigen::MatrixXd MF = gram_matrix(phiF_quadF, phiF_quadF, _nlocal_edge_dofs, _nlocal_edge_dofs, quadF, true);
 
 			// Vector of integral of f against face basis functions

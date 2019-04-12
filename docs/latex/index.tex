@@ -57,7 +57,7 @@ Vertex* vertex = mesh\_ptr->\hyperlink{classHArDCore2D_1_1Mesh_ad099224c697c05a5
 
 Eigen::Vector2d vert\_coord = vertex->\hyperlink{group__Mesh_gade92964c93627c034b021c1d23075a79}{coords}()
 \end{DoxyCode}
- would store the coordinates of the fifth vertex into the Eigen vector vert\+\_\+coord. As a generic rule, all geometrical vectors and matrices are Eigen classes. Vectors describing lists (e.\+g. of cells, of functions...) are instances of {\ttfamily std\+::vector$<$...$>$}.
+ would store the coordinates of the fifth vertex into the Eigen vector vert\+\_\+coord. As a generic rule, all geometrical vectors are Eigen\+::\+Vector2d. We also use Eigen\+::\+Vector and Eigen\+::\+Matrix for objects on which linear algebraic operations are performed. Lists (e.\+g. of cells, of functions...) are instances of {\ttfamily std\+::vector$<$...$>$}. Finally, Eigen\+::\+Array is used for lists on which component-\/wise operators are performed (typically, values of some functions at the quadrature nodes, that will be multiplied component-\/wise by the corresponding quadrature weights and then summed together).
 
 Here is an example that loops over all cells, grabs all the edges of the cell, and loops over these edges to output their length. Here, {\ttfamily mesh\+\_\+ptr} is a pointer to the mesh.
 
@@ -178,7 +178,7 @@ A number of convenient quantities relating to the basis functions are available 
 \hyperlink{group__HybridCore_ga728e5b5aa3675a64e7dbc593ed9761f8}{ntotal\+\_\+dofs} &The total number of cell and face degrees of freedom over the entire mesh \\\cline{1-2}
 \end{longtabu}
 \hypertarget{index_integrate_mesh}{}\subsection{Integration over cells and edges}\label{index_integrate_mesh}
-The \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} structure provides routines to integrate generic functions on the cells and the edges. These routines are however expensive as they re-\/compute the quadrature points and weights every time they are called. They should therefore only be used with parsimony; computing quadrature nodes and values of basis functions at these nodes is more efficient, see \href{#quad_rules}{\tt Quadratures rules}.
+The \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} structure provides routines to integrate generic functions on the cells and the edges. These routines are however expensive as they re-\/compute the quadrature nodes and weights every time they are called. They should therefore only be used with parsimony; computing quadrature nodes and values of basis functions at these nodes is more efficient, see \href{#quad_rules}{\tt Quadratures rules}.
 
 For example, to integrate $f(x,y) = x^2 + y^2 $ over the cell number iT\+:
 
@@ -203,9 +203,9 @@ Basis functions can also be integrated\+:
 \hypertarget{index_quad_rules}{}\subsection{Quadrature rules}\label{index_quad_rules}
 H\+Ar\+D\+::\+Core deals with quite arbitrary cell geometries. As a consequence, no reference element can be used, and the quadrature rules have to be adjusted to each particular cell. This is done by partitioning each cell into triangles and by using \href{https://people.sc.fsu.edu/~jburkardt/cpp_src/triangle_dunavant_rule/triangle_dunavant_rule.html}{\tt John Burkardt\textquotesingle{}s implementation of the Dunavant rules}. The choice was also made not to pre-\/compute all quadrature rules for all cells and edges, but rather to compute them -- with a locally chosen degree of exactness -- when needed in the code. To reduce the computational cost, quadrature rules -- and the values of basis functions at quadrature nodes -- should only be computed once when looping over each cell, before being used, e.\+g., to form mass matrices.
 
-The \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} structure provides routines to do that. The method \hyperlink{classHArDCore2D_1_1HybridCore_a9ecd6ca61d4f9e3f3e3af81d8de394d0}{cell\+\_\+qrule(iT,doe)} calculates quadrature nodes and weights, exact up to the polynomial degree {\ttfamily doe} for an integration over cell number {\ttfamily iT}; see \hyperlink{classHArDCore2D_1_1HybridCore_a448297d0d0afefe477815dfb7821b270}{edge\+\_\+qrule(iE,doe)} for the equivalent over an edge. This quadrature rule, stored for example in {\ttfamily quad\+TE}, is then be provided to \hyperlink{classHArDCore2D_1_1HybridCore_adc7afe2ff1f5a56ebe48b407bdf08d6e}{basis\+\_\+quad(type,i,quad\+TE,deg)} which computes the values of the basis functions in cell/edge (depending on {\ttfamily type}=T or some other character) number {\ttfamily i} up to the specified degree {\ttfamily deg}; see also \hyperlink{classHArDCore2D_1_1HybridCore_a14adb4f4cfdd2dc7f9be9bfd085e7d87}{grad\+\_\+basis\+\_\+quad(i,quad\+TE,deg)} to compute the gradients of the basis functions at the quadrature nodes.
+The \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} structure provides routines to do that. The method \hyperlink{classHArDCore2D_1_1HybridCore_a9ecd6ca61d4f9e3f3e3af81d8de394d0}{cell\+\_\+qrule(iT,doe)} calculates quadrature nodes and weights, exact up to the polynomial degree {\ttfamily doe} for an integration over cell number {\ttfamily iT}; see \hyperlink{classHArDCore2D_1_1HybridCore_a448297d0d0afefe477815dfb7821b270}{edge\+\_\+qrule(iE,doe)} for the equivalent over an edge. This quadrature rule, stored for example in {\ttfamily quad\+TE}, is then be provided to \hyperlink{classHArDCore2D_1_1HybridCore_abf958443b4a8f64bfd25d35572b0af01}{basis\+\_\+quad(type,i,quad\+TE,deg)} which computes the values of the basis functions in cell/edge (depending on {\ttfamily type}=T or some other character) number {\ttfamily i} up to the specified degree {\ttfamily deg}; see also \hyperlink{classHArDCore2D_1_1HybridCore_a296b4872f6d440bd2940e0b8d9bdd522}{grad\+\_\+basis\+\_\+quad(i,quad\+TE,deg)} to compute the gradients of the basis functions at the quadrature nodes.
 
-Typically, these values are then passed on to \hyperlink{classHArDCore2D_1_1HybridCore_a1b9e2d375b5a3a578b79fb2cc0100b6b}{gram\+\_\+matrix(f\+\_\+quad,g\+\_\+quad,Nf,Ng,quad\+TE,sym,weight)} which computes a ``generalised\textquotesingle{}\textquotesingle{} Gram matrix $(\int weight*f_i*g_j)_{ij}$ of the families of functions $(f_1,\ldots,f_{Nf})$ and $(g_1,\ldots,g_{Ng})$, provided at the quadrature notes by {\ttfamily f\+\_\+quad} and {\ttfamily g\+\_\+quad} (here, {\ttfamily sym} is a boolean indicating if the matrix is expected to be symmetric). This Gram matrix method is useful to compute mass and stiffness matrices.
+Typically, these values are then passed on to \hyperlink{classHArDCore2D_1_1HybridCore_a1e9b987fd5c7a55f6243b99a8c19bbe4}{gram\+\_\+matrix(f\+\_\+quad,g\+\_\+quad,Nf,Ng,quad\+TE,sym,weight)} which computes a ``generalised\textquotesingle{}\textquotesingle{} Gram matrix $(\int weight*f_i*g_j)_{ij}$ of the families of functions $(f_1,\ldots,f_{Nf})$ and $(g_1,\ldots,g_{Ng})$, provided at the quadrature notes by {\ttfamily f\+\_\+quad} and {\ttfamily g\+\_\+quad} (here, {\ttfamily sym} is a boolean indicating if the matrix is expected to be symmetric). This Gram matrix method is useful to compute mass and stiffness matrices.
 
 Here is an example.
 
@@ -217,11 +217,11 @@ Here is an example.
 std::vector<HybridCore::qrule> quadT = hho.cell\_qrule(iT, hho.Ldeg()+hho.K()+1);
 
 \textcolor{comment}{// Compute values of basis functions, up to degree \(\backslash\)f$(K+1)\(\backslash\)$, at the quadrature nodes}
-std::vector<Eigen::VectorXd> phi\_quadT = hho.basis\_quad(\textcolor{charliteral}{'T'}, iT, quadT, hho.nhighorder\_dofs());
+std::vector<Eigen::ArrayXd> phi\_quadT = hho.basis\_quad(\textcolor{charliteral}{'T'}, iT, quadT, hho.nhighorder\_dofs());
 
 \textcolor{comment}{// Compute values of gradients of basis functions, as well as `diff` times these gradients, at the
        quadrature nodes}
-std::vector<Eigen::MatrixXd> dphiT\_quadT = hho.grad\_basis\_quad(iT, quadT, hho.nhighorder\_dofs());
+std::vector<Eigen::ArrayXXd> dphiT\_quadT = hho.grad\_basis\_quad(iT, quadT, hho.nhighorder\_dofs());
 
 \textcolor{comment}{// Create the mass matrix of basis functions up to degree \(\backslash\)f$L\(\backslash\)f$ and the stiffness matrix of the gradients}
 \textcolor{comment}{// kappa is a function that returns the diffusion tensor at the considered location}
@@ -234,10 +234,10 @@ Eigen::MatrixXd StiffT = hho.gram\_matrix(dphiT\_quadT, dphiT\_quadT, hho.nhigho
 \textcolor{keywordtype}{size\_t} iF = mesh->cell(iT)->edge(0)->global\_index();
 std::vector<HybridCore::qrule> quadF = hho.edge\_qrule(iF, 2*hho.K()+2);
 
-\textcolor{comment}{// Compute the values of the cell basis function, and the edge basis function, at the quadrature points}
+\textcolor{comment}{// Compute the values of the cell basis function, and the edge basis function, at the quadrature nodes}
 \textcolor{comment}{// on the edge, and create the 'mass matrix' of cell-edge basis functions on the edge}
-std::vector<Eigen::VectorXd> phiT\_quadF = hho.basis\_quad(\textcolor{charliteral}{'T'}, iT, quadF, hho.nhighorder\_dofs());
-std::vector<Eigen::VectorXd> phiF\_quadF = hho.basis\_quad(\textcolor{charliteral}{'F'}, iF, quadF, hho.nlocal\_edge\_dofs());
+std::vector<Eigen::ArrayXd> phiT\_quadF = hho.basis\_quad(\textcolor{charliteral}{'T'}, iT, quadF, hho.nhighorder\_dofs());
+std::vector<Eigen::ArrayXd> phiF\_quadF = hho.basis\_quad(\textcolor{charliteral}{'F'}, iF, quadF, hho.nlocal\_edge\_dofs());
 Eigen::MatrixXd MFT = hho.gram\_matrix(phiF\_quadF, phiT\_quadF, hho.nlocal\_edge\_dofs(), hho.nhighorder\_dofs()
       , quadF, \textcolor{keyword}{false});
 \end{DoxyCode}

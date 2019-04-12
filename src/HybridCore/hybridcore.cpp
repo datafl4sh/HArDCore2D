@@ -3,7 +3,7 @@
 //
 // Provides:
 //  - Hybrid polynomial basis functions (on the cells and faces of the mesh)
-//  - Generic routines to create quadrature points over cells and faces of the mesh
+//  - Generic routines to create quadrature nodes over cells and faces of the mesh
 //  - Interpolation of general functions onto the HHO space
 //  - Methods for integrating, evaluating, and computing norms of HHO solutions
 //
@@ -226,15 +226,24 @@ std::vector<HybridCore::qrule> HybridCore::edge_qrule(const size_t iE,
 // ------  Gram matrices for scalar and vector-valued functions
 // -------------------------------------------------------------------
 
-Eigen::MatrixXd HybridCore::gram_matrix(const std::vector<Eigen::VectorXd>& f_quad, const std::vector<Eigen::VectorXd>& g_quad, const size_t& nrows, const size_t& ncols, const std::vector<HybridCore::qrule>& quad, const bool& sym, std::vector<double> L2weight) const {
+Eigen::MatrixXd HybridCore::gram_matrix(const std::vector<Eigen::ArrayXd>& f_quad, const std::vector<Eigen::ArrayXd>& g_quad, const size_t& nrows, const size_t& ncols, const std::vector<HybridCore::qrule>& quad, const bool& sym, std::vector<double> L2weight) const {
 
 	Eigen::MatrixXd GGM = Eigen::MatrixXd::Zero(nrows, ncols);
 
+	size_t nbq = quad.size();
+
+	// Recast product of quadrature and L2weight into an Eigen::ArrayXd
+	Eigen::ArrayXd quad_L2_weights = Eigen::ArrayXd::Zero(nbq);
 	if (L2weight.size() == 0){
-		L2weight.resize(quad.size(), 1.0);
+		for (size_t iqn = 0; iqn < nbq; iqn++){
+			quad_L2_weights(iqn) = quad[iqn].w;
+		}
+	}else{
+		for (size_t iqn = 0; iqn < nbq; iqn++){
+			quad_L2_weights(iqn) = quad[iqn].w * L2weight[iqn];
+		}
 	}
 
-	size_t nbq = quad.size();
 	for (size_t i = 0; i < nrows; i++){
 		size_t jcut = 0;
 		if (sym) jcut = i;
@@ -243,16 +252,15 @@ Eigen::MatrixXd HybridCore::gram_matrix(const std::vector<Eigen::VectorXd>& f_qu
 		}
 		for (size_t j = jcut; j < ncols; j++){
 			// Integrate f_i * g_j
-			for (size_t iqn = 0; iqn < nbq; iqn++){
-				GGM(i, j) += quad[iqn].w * L2weight[iqn] * f_quad[i](iqn) * g_quad[j](iqn);
-			}
+			// The products here are component-wise since the terms are Eigen::ArrayXd
+			GGM(i, j) = (quad_L2_weights * f_quad[i] * g_quad[j]).sum();
 		}
 	}
 
 	return GGM;
 }
 
-Eigen::MatrixXd HybridCore::gram_matrix(const std::vector<Eigen::MatrixXd>& F_quad, const std::vector<Eigen::MatrixXd>& G_quad, const size_t& nrows, const size_t& ncols, const std::vector<HybridCore::qrule>& quad, const bool& sym, std::vector<Eigen::Matrix2d> L2Weight) const {
+Eigen::MatrixXd HybridCore::gram_matrix(const std::vector<Eigen::ArrayXXd>& F_quad, const std::vector<Eigen::ArrayXXd>& G_quad, const size_t& nrows, const size_t& ncols, const std::vector<HybridCore::qrule>& quad, const bool& sym, std::vector<Eigen::Matrix2d> L2Weight) const {
 
 	Eigen::MatrixXd GSM = Eigen::MatrixXd::Zero(nrows, ncols);
 
@@ -270,7 +278,7 @@ Eigen::MatrixXd HybridCore::gram_matrix(const std::vector<Eigen::MatrixXd>& F_qu
 		for (size_t j = jcut; j < ncols; j++){
 			// Integrate f_i * g_j
 			for (size_t iqn = 0; iqn < nbq; iqn++){
-				GSM(i, j) += quad[iqn].w * (L2Weight[iqn] * F_quad[i].col(iqn)).dot(G_quad[j].col(iqn));
+				GSM(i, j) += quad[iqn].w * (L2Weight[iqn] * F_quad[i].col(iqn).matrix()).dot(G_quad[j].col(iqn).matrix());
 			}
 		}
 	}
@@ -279,12 +287,12 @@ Eigen::MatrixXd HybridCore::gram_matrix(const std::vector<Eigen::MatrixXd>& F_qu
 }
 
 // ----------------------------------------------------------------
-// ------- Basis functions and gradients on quadrature points
+// ------- Basis functions and gradients on quadrature nodes
 // ----------------------------------------------------------------
 
-std::vector<Eigen::VectorXd> HybridCore::basis_quad(const char B, const size_t iTF, const std::vector<qrule> quad, const size_t nbasis) const {
+std::vector<Eigen::ArrayXd> HybridCore::basis_quad(const char B, const size_t iTF, const std::vector<qrule> quad, const size_t nbasis) const {
 	size_t nbq = quad.size();
-	std::vector<Eigen::VectorXd> phi_quad(nbasis, Eigen::VectorXd::Zero(nbq));	
+	std::vector<Eigen::ArrayXd> phi_quad(nbasis, Eigen::ArrayXd::Zero(nbq));	
 	for (size_t i = 0; i < nbasis; i++){
 		if (B == 'T'){
 			const auto &phi_i = cell_basis(iTF, i);
@@ -303,9 +311,9 @@ std::vector<Eigen::VectorXd> HybridCore::basis_quad(const char B, const size_t i
 	return phi_quad;
 }
 
-std::vector<Eigen::MatrixXd> HybridCore::grad_basis_quad(const size_t iT, const std::vector<qrule> quad, const size_t nbasis) const {
+std::vector<Eigen::ArrayXXd> HybridCore::grad_basis_quad(const size_t iT, const std::vector<qrule> quad, const size_t nbasis) const {
 	size_t nbq = quad.size();
-	std::vector<Eigen::MatrixXd> dphi_quad(nbasis, Eigen::MatrixXd::Zero(2, nbq));	
+	std::vector<Eigen::ArrayXXd> dphi_quad(nbasis, Eigen::ArrayXXd::Zero(_mesh_ptr->dim(), nbq));	
 
 	// No need to consider i=0 since the first basis function is constant
 	for (size_t i = 1; i < nbasis; i++){
@@ -371,9 +379,9 @@ double HybridCore::L2norm(const Eigen::VectorXd &Xh) const {
   double value = 0.0;
   for (size_t iT = 0; iT < _mesh_ptr->n_cells(); iT++) {
 		// L2 norm computed using the mass matrix
-		// Compute cell quadrature points and values of cell basis functions at these points
+		// Compute cell quadrature nodes and values of cell basis functions at these nodes
 		std::vector<HybridCore::qrule> quadT = cell_qrule(iT, 2*(_K+1));
-		std::vector<Eigen::VectorXd> phi_quadT = basis_quad('T', iT, quadT, _nlocal_cell_dofs);
+		std::vector<Eigen::ArrayXd> phi_quadT = basis_quad('T', iT, quadT, _nlocal_cell_dofs);
 
 		Eigen::MatrixXd MTT = gram_matrix(phi_quadT, phi_quadT, _nlocal_cell_dofs, _nlocal_cell_dofs, quadT, true);
 		Eigen::VectorXd XT = Xh.segment(iT*_nlocal_cell_dofs,_nlocal_cell_dofs);
@@ -395,9 +403,9 @@ double HybridCore::H1norm(const Eigen::VectorXd &Xh) const {
 		// Local matrix of the bilinear form corresponding to the cell contribution in the discrete H1 norm
 		Eigen::MatrixXd H1aT = Eigen::MatrixXd::Zero(nlocal_dofs, nlocal_dofs);
 
-		// Compute cell quadrature points and values of gradients of cell basis functions
+		// Compute cell quadrature nodes and values of gradients of cell basis functions
 		std::vector<HybridCore::qrule> quadT = cell_qrule(iT, 2*_Ldeg);
-		std::vector<Eigen::MatrixXd> dphiT_quadT = grad_basis_quad(iT, quadT, _nlocal_cell_dofs);
+		std::vector<Eigen::ArrayXXd> dphiT_quadT = grad_basis_quad(iT, quadT, _nlocal_cell_dofs);
 
 		// CELL CONTRIBUTION
 		//
@@ -411,10 +419,10 @@ double HybridCore::H1norm(const Eigen::VectorXd &Xh) const {
 			size_t iF = cell->edge(ilF)->global_index();
 			size_t offset_F = _nlocal_cell_dofs + ilF * _nlocal_edge_dofs;
   		auto hF = _mesh_ptr->edge(iF)->measure();
-			// Face quadrature points and values of cell and face basis functions at these points
+			// Face quadrature nodes and values of cell and face basis functions at these nodes
 			std::vector<HybridCore::qrule> quadF = edge_qrule(iF, 2*_K+1);
-			std::vector<Eigen::VectorXd> phiT_quadF = basis_quad('T', iT, quadF, _nlocal_cell_dofs);
-			std::vector<Eigen::VectorXd> phiF_quadF = basis_quad('F', iF, quadF, _nlocal_edge_dofs);
+			std::vector<Eigen::ArrayXd> phiT_quadF = basis_quad('T', iT, quadF, _nlocal_cell_dofs);
+			std::vector<Eigen::ArrayXd> phiF_quadF = basis_quad('F', iF, quadF, _nlocal_edge_dofs);
 
 			// Face, face-cell and face-face Gram matrix on F
 			Eigen::MatrixXd MFF = gram_matrix(phiF_quadF, phiF_quadF, _nlocal_edge_dofs, _nlocal_edge_dofs, quadF, true);
