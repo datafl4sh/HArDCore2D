@@ -1,4 +1,4 @@
-H\+Ar\+D\+::\+Core provides a suite of tools, in C++, to implement numerical schemes whose unknowns are polynomials in the cells and on the edges (in 2D) or faces (in 3D). The focus is on dealing on generic polytopal meshes. This documentation addresses the 2D version of H\+Ar\+D\+::\+Core, but similar principles are valid for the 3D version.
+H\+Ar\+D\+::\+Core (sources\+: \href{https://github.com/jdroniou/HArDCore2D}{\tt https\+://github.\+com/jdroniou/\+H\+Ar\+D\+Core2D}) provides a suite of tools, in C++, to implement numerical schemes whose unknowns are polynomials in the cells and on the edges (in 2D) or faces (in 3D). The focus is on dealing on generic polytopal meshes. This documentation addresses the 2D version of H\+Ar\+D\+::\+Core, but similar principles are valid for the 3D version.
 
 
 \begin{DoxyItemize}
@@ -57,7 +57,7 @@ Vertex* vertex = mesh\_ptr->\hyperlink{classHArDCore2D_1_1Mesh_ad099224c697c05a5
 
 Eigen::Vector2d vert\_coord = vertex->\hyperlink{group__Mesh_gade92964c93627c034b021c1d23075a79}{coords}()
 \end{DoxyCode}
- would store the coordinates of the fifth vertex into the Eigen vector vert\+\_\+coord. As a generic rule, all geometrical vectors are Eigen\+::\+Vector2d. We also use Eigen\+::\+Vector and Eigen\+::\+Matrix for objects on which linear algebraic operations are performed. Lists (e.\+g. of cells, of functions...) are instances of {\ttfamily std\+::vector$<$...$>$}. Finally, Eigen\+::\+Array is used for lists on which component-\/wise operators are performed (typically, values of some functions at the quadrature nodes, that will be multiplied component-\/wise by the corresponding quadrature weights and then summed together).
+ would store the coordinates of the fifth vertex into the Eigen vector vert\+\_\+coord. As a generic rule, all geometrical vectors are {\ttfamily Eigen\+::\+Vector2d}. We also use {\ttfamily Eigen\+::\+Vector\{2,X\}d} and {\ttfamily Eigen\+::\+Matrix\{2,X\}d} for objects on which linear algebraic operations are performed. Lists (e.\+g. of cells, of functions...) are instances of {\ttfamily std\+::vector$<$...$>$}. Finally, {\ttfamily Eigen\+::\+Array} is used for lists on which component-\/wise operators are performed (typically, values of some functions at the quadrature nodes, that will be multiplied component-\/wise by the corresponding quadrature weights and then summed together).
 
 Here is an example that loops over all cells, grabs all the edges of the cell, and loops over these edges to output their length. Here, {\ttfamily mesh\+\_\+ptr} is a pointer to the mesh.
 
