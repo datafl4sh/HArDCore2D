@@ -5,7 +5,7 @@ var searchData=
   ['cell_5fbasis',['cell_basis',['../classHArDCore2D_1_1HybridCore.html#a34242db07cc2b3c3b867d9e4580b634d',1,'HArDCore2D::HybridCore']]],
   ['cell_5fgradient',['cell_gradient',['../classHArDCore2D_1_1HybridCore.html#a710fc23b914623b90a2699ab4291e539',1,'HArDCore2D::HybridCore']]],
   ['cell_5fqrule',['cell_qrule',['../classHArDCore2D_1_1HybridCore.html#a9ecd6ca61d4f9e3f3e3af81d8de394d0',1,'HArDCore2D::HybridCore']]],
-  ['center_5fmass',['center_mass',['../group__Mesh.html#ga66b278b12266d5c5bfee8699886cc89b',1,'HArDCore2D::Cell::center_mass()'],['../classHArDCore2D_1_1Edge.html#a0f5647010760274bb83adee19091eeb5',1,'HArDCore2D::Edge::center_mass()']]],
+  ['center_5fmass',['center_mass',['../group__Mesh.html#ga66b278b12266d5c5bfee8699886cc89b',1,'HArDCore2D::Cell::center_mass()'],['../group__Mesh.html#ga41ebc04d2b292197a02a9afd25a76a18',1,'HArDCore2D::Edge::center_mass()']]],
   ['compute_5fweights',['compute_weights',['../classHArDCore2D_1_1HybridCore.html#a06825c5d156026d465a2798389aa952b',1,'HArDCore2D::HybridCore']]],
   ['coords',['coords',['../group__Mesh.html#gade92964c93627c034b021c1d23075a79',1,'HArDCore2D::Vertex']]]
 ];

@@ -8,6 +8,8 @@
 
 #include "cell.hpp"
 #include "mesh.hpp"
+#include "edge.hpp"
+#include "vertex.hpp"
 #include <cmath>
 #include <math.h>
 #include <iostream>
@@ -28,15 +30,13 @@ Cell::Cell(size_t iC, std::vector<size_t> vertex_ids, Mesh *mesh)
 		    // need to initialise the cells edge - while we're at it why not calculate
 		    // the edge midpoints
 		    std::vector<size_t> tmp = {1,1};
-		    for (size_t i = 0; i < vertex_ids.size(); i++) {
+				size_t nbV = vertex_ids.size();
+		    for (size_t i = 0; i < nbV; i++) {
 					// grab vertex i and i+1 (modulo nb of vertices in cell)
-	        size_t j = i + 1;
-	        if (j >= vertex_ids.size()) {
-	            j = 0;
-	        }
+					size_t inext = (i + 1) % nbV;
 					// Vertices i,j appear counter-clockwise in cell
 	        tmp[0] = vertex_ids[i];
-	        tmp[1] = vertex_ids[j];
+	        tmp[1] = vertex_ids[inext];
 
 	        Edge *edge = _mesh->add_edge(tmp, this);
 	        _edges.push_back(edge);
@@ -102,8 +102,7 @@ Vector2d Cell::ari_coords() const {
     // calculate the arithmetic coordinates using the calculated edge midpoints.
     // Currently this is just computed when needed but it could be saved or even
     // precomputed when the midpoints are calculated
-    for (size_t i = 0; i < n_edges(); i++) {
-        Edge *e = edge(i);
+    for (auto& e : _edges) {
         auto mp = e->center_mass();
         x += mp.x();
         y += mp.y();
@@ -116,17 +115,16 @@ Vector2d Cell::ari_coords() const {
 }
 
 bool Cell::is_neighbour(const Cell *rhs) const {
-    // iterate over the nodes indices in the cells they are shared then
-    // these
-    // are neighbours
+    // check if the cell rhs is a neighbour, by looking at the number of vertices
+		// it has in common with the current cell
     size_t n = 0;
     if (rhs->global_index() == global_index()) {
         return false;
     }
-    for (size_t i = 0; i < n_vertices(); i++) {
-        for (size_t j = 0; j < rhs->n_vertices(); j++) {
-            if (vertex(i) == rhs->vertex(j)) {
-                n++;  // return true;
+    for (auto& v : _vertices) {
+        for (auto& v_rhs : rhs->get_vertices()) {
+            if (v == v_rhs) {
+                n++;  // nb of vertices in common
             }
         }
     }
@@ -161,8 +159,8 @@ bool Cell::calc_cell_geometry_factors() {
 				de = v0(0) * v1(1) - v0(1) * v1(0);
         ar = sqrt(de * de);
         // be careful that ar is twice the triangle area!
-        for (size_t ilV = 0; ilV < nFV; ++ilV) {
-					xc += vlist[ilV]->coords() / 3.;
+        for (auto& v : vlist) {
+					xc += v->coords() / 3.;
         }
 				_center_mass = xc;
 

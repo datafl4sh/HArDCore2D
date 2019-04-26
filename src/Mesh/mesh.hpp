@@ -12,11 +12,12 @@
 #include <string>
 #include <vector>
 #include <array>
-#include "cell.hpp"
-#include "edge.hpp"
-#include "vertex.hpp"
 #include <Eigen/Dense>
-
+#include "cell.hpp"
+namespace HArDCore2D {  // forward declaration
+	class Edge;
+	class Vertex;
+}
 
 /*!	
 *	@defgroup Mesh 

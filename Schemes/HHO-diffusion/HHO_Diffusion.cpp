@@ -30,8 +30,6 @@ const std::string mesh_dir = "../../typ2_meshes/";
 std::string default_mesh = mesh_dir + "cart5x5.typ2";
 const std::string default_solver_type = "bicgstab";
 
-constexpr int d = 2;
-
 int main(int argc, const char* argv[]) {
 
   // --------------------------------------------------------------------------

@@ -1,12 +1,14 @@
 // Class to define an edge
 //		Members: cells, vertices...
-//		Methods: index, length, midpoint...
+//		Methods: index, diameter, measure, center of mass...
 //
 // Author: Jerome Droniou (jerome.droniou@monash.edu)
 //
 
-#include <edge.hpp>
-#include <mesh.hpp>
+#include "edge.hpp"
+#include "cell.hpp"
+#include "vertex.hpp"
+#include "mesh.hpp"
 #include <iostream>
 
 using namespace HArDCore2D;
@@ -47,15 +49,16 @@ Vertex *Edge::vertex(size_t i) const {
     }
 }
 
-std::vector<Cell *> Edge::get_cells() const { return _cells; }
-
-std::vector<Vertex *> Edge::get_vertices() const { return _vertices; }
-
+/// Measure and diameter are the same for an edge, but for consistency with the way schemes
+/// are usually defined, we provide two functions. For translation of each scheme's code to 3D (with
+/// edges becoming faces), it is better to use the proper one depending if the measure or diameter is expected
 double Edge::measure() const { return _line.norm(); }
-
-Vector2d Edge::center_mass() const { return _mp; }
-
-Vector2d Edge::tangent() const { return _line; }
+/// Measure and diameter are the same for an edge, but for consistency with the way schemes
+/// are usually defined, we provide two functions. For translation of each scheme's code to 3D (with
+/// edges becoming faces), it is better to use the proper one depending if the measure or diameter is expected
+double Edge::diam() const { return _line.norm(); }
+std::vector<Cell *> Edge::get_cells() const { return _cells; }
+std::vector<Vertex *> Edge::get_vertices() const { return _vertices; }
 
 void Edge::add_cell(Cell *cell) {
     if (_cells.size() < 2) {

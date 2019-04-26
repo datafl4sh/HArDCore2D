@@ -11,7 +11,8 @@
 //
 
 
-#include <hybridcore.hpp>
+#include "hybridcore.hpp"
+#include "vertex.hpp"
 #include <quad2d.hpp>
 #include <quad1d.hpp>
 #include <Eigen/Dense>
@@ -122,7 +123,7 @@ std::vector<HybridCore::edge_basis_type> HybridCore::create_edge_basis(size_t iF
 	
 	auto xF = _mesh_ptr->edge(iF)->center_mass();
 	auto edge_tang = _mesh_ptr->edge(iF)->tangent();
-	auto hF = _mesh_ptr->edge(iF)->measure();
+	auto hF = _mesh_ptr->edge(iF)->diam();
 	
 	edge_tang = edge_tang.normalized();
 	for (size_t degree = 0; degree <= _K; degree++){
@@ -381,9 +382,9 @@ double HybridCore::L2norm(const Eigen::VectorXd &Xh) const {
 		// L2 norm computed using the mass matrix
 		// Compute cell quadrature nodes and values of cell basis functions at these nodes
 		std::vector<HybridCore::qrule> quadT = cell_qrule(iT, 2*(_K+1));
-		std::vector<Eigen::ArrayXd> phi_quadT = basis_quad('T', iT, quadT, _nlocal_cell_dofs);
+		std::vector<Eigen::ArrayXd> phiT_quadT = basis_quad('T', iT, quadT, _nlocal_cell_dofs);
 
-		Eigen::MatrixXd MTT = gram_matrix(phi_quadT, phi_quadT, _nlocal_cell_dofs, _nlocal_cell_dofs, quadT, true);
+		Eigen::MatrixXd MTT = gram_matrix(phiT_quadT, phiT_quadT, _nlocal_cell_dofs, _nlocal_cell_dofs, quadT, true);
 		Eigen::VectorXd XT = Xh.segment(iT*_nlocal_cell_dofs,_nlocal_cell_dofs);
 
 		value += XT.dot(MTT*XT);
@@ -418,7 +419,7 @@ double HybridCore::H1norm(const Eigen::VectorXd &Xh) const {
 		for (size_t ilF=0; ilF < nedgesT ; ilF++){
 			size_t iF = cell->edge(ilF)->global_index();
 			size_t offset_F = _nlocal_cell_dofs + ilF * _nlocal_edge_dofs;
-  		auto hF = _mesh_ptr->edge(iF)->measure();
+  		auto hF = _mesh_ptr->edge(iF)->diam();
 			// Face quadrature nodes and values of cell and face basis functions at these nodes
 			std::vector<HybridCore::qrule> quadF = edge_qrule(iF, 2*_K+1);
 			std::vector<Eigen::ArrayXd> phiT_quadF = basis_quad('T', iT, quadF, _nlocal_cell_dofs);

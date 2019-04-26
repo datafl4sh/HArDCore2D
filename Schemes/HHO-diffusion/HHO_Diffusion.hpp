@@ -483,7 +483,7 @@ Eigen::MatrixXd HHO_Diffusion::diffusion_operator(HybridCore &hho, const size_t 
         Eigen::MatrixXd::Identity(hho.nlocal_cell_dofs(), hho.nlocal_cell_dofs());
 
   for (size_t ilF = 0; ilF < nedgesT; ilF++) {
-		auto hF = mesh->cell(iT)->edge(ilF)->measure();
+		auto hF = mesh->cell(iT)->edge(ilF)->diam();
     auto xF = mesh->cell(iT)->edge(ilF)->center_mass();
 
     auto kappa_TF = kappaT(xF.x(), xF.y()).trace();

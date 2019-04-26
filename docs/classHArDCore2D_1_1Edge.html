@@ -82,7 +82,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1bca27244cfcd45e24e0b7485f148ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga774e975ebad5e6bdccf549215293d624"><td class="memItemLeft" align="right" valign="top">
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga774e975ebad5e6bdccf549215293d624">global_index</a> () const</td></tr>
-<tr class="memdesc:ga774e975ebad5e6bdccf549215293d624"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the edges global index <br /></td></tr>
+<tr class="memdesc:ga774e975ebad5e6bdccf549215293d624"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the edge global index <br /></td></tr>
 <tr class="separator:ga774e975ebad5e6bdccf549215293d624"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0926b705b6169b73293e60e0c48e85f8"><td class="memItemLeft" align="right" valign="top">
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga0926b705b6169b73293e60e0c48e85f8">n_cells</a> () const</td></tr>
@@ -104,18 +104,20 @@ std::vector&lt; <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> *
 <a class="el" href="classHArDCore2D_1_1Vertex.html">Vertex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1Edge.html#ade257bc049ec1f43751fc647e07ec052">vertex</a> (size_t i) const</td></tr>
 <tr class="memdesc:ade257bc049ec1f43751fc647e07ec052"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a pointer to the i-th vertex of the edge <br /></td></tr>
 <tr class="separator:ade257bc049ec1f43751fc647e07ec052"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c00cbb57ddc2e80e3c07849eadc68a8"><td class="memItemLeft" align="right" valign="top"><a id="a6c00cbb57ddc2e80e3c07849eadc68a8"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1Edge.html#a6c00cbb57ddc2e80e3c07849eadc68a8">measure</a> () const</td></tr>
-<tr class="memdesc:a6c00cbb57ddc2e80e3c07849eadc68a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">length of the edge <br /></td></tr>
+<tr class="memitem:a6c00cbb57ddc2e80e3c07849eadc68a8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1Edge.html#a6c00cbb57ddc2e80e3c07849eadc68a8">measure</a> () const</td></tr>
+<tr class="memdesc:a6c00cbb57ddc2e80e3c07849eadc68a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">length of the edge  <a href="#a6c00cbb57ddc2e80e3c07849eadc68a8">More...</a><br /></td></tr>
 <tr class="separator:a6c00cbb57ddc2e80e3c07849eadc68a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f5647010760274bb83adee19091eeb5"><td class="memItemLeft" align="right" valign="top"><a id="a0f5647010760274bb83adee19091eeb5"></a>
-Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1Edge.html#a0f5647010760274bb83adee19091eeb5">center_mass</a> () const</td></tr>
-<tr class="memdesc:a0f5647010760274bb83adee19091eeb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the midpoint of the edge <br /></td></tr>
-<tr class="separator:a0f5647010760274bb83adee19091eeb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9715e93a4b7ecdfef2dba91e9fbec8ff"><td class="memItemLeft" align="right" valign="top"><a id="a9715e93a4b7ecdfef2dba91e9fbec8ff"></a>
-Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1Edge.html#a9715e93a4b7ecdfef2dba91e9fbec8ff">tangent</a> () const</td></tr>
-<tr class="memdesc:a9715e93a4b7ecdfef2dba91e9fbec8ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the tangent to the edge <br /></td></tr>
-<tr class="separator:a9715e93a4b7ecdfef2dba91e9fbec8ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad558804a7493cb6a6d968f48bb4f4742"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1Edge.html#ad558804a7493cb6a6d968f48bb4f4742">diam</a> () const</td></tr>
+<tr class="memdesc:ad558804a7493cb6a6d968f48bb4f4742"><td class="mdescLeft">&#160;</td><td class="mdescRight">length of the edge  <a href="#ad558804a7493cb6a6d968f48bb4f4742">More...</a><br /></td></tr>
+<tr class="separator:ad558804a7493cb6a6d968f48bb4f4742"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga41ebc04d2b292197a02a9afd25a76a18"><td class="memItemLeft" align="right" valign="top">
+Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga41ebc04d2b292197a02a9afd25a76a18">center_mass</a> () const</td></tr>
+<tr class="memdesc:ga41ebc04d2b292197a02a9afd25a76a18"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the midpoint of the edge <br /></td></tr>
+<tr class="separator:ga41ebc04d2b292197a02a9afd25a76a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3362368ff28f1e128bbc46615fd24cd7"><td class="memItemLeft" align="right" valign="top">
+Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga3362368ff28f1e128bbc46615fd24cd7">tangent</a> () const</td></tr>
+<tr class="memdesc:ga3362368ff28f1e128bbc46615fd24cd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the tangent to the edge <br /></td></tr>
+<tr class="separator:ga3362368ff28f1e128bbc46615fd24cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga10424f4b99793ab359b5dd099f9255ee"><td class="memItemLeft" align="right" valign="top">
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Mesh.html#ga10424f4b99793ab359b5dd099f9255ee">is_boundary</a> () const</td></tr>
 <tr class="memdesc:ga10424f4b99793ab359b5dd099f9255ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter to see if edge is boundary edge <br /></td></tr>
@@ -169,7 +171,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
         </tr>
       </table>
 </div><div class="memdoc">
-<p>A class representing an edge of a cell for a 2D mesh. Contains a pointer to the mesh, as well as to the vertices and cells connected to that edge Default constructor</p>
+<p>A class representing an edge of a 2D mesh. Contains a pointer to the mesh, as well as to the vertices and cells connected to that edge Default constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">iE</td><td>global edge number </td></tr>
@@ -179,6 +181,47 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad558804a7493cb6a6d968f48bb4f4742"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad558804a7493cb6a6d968f48bb4f4742">&#9670;&nbsp;</a></span>diam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Edge::diam </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>length of the edge </p>
+<p>Measure and diameter are the same for an edge, but for consistency with the way schemes are usually defined, we provide two functions. For translation of each scheme's code to 3D (with edges becoming faces), it is better to use the proper one depending if the measure or diameter is expected </p>
+
+</div>
+</div>
+<a id="a6c00cbb57ddc2e80e3c07849eadc68a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c00cbb57ddc2e80e3c07849eadc68a8">&#9670;&nbsp;</a></span>measure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Edge::measure </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>length of the edge </p>
+<p>Measure and diameter are the same for an edge, but for consistency with the way schemes are usually defined, we provide two functions. For translation of each scheme's code to 3D (with edges becoming faces), it is better to use the proper one depending if the measure or diameter is expected </p>
 
 </div>
 </div>

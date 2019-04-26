@@ -45,14 +45,14 @@ public:
 	);
 
 	/// Returns the gradient of the exact solution at the points x, y
-	Eigen::VectorXd grad_sol(
+	Eigen::Vector2d grad_sol(
 		const double x,
 		const double y,
 		const Cell* cell			///< In case of discontinuity, we need to know the cell we're in to select the correct formula
 	);
 
 	/// Returns the Hessian of the exact solution at the points x, y
-	Eigen::MatrixXd hess_sol(
+	Eigen::Matrix2d hess_sol(
 		const double x,
 		const double y,
 		const Cell* cell			///< In case of discontinuity, we need to know the cell we're in to select the correct formula
@@ -60,14 +60,14 @@ public:
 
 
 	/// Returns the diffusion matrix at the points x, y
-	Eigen::MatrixXd diff(
+	Eigen::Matrix2d diff(
 		const double x,
 		const double y,
 		const Cell* cell			///< In case of discontinuity, we need to know the cell we're in to select the correct formula
 	);
 
 	/// Returns the divergence by row of the diffusion matrix at the points x, y
-	Eigen::VectorXd div_diff(
+	Eigen::Vector2d div_diff(
 		const double x,
 		const double y,
 		const Cell* cell			///< In case of discontinuity, we need to know the cell we're in to select the correct formula

@@ -32,7 +32,7 @@ void QuadRuleEdge::setup(double x[], double y[]) {
     _xr = new double[_npts];
     _yr = new double[_npts];
     double v[2] = {x[1] - x[0], y[1] - y[0]};
-	_length = sqrt(std::pow(v[0],2)+std::pow(v[1],2));
+		_length = sqrt(std::pow(v[0],2)+std::pow(v[1],2));
     for (size_t i = 0; i < _npts; i++) {
         // map the q points to the line
         _xr[i] = _rule->tq(i) * v[0] + x[0];

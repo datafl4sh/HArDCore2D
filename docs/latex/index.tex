@@ -49,7 +49,7 @@ The mesh documentation is built with Doxygen (\href{http://www.stack.nl/~dimitri
 \label{_mesh}%
  \hypertarget{index_mesh}{}\section{The mesh}\label{index_mesh}
 \hypertarget{index_meshpple}{}\subsection{Principles}\label{index_meshpple}
-After it is loaded, the mesh is represented by classes describing a vertex, an edge and a mesh\+: \hyperlink{classHArDCore2D_1_1Vertex}{Vertex}, \hyperlink{classHArDCore2D_1_1Edge}{Edge}, and \hyperlink{classHArDCore2D_1_1Cell}{Cell}. Each of these classes contains methods to access useful information for the corresponding element, including other geometrical quantities it is related to. The mesh itself is represented by an element of the \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} class with methods to access all the vertices, edges and cells (or a particular vertex, edge or cell). In this class, each cell has a unique identifier, numbered from 0.
+After it is loaded, the mesh is represented by classes describing a vertex, an edge, and a cell\+: \hyperlink{classHArDCore2D_1_1Vertex}{Vertex}, \hyperlink{classHArDCore2D_1_1Edge}{Edge}, and \hyperlink{classHArDCore2D_1_1Cell}{Cell}. Each of these classes contains methods to access useful information for the corresponding element, including other geometrical quantities it is related to. The mesh itself is represented by an element of the \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} class with methods to access all the vertices, edges and cells (or a particular vertex, edge or cell). In this class, each cell has a unique identifier, numbered from 0.
 
 For example, if {\ttfamily mesh\+\_\+ptr} is a pointer to a Mesh class, 
 \begin{DoxyCode}
@@ -251,8 +251,8 @@ The schemes currently available in H\+Ar\+D\+::\+Core2D are\+:
 
 
 \begin{DoxyItemize}
-\item H\+H\+O\+\_\+diffusion\+: Hybrid High-\/\+Order for $-\mathrm{div}(K\nabla u)=f$, for Dirichlet or Neumann boundary conditions, with $K$ a diffusion tensor that is piecewise constant on the mesh.
-\item H\+H\+O\+\_\+locvar\+: Hybrid High-\/\+Order for $-\mathrm{div}(K\nabla u)=f$, for Dirichlet or Neumann boundary conditions, with $K$ a diffusion tensor that can vary in each cell.
+\item \hyperlink{classHArDCore2D_1_1HHO__Diffusion}{H\+H\+O\+\_\+diffusion}\+: Hybrid High-\/\+Order for $-\mathrm{div}(K\nabla u)=f$, for Dirichlet or Neumann boundary conditions, with $K$ a diffusion tensor that is piecewise constant on the mesh.
+\item \hyperlink{classHArDCore2D_1_1HHO__LocVarDiff}{H\+H\+O\+\_\+locvardiff}\+: Hybrid High-\/\+Order for $-\mathrm{div}(K\nabla u)=f$, for Dirichlet or Neumann boundary conditions, with $K$ a diffusion tensor that can vary in each cell.
 \end{DoxyItemize}
 
 The directory {\ttfamily runs} contains B\+A\+SH to run series of tests on families of meshes. The files {\ttfamily data.\+sh} describe the parameters of the test cases (polynomial degrees, boundary conditions, mesh families, etc.). The script produces results in the {\ttfamily output} directory, including a pdf file {\ttfamily rate.\+pdf} describing the rates of convergence in various energy norms.

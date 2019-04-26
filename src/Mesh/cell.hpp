@@ -11,9 +11,9 @@
 #include <vector>
 #include <Eigen/Dense>
 namespace HArDCore2D {  // forward declaration
-class Mesh;
-class Edge;
-class Vertex;
+	class Mesh;
+	class Edge;
+	class Vertex;
 }
 namespace HArDCore2D {
 using Eigen::Vector2d;
@@ -45,7 +45,7 @@ public:
 
     std::vector<Edge *> get_edges() const;  	///< returns the list of edges of the cell
     std::vector<Vertex *> get_vertices() const;		///< returns the list of vertices of the cell
-    std::vector<Cell *> get_neighbours() const;		 ///< returns the list of neighbourds of the cell
+    std::vector<Cell *> get_neighbours() const;		 ///< returns the list of neighbours of the cell
     Edge *edge(size_t iL) const;	///< returns the iL-th edge of the cell
     Vertex *vertex(size_t iL) const;   ///< returns the iL-th edge of the cell
     Cell *neighbour(size_t iL) const; ///< returns the iL-th neighbour of the cell

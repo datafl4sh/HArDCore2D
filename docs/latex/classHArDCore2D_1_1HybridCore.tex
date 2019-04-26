@@ -28,7 +28,7 @@ using \hyperlink{classHArDCore2D_1_1HybridCore_ad9a6cc8ee2f9d26c936c5c61c358b538
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classHArDCore2D_1_1HybridCore_ae189b44b4574688e4ae5c59d853317ab}{Hybrid\+Core} (const \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$mesh\+\_\+ptr, const size\+\_\+t \hyperlink{classHArDCore2D_1_1HybridCore_a74242d0a8b68fe5d9a35c6eb0effe3b2}{K}, const size\+\_\+t \hyperlink{classHArDCore2D_1_1HybridCore_af5aea2e23e91c582d8c8189a5bc7ae96}{L})
-\begin{DoxyCompactList}\small\item\em Initialises the data structure with the given mesh, and desired polynomial degrees of the basis functions. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Class constructor\+: initialises the data structure with the given mesh, and desired polynomial degrees of the basis functions. \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classHArDCore2D_1_1HybridCore_aa2bdc59d150566e1b992058031509d2f}{dim\+\_\+\+Pcell} (const size\+\_\+t m) const
 \begin{DoxyCompactList}\small\item\em Compute the size of the basis of 2-\/variate polynomials up to degree m. \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classHArDCore2D_1_1HybridCore_ab0fb57313f27fb8b4a6e9747de1d5cfe}{dim\+\_\+\+Pedge} (const size\+\_\+t m) const
@@ -96,9 +96,9 @@ size\+\_\+t \hyperlink{group__HybridCore_ga6faceb46cc896cd6d82a821828518730}{nlo
 size\+\_\+t \hyperlink{group__HybridCore_gaf97e3efcc37ac51074c7136af3ca517b}{ntotal\+\_\+cell\+\_\+dofs} ()
 \begin{DoxyCompactList}\small\item\em total number of cell degrees of freedom \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{group__HybridCore_ga6a45e5ff09d21b18874e1446cd9de9bc}{nlocal\+\_\+edge\+\_\+dofs} ()
-\begin{DoxyCompactList}\small\item\em number of degrees of freedom on each cell (dimension of polynomial space) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em number of degrees of freedom on each edge (dimension of polynomial space) \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{group__HybridCore_ga49a703b6786215e5acf8bb59ecdbc9ea}{ntotal\+\_\+edge\+\_\+dofs} ()
-\begin{DoxyCompactList}\small\item\em total number of cell degrees of freedom \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em total number of edge degrees of freedom \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{group__HybridCore_gae6e771ab58f248db8f051d47de982cf5}{ninternal\+\_\+edge\+\_\+dofs} ()
 \begin{DoxyCompactList}\small\item\em total number of edge degrees of freedom for internal edges \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{group__HybridCore_ga5fd63afc45211d3005f6e25682c533b2}{nboundary\+\_\+edge\+\_\+dofs} ()
@@ -131,7 +131,7 @@ The \hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} class provides conve
 
 
 
-Initialises the data structure with the given mesh, and desired polynomial degrees of the basis functions. 
+Class constructor\+: initialises the data structure with the given mesh, and desired polynomial degrees of the basis functions. 
 
 
 \begin{DoxyParams}{Parameters}

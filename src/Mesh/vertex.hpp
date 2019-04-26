@@ -8,9 +8,14 @@
 
 #ifndef VERTEX_HPP
 #define VERTEX_HPP
-#include <cell.hpp>
-#include <edge.hpp>
-#include <mesh.hpp>
+#include <vector>
+#include <Eigen/Dense>
+
+namespace HArDCore2D {  // forward declaration
+	class Mesh;
+	class Cell;
+	class Edge;
+}
 
 namespace HArDCore2D {
 
@@ -18,6 +23,8 @@ namespace HArDCore2D {
 *	@addtogroup Mesh
 * @{
 */
+
+using Eigen::Vector2d;
 
 // ----------------------------------------------------------------------------
 //                            Class definition
@@ -36,9 +43,6 @@ public:
     * @param iV global vertex number
     * @param coord  coordinates of the vertex
     * @param mesh pointer to the mesh
-    * @param cell pointer to the cells the vertex belongs to
-    * @param edge pointer to the edges the vertex belongs to
-    * @param vertex pointer to the vertex linked to this vertex by an edge
     */
     Vertex(size_t iV, Vector2d coords, Mesh *mesh);
     ~Vertex(); // destructor, nothing special

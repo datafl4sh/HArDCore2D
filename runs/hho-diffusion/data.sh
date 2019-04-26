@@ -3,7 +3,7 @@
 
 # Edge and cell degrees
 k=1
-l=0
+l=1
 
 # Boundary conditions (0=Dirichlet, 1=Neumann)
 bc=1

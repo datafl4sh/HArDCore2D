@@ -2,8 +2,8 @@
 // in the cells and on the edges, such as Hybrid High-order (HHO) schemes).
 //
 // Provides:
-//  - Hybrid polynomial basis functions (on the cells and faces of the mesh)
-//  - Generic routines to create quadrature nodes over cells and faces of the mesh
+//  - Hybrid polynomial basis functions (on the cells and edges of the mesh)
+//  - Generic routines to create quadrature nodes over cells and edges of the mesh
 //  - Interpolation of general functions onto the HHO space
 //  - Methods for integrating, evaluating, and computing norms of HHO solutions
 //
@@ -21,6 +21,8 @@
 #include <string>
 #include <vector>
 #include <mesh.hpp>
+#include <cell.hpp>
+#include <edge.hpp>
 
 /*!	
 * @defgroup HybridCore 
@@ -50,6 +52,13 @@ namespace HArDCore2D {
 class HybridCore {
 
 public:
+	///@brief Class constructor: initialises the data structure with the given mesh, and desired polynomial degrees of the basis functions
+  HybridCore(
+						const Mesh* mesh_ptr, ///< A pointer to the loaded mesh 
+            const size_t K, ///< The degree of the edge polynomials 
+						const size_t L ///< The degree of the cell polynomials 
+             ); 
+
   // Basis functions
   using cell_basis_type = std::function<double(double, double)>;		///< type for cell basis
   using cell_gradient_type = std::function<Eigen::Vector2d(double, double)>;   ///< type for gradients of cell basis
@@ -61,13 +70,6 @@ public:
       double x, y, w;
       qrule(double x, double y, double w) : x(x), y(y), w(w) {}
   };
-
-	///@brief Initialises the data structure with the given mesh, and desired polynomial degrees of the basis functions
-  HybridCore(
-						const Mesh* mesh_ptr, ///< A pointer to the loaded mesh 
-            const size_t K, ///< The degree of the edge polynomials 
-						const size_t L ///< The degree of the cell polynomials 
-             ); 
 
   /// Compute the size of the basis of 2-variate polynomials up to degree m
   size_t dim_Pcell(
@@ -176,8 +178,8 @@ public:
   inline size_t ntotal_dofs();	///< Total number of degrees of freedom
 	inline size_t nlocal_cell_dofs(); ///< number of degrees of freedom in each cell (dimension of polynomial space)
   inline size_t ntotal_cell_dofs(); ///< total number of cell degrees of freedom
-	inline size_t nlocal_edge_dofs();	///< number of degrees of freedom on each cell (dimension of polynomial space)
-	inline size_t ntotal_edge_dofs();	///< total number of cell degrees of freedom
+	inline size_t nlocal_edge_dofs();	///< number of degrees of freedom on each edge (dimension of polynomial space)
+	inline size_t ntotal_edge_dofs();	///< total number of edge degrees of freedom
 	inline size_t ninternal_edge_dofs();	///< total number of edge degrees of freedom for internal edges
 	inline size_t nboundary_edge_dofs();	///< total number of edge degrees of freedom for boundary edges
 	inline size_t nhighorder_dofs();	///< total number of cell degrees of freedom with polynomials up to order k+1

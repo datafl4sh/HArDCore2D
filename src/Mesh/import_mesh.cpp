@@ -41,7 +41,6 @@ bool MeshReaderTyp2::read_mesh(std::vector<std::vector<double> >& vertices,
     Flag flag;
     flag = header_;
     size_t nV = 0;
-    int t = 0;
     size_t nC = 0;
     while (in_file.good()) {
         std::getline(in_file, string);
@@ -82,8 +81,7 @@ bool MeshReaderTyp2::read_mesh(std::vector<std::vector<double> >& vertices,
                     std::istream_iterator<double>());
 
                 std::vector<double> tmp;
-                for (std::vector<double>::iterator it = line.begin();
-                     it != line.end(); it++) {
+                for (std::vector<double>::iterator it = line.begin(); it != line.end(); it++) {
                     tmp.push_back(*it);
                 }
                 vertices.push_back(tmp);
@@ -98,11 +96,9 @@ bool MeshReaderTyp2::read_mesh(std::vector<std::vector<double> >& vertices,
                 std::vector<size_t> line((std::istream_iterator<size_t>(buffer)),
                                       std::istream_iterator<size_t>());
                 std::vector<size_t> tmp;
-                for (std::vector<size_t>::iterator it = line.begin();
-                     it != line.end(); it++) {
+                for (std::vector<size_t>::iterator it = line.begin(); it != line.end(); it++) {
                     tmp.push_back(*it - 1);
                 }
-                t += 1;
                 cells.push_back(tmp);  // adjust from matlab/fotran indexes to c++
                 continue;
             }
@@ -112,8 +108,7 @@ bool MeshReaderTyp2::read_mesh(std::vector<std::vector<double> >& vertices,
                     std::istream_iterator<double>());
 
                 std::vector<double> tmp;
-                for (std::vector<double>::iterator it = line.begin();
-                     it != line.end(); it++) {
+                for (std::vector<double>::iterator it = line.begin(); it != line.end(); it++) {
                     tmp.push_back(*it);
                 }
                 centers.push_back(tmp);

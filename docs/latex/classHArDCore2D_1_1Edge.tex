@@ -15,7 +15,7 @@ The \hyperlink{classHArDCore2D_1_1Edge}{Edge} class provides description of an e
 \hyperlink{classHArDCore2D_1_1Edge_a1bca27244cfcd45e24e0b7485f148ddf}{Edge} (size\+\_\+t iE, std\+::vector$<$ size\+\_\+t $>$ vertices, \hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$mesh, \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$\hyperlink{classHArDCore2D_1_1Edge_ad4be0bfb981ccf2c1e02e870772dbdc3}{cell})
 \item 
 size\+\_\+t \hyperlink{group__Mesh_ga774e975ebad5e6bdccf549215293d624}{global\+\_\+index} () const
-\begin{DoxyCompactList}\small\item\em returns the edges global index \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em returns the edge global index \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{group__Mesh_ga0926b705b6169b73293e60e0c48e85f8}{n\+\_\+cells} () const
 \begin{DoxyCompactList}\small\item\em returns the number of cells neighbouring the edge \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classHArDCore2D_1_1Edge_a72bedde2003c68d015c70326924b6d7f}\label{classHArDCore2D_1_1Edge_a72bedde2003c68d015c70326924b6d7f}} 
@@ -30,15 +30,14 @@ std\+::vector$<$ \hyperlink{classHArDCore2D_1_1Vertex}{Vertex} $\ast$ $>$ \hyper
 \mbox{\Hypertarget{classHArDCore2D_1_1Edge_ade257bc049ec1f43751fc647e07ec052}\label{classHArDCore2D_1_1Edge_ade257bc049ec1f43751fc647e07ec052}} 
 \hyperlink{classHArDCore2D_1_1Vertex}{Vertex} $\ast$ \hyperlink{classHArDCore2D_1_1Edge_ade257bc049ec1f43751fc647e07ec052}{vertex} (size\+\_\+t i) const
 \begin{DoxyCompactList}\small\item\em returns a pointer to the i-\/th vertex of the edge \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Edge_a6c00cbb57ddc2e80e3c07849eadc68a8}\label{classHArDCore2D_1_1Edge_a6c00cbb57ddc2e80e3c07849eadc68a8}} 
 double \hyperlink{classHArDCore2D_1_1Edge_a6c00cbb57ddc2e80e3c07849eadc68a8}{measure} () const
 \begin{DoxyCompactList}\small\item\em length of the edge \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Edge_a0f5647010760274bb83adee19091eeb5}\label{classHArDCore2D_1_1Edge_a0f5647010760274bb83adee19091eeb5}} 
-Vector2d \hyperlink{classHArDCore2D_1_1Edge_a0f5647010760274bb83adee19091eeb5}{center\+\_\+mass} () const
+double \hyperlink{classHArDCore2D_1_1Edge_ad558804a7493cb6a6d968f48bb4f4742}{diam} () const
+\begin{DoxyCompactList}\small\item\em length of the edge \end{DoxyCompactList}\item 
+Vector2d \hyperlink{group__Mesh_ga41ebc04d2b292197a02a9afd25a76a18}{center\+\_\+mass} () const
 \begin{DoxyCompactList}\small\item\em get the midpoint of the edge \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classHArDCore2D_1_1Edge_a9715e93a4b7ecdfef2dba91e9fbec8ff}\label{classHArDCore2D_1_1Edge_a9715e93a4b7ecdfef2dba91e9fbec8ff}} 
-Vector2d \hyperlink{classHArDCore2D_1_1Edge_a9715e93a4b7ecdfef2dba91e9fbec8ff}{tangent} () const
-\begin{DoxyCompactList}\small\item\em gets the tangent to the edge \end{DoxyCompactList}\item 
+Vector2d \hyperlink{group__Mesh_ga3362368ff28f1e128bbc46615fd24cd7}{tangent} () const
+\begin{DoxyCompactList}\small\item\em get the tangent to the edge \end{DoxyCompactList}\item 
 bool \hyperlink{group__Mesh_ga10424f4b99793ab359b5dd099f9255ee}{is\+\_\+boundary} () const
 \begin{DoxyCompactList}\small\item\em getter to see if edge is boundary edge \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classHArDCore2D_1_1Edge_a364bacf89dfa0be36abbbadbb2dd4f78}\label{classHArDCore2D_1_1Edge_a364bacf89dfa0be36abbbadbb2dd4f78}} 
@@ -59,7 +58,7 @@ The \hyperlink{classHArDCore2D_1_1Edge}{Edge} class provides description of an e
 \subsubsection{\texorpdfstring{Edge()}{Edge()}}
 {\footnotesize\ttfamily Edge\+::\+Edge (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iE,  }\item[{std\+::vector$<$ size\+\_\+t $>$}]{vertices,  }\item[{\hyperlink{classHArDCore2D_1_1Mesh}{Mesh} $\ast$}]{mesh,  }\item[{\hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$}]{cell }\end{DoxyParamCaption})}
 
-A class representing an edge of a cell for a 2D mesh. Contains a pointer to the mesh, as well as to the vertices and cells connected to that edge Default constructor
+A class representing an edge of a 2D mesh. Contains a pointer to the mesh, as well as to the vertices and cells connected to that edge Default constructor
 
 
 \begin{DoxyParams}{Parameters}
@@ -73,6 +72,29 @@ A class representing an edge of a cell for a 2D mesh. Contains a pointer to the 
 \hline
 \end{DoxyParams}
 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classHArDCore2D_1_1Edge_ad558804a7493cb6a6d968f48bb4f4742}\label{classHArDCore2D_1_1Edge_ad558804a7493cb6a6d968f48bb4f4742}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Edge@{H\+Ar\+D\+Core2\+D\+::\+Edge}!diam@{diam}}
+\index{diam@{diam}!H\+Ar\+D\+Core2\+D\+::\+Edge@{H\+Ar\+D\+Core2\+D\+::\+Edge}}
+\subsubsection{\texorpdfstring{diam()}{diam()}}
+{\footnotesize\ttfamily double Edge\+::diam (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+length of the edge 
+
+Measure and diameter are the same for an edge, but for consistency with the way schemes are usually defined, we provide two functions. For translation of each scheme\textquotesingle{}s code to 3D (with edges becoming faces), it is better to use the proper one depending if the measure or diameter is expected \mbox{\Hypertarget{classHArDCore2D_1_1Edge_a6c00cbb57ddc2e80e3c07849eadc68a8}\label{classHArDCore2D_1_1Edge_a6c00cbb57ddc2e80e3c07849eadc68a8}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+Edge@{H\+Ar\+D\+Core2\+D\+::\+Edge}!measure@{measure}}
+\index{measure@{measure}!H\+Ar\+D\+Core2\+D\+::\+Edge@{H\+Ar\+D\+Core2\+D\+::\+Edge}}
+\subsubsection{\texorpdfstring{measure()}{measure()}}
+{\footnotesize\ttfamily double Edge\+::measure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+length of the edge 
+
+Measure and diameter are the same for an edge, but for consistency with the way schemes are usually defined, we provide two functions. For translation of each scheme\textquotesingle{}s code to 3D (with edges becoming faces), it is better to use the proper one depending if the measure or diameter is expected 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

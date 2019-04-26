@@ -517,7 +517,7 @@ timeint.start();
         Eigen::MatrixXd::Identity(hho.nlocal_cell_dofs(), hho.nlocal_cell_dofs());
 
   for (size_t ilF = 0; ilF < nedgesT; ilF++) {
-		auto hF = cell->edge(ilF)->measure();
+		auto hF = cell->edge(ilF)->diam();
     auto xF = cell->edge(ilF)->center_mass();
 
     auto kappa_TF = kappa(xF.x(), xF.y(), cell).trace();

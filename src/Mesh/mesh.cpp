@@ -7,6 +7,9 @@
 
 
 #include "mesh.hpp"
+#include "cell.hpp"
+#include "edge.hpp"
+#include "vertex.hpp"
 #include <iostream>
 #include <set>
 #include <Eigen/Dense>  //Vector2d
@@ -167,15 +170,13 @@ double Mesh::regularity(){
 		///			* diameter of cell / diameter of edge  [for each edge of the cell]
 
 		double value = 0.0;
-		for (size_t iC = 0; iC < n_cells(); iC++){
-			Cell* icell = cell(iC);
+		for (auto& icell : get_cells()){
 			double hC = icell->diam();
 
 			value = std::max(value, hC / pow(icell->measure(), 1/this->dim()));
 
-			for (size_t ilF = 0; ilF < icell->n_edges(); ilF++){
-				Edge* iedge = icell->edge(ilF);
-				double hF = iedge->measure();
+			for (auto& iedge : icell->get_edges()){
+				double hF = iedge->diam();
 
 				value = std::max(value, hC / hF);
 			}

@@ -103,7 +103,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae189b44b4574688e4ae5c59d853317ab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HybridCore.html#ae189b44b4574688e4ae5c59d853317ab">HybridCore</a> (const <a class="el" href="classHArDCore2D_1_1Mesh.html">Mesh</a> *mesh_ptr, const size_t <a class="el" href="classHArDCore2D_1_1HybridCore.html#a74242d0a8b68fe5d9a35c6eb0effe3b2">K</a>, const size_t <a class="el" href="classHArDCore2D_1_1HybridCore.html#af5aea2e23e91c582d8c8189a5bc7ae96">L</a>)</td></tr>
-<tr class="memdesc:ae189b44b4574688e4ae5c59d853317ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the data structure with the given mesh, and desired polynomial degrees of the basis functions.  <a href="#ae189b44b4574688e4ae5c59d853317ab">More...</a><br /></td></tr>
+<tr class="memdesc:ae189b44b4574688e4ae5c59d853317ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor: initialises the data structure with the given mesh, and desired polynomial degrees of the basis functions.  <a href="#ae189b44b4574688e4ae5c59d853317ab">More...</a><br /></td></tr>
 <tr class="separator:ae189b44b4574688e4ae5c59d853317ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2bdc59d150566e1b992058031509d2f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HybridCore.html#aa2bdc59d150566e1b992058031509d2f">dim_Pcell</a> (const size_t m) const</td></tr>
 <tr class="memdesc:aa2bdc59d150566e1b992058031509d2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the size of the basis of 2-variate polynomials up to degree m.  <a href="#aa2bdc59d150566e1b992058031509d2f">More...</a><br /></td></tr>
@@ -204,11 +204,11 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 <tr class="separator:gaf97e3efcc37ac51074c7136af3ca517b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6a45e5ff09d21b18874e1446cd9de9bc"><td class="memItemLeft" align="right" valign="top">
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga6a45e5ff09d21b18874e1446cd9de9bc">nlocal_edge_dofs</a> ()</td></tr>
-<tr class="memdesc:ga6a45e5ff09d21b18874e1446cd9de9bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of degrees of freedom on each cell (dimension of polynomial space) <br /></td></tr>
+<tr class="memdesc:ga6a45e5ff09d21b18874e1446cd9de9bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of degrees of freedom on each edge (dimension of polynomial space) <br /></td></tr>
 <tr class="separator:ga6a45e5ff09d21b18874e1446cd9de9bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga49a703b6786215e5acf8bb59ecdbc9ea"><td class="memItemLeft" align="right" valign="top">
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#ga49a703b6786215e5acf8bb59ecdbc9ea">ntotal_edge_dofs</a> ()</td></tr>
-<tr class="memdesc:ga49a703b6786215e5acf8bb59ecdbc9ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">total number of cell degrees of freedom <br /></td></tr>
+<tr class="memdesc:ga49a703b6786215e5acf8bb59ecdbc9ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">total number of edge degrees of freedom <br /></td></tr>
 <tr class="separator:ga49a703b6786215e5acf8bb59ecdbc9ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae6e771ab58f248db8f051d47de982cf5"><td class="memItemLeft" align="right" valign="top">
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HybridCore.html#gae6e771ab58f248db8f051d47de982cf5">ninternal_edge_dofs</a> ()</td></tr>
@@ -287,7 +287,7 @@ template&lt;typename Function &gt; </td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialises the data structure with the given mesh, and desired polynomial degrees of the basis functions. </p>
+<p>Class constructor: initialises the data structure with the given mesh, and desired polynomial degrees of the basis functions. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mesh_ptr</td><td>A pointer to the loaded mesh </td></tr>
