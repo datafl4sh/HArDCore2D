@@ -155,7 +155,7 @@ public:
 			const size_t iTF, 		///<	global index of the cell/edge
 			const std::vector<qrule> quad, 	///< quadrature nodes and weights on the cell/edge
 			const size_t nbasis		///< number of basis functions to consider
-	) const;	///< @returns phi_quad[i] = array listing values of phi_i at the quadrature nodes
+	) const;	///< @returns phi_quad[i] = array listing the nbq (=nb of quadrature nodes) values of phi_i at the quadrature nodes
 
 	/// Compute \f$(\nabla \phi_i)_{i\in I}\f$ at the quadrature nodes, where \f$(\phi_i)_{i\in I}\f$ are the cell basis functions
 	std::vector<Eigen::ArrayXXd> grad_basis_quad(

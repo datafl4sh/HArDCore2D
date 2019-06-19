@@ -95,6 +95,22 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#acc4abb92b452d6407d45a87823fb47f9">tensor_function_type</a> = std::function&lt; Eigen::Matrix2d(double, double, <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *)&gt;</td></tr>
 <tr class="memdesc:acc4abb92b452d6407d45a87823fb47f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for diffusion tensor <br /></td></tr>
 <tr class="separator:acc4abb92b452d6407d45a87823fb47f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2ddc18a37be70e4767a9040fb6a09f6"><td class="memItemLeft" align="right" valign="top"><a id="ac2ddc18a37be70e4767a9040fb6a09f6"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#ac2ddc18a37be70e4767a9040fb6a09f6">solution_function_type</a> = std::function&lt; double(double, double)&gt;</td></tr>
+<tr class="memdesc:ac2ddc18a37be70e4767a9040fb6a09f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for solution <br /></td></tr>
+<tr class="separator:ac2ddc18a37be70e4767a9040fb6a09f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade095df766ff04bf09385a163136e5c0"><td class="memItemLeft" align="right" valign="top"><a id="ade095df766ff04bf09385a163136e5c0"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#ade095df766ff04bf09385a163136e5c0">source_function_type</a> = std::function&lt; double(double, double, <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *)&gt;</td></tr>
+<tr class="memdesc:ade095df766ff04bf09385a163136e5c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for source <br /></td></tr>
+<tr class="separator:ade095df766ff04bf09385a163136e5c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14797a72cc96ee5ea6fc45e4986d6a84"><td class="memItemLeft" align="right" valign="top"><a id="a14797a72cc96ee5ea6fc45e4986d6a84"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#a14797a72cc96ee5ea6fc45e4986d6a84">grad_function_type</a> = std::function&lt; Eigen::Vector2d(double, double, <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *)&gt;</td></tr>
+<tr class="memdesc:a14797a72cc96ee5ea6fc45e4986d6a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for gradient <br /></td></tr>
+<tr class="separator:a14797a72cc96ee5ea6fc45e4986d6a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc4abb92b452d6407d45a87823fb47f9"><td class="memItemLeft" align="right" valign="top"><a id="acc4abb92b452d6407d45a87823fb47f9"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#acc4abb92b452d6407d45a87823fb47f9">tensor_function_type</a> = std::function&lt; Eigen::Matrix2d(double, double, <a class="el" href="classHArDCore2D_1_1Cell.html">Cell</a> *)&gt;</td></tr>
+<tr class="memdesc:acc4abb92b452d6407d45a87823fb47f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">type for diffusion tensor <br /></td></tr>
+<tr class="separator:acc4abb92b452d6407d45a87823fb47f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -128,11 +144,153 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__HHO__Diffusion.html#ga43051dfce03a9f75c33903f1736f4e1a">get_itime</a> (size_t idx) const</td></tr>
 <tr class="memdesc:ga43051dfce03a9f75c33903f1736f4e1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">various intermediate assembly times <br /></td></tr>
 <tr class="separator:ga43051dfce03a9f75c33903f1736f4e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ab2e2cdf0c77f60069f7572c587c4f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#a9ab2e2cdf0c77f60069f7572c587c4f1">HHO_Diffusion</a> (<a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#acc4abb92b452d6407d45a87823fb47f9">tensor_function_type</a> kappa, <a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#ade095df766ff04bf09385a163136e5c0">source_function_type</a> source, size_t BC, <a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#ac2ddc18a37be70e4767a9040fb6a09f6">solution_function_type</a> exact_solution, <a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#a14797a72cc96ee5ea6fc45e4986d6a84">grad_function_type</a> grad_exact_solution, std::string solver_type)</td></tr>
+<tr class="memdesc:a9ab2e2cdf0c77f60069f7572c587c4f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of the class.  <a href="#a9ab2e2cdf0c77f60069f7572c587c4f1">More...</a><br /></td></tr>
+<tr class="separator:a9ab2e2cdf0c77f60069f7572c587c4f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aebf22f19de92c115aed69ba394de88"><td class="memItemLeft" align="right" valign="top"><a id="a1aebf22f19de92c115aed69ba394de88"></a>
+Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#a1aebf22f19de92c115aed69ba394de88">solve</a> (<a class="el" href="classHArDCore2D_1_1HybridCore.html">HybridCore</a> &amp;hho)</td></tr>
+<tr class="memdesc:a1aebf22f19de92c115aed69ba394de88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assemble and solve the scheme. <br /></td></tr>
+<tr class="separator:a1aebf22f19de92c115aed69ba394de88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f21d17ee818df40d6c0081300c44982"><td class="memItemLeft" align="right" valign="top"><a id="a1f21d17ee818df40d6c0081300c44982"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#a1f21d17ee818df40d6c0081300c44982">EnergyNorm</a> (<a class="el" href="classHArDCore2D_1_1HybridCore.html">HybridCore</a> &amp;hho, const Eigen::VectorXd Xh)</td></tr>
+<tr class="memdesc:a1f21d17ee818df40d6c0081300c44982"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discrete H1 norm of an hybrid function. <br /></td></tr>
+<tr class="separator:a1f21d17ee818df40d6c0081300c44982"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b77651b50be012339ca136f4fd90e81"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#a2b77651b50be012339ca136f4fd90e81">VertexValues</a> (<a class="el" href="classHArDCore2D_1_1HybridCore.html">HybridCore</a> &amp;hho, const Eigen::VectorXd Xh, const char from_dofs)</td></tr>
+<tr class="memdesc:a2b77651b50be012339ca136f4fd90e81"><td class="mdescLeft">&#160;</td><td class="mdescRight">From a hybrid function, computes a vector of values at the vertices of the mesh.  <a href="#a2b77651b50be012339ca136f4fd90e81">More...</a><br /></td></tr>
+<tr class="separator:a2b77651b50be012339ca136f4fd90e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b67f061d06b1aea5a626792a2bddd1e"><td class="memItemLeft" align="right" valign="top"><a id="a4b67f061d06b1aea5a626792a2bddd1e"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#a4b67f061d06b1aea5a626792a2bddd1e">get_assembly_time</a> () const</td></tr>
+<tr class="memdesc:a4b67f061d06b1aea5a626792a2bddd1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">cpu time to assemble the scheme <br /></td></tr>
+<tr class="separator:a4b67f061d06b1aea5a626792a2bddd1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ba01c42bc116f962b6982b27e95b471"><td class="memItemLeft" align="right" valign="top"><a id="a0ba01c42bc116f962b6982b27e95b471"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#a0ba01c42bc116f962b6982b27e95b471">get_solving_time</a> () const</td></tr>
+<tr class="memdesc:a0ba01c42bc116f962b6982b27e95b471"><td class="mdescLeft">&#160;</td><td class="mdescRight">cpu time to solve the scheme <br /></td></tr>
+<tr class="separator:a0ba01c42bc116f962b6982b27e95b471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad53ffa4a52af7bf6803e28f36c7e3365"><td class="memItemLeft" align="right" valign="top"><a id="ad53ffa4a52af7bf6803e28f36c7e3365"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#ad53ffa4a52af7bf6803e28f36c7e3365">get_solving_error</a> () const</td></tr>
+<tr class="memdesc:ad53ffa4a52af7bf6803e28f36c7e3365"><td class="mdescLeft">&#160;</td><td class="mdescRight">residual after solving the scheme <br /></td></tr>
+<tr class="separator:ad53ffa4a52af7bf6803e28f36c7e3365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43051dfce03a9f75c33903f1736f4e1a"><td class="memItemLeft" align="right" valign="top"><a id="a43051dfce03a9f75c33903f1736f4e1a"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#a43051dfce03a9f75c33903f1736f4e1a">get_itime</a> (size_t idx) const</td></tr>
+<tr class="memdesc:a43051dfce03a9f75c33903f1736f4e1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">various intermediate assembly times <br /></td></tr>
+<tr class="separator:a43051dfce03a9f75c33903f1736f4e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html" title="The HHO_Diffusion class provides tools to implement the HHO method for the diffusion problem...">HHO_Diffusion</a> class provides tools to implement the HHO method for the diffusion problem. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9ab2e2cdf0c77f60069f7572c587c4f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ab2e2cdf0c77f60069f7572c587c4f1">&#9670;&nbsp;</a></span>HHO_Diffusion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HArDCore2D::HHO_Diffusion::HHO_Diffusion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#acc4abb92b452d6407d45a87823fb47f9">tensor_function_type</a>&#160;</td>
+          <td class="paramname"><em>kappa</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#ade095df766ff04bf09385a163136e5c0">source_function_type</a>&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>BC</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#ac2ddc18a37be70e4767a9040fb6a09f6">solution_function_type</a>&#160;</td>
+          <td class="paramname"><em>exact_solution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classHArDCore2D_1_1HHO__Diffusion.html#a14797a72cc96ee5ea6fc45e4986d6a84">grad_function_type</a>&#160;</td>
+          <td class="paramname"><em>grad_exact_solution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>solver_type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor of the class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">kappa</td><td>diffusion tensor </td></tr>
+    <tr><td class="paramname">source</td><td>source term </td></tr>
+    <tr><td class="paramname">BC</td><td>type of boundary conditions (0 for Dirichlet, 1 for Neumann) </td></tr>
+    <tr><td class="paramname">exact_solution</td><td>exact solution </td></tr>
+    <tr><td class="paramname">grad_exact_solution</td><td>gradient of the exact solution </td></tr>
+    <tr><td class="paramname">solver_type</td><td>type of solver to use for the global system (bicgstab at the moment) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2b77651b50be012339ca136f4fd90e81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b77651b50be012339ca136f4fd90e81">&#9670;&nbsp;</a></span>VertexValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::VectorXd HArDCore2D::HHO_Diffusion::VertexValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classHArDCore2D_1_1HybridCore.html">HybridCore</a> &amp;&#160;</td>
+          <td class="paramname"><em>hho</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::VectorXd&#160;</td>
+          <td class="paramname"><em>Xh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>from_dofs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>From a hybrid function, computes a vector of values at the vertices of the mesh. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hho</td><td>current instance of the hybridcore class </td></tr>
+    <tr><td class="paramname">Xh</td><td>hybrid function (cell and edge polynomials) </td></tr>
+    <tr><td class="paramname">from_dofs</td><td>Type of unknowns to use: cell (T) or edge (E) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Schemes/HHO-diffusion/<a class="el" href="HHO__Diffusion_8hpp_source.html">HHO_Diffusion.hpp</a></li>
+<li>Schemes/NC-poly/<a class="el" href="NC__Poly_8hpp_source.html">NC_Poly.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

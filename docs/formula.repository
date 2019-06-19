@@ -23,3 +23,11 @@
 \form#22:$(\phi_i)_{i\in I}$
 \form#23:$phi_i$
 \form#24:$\nabla \phi_i$
+\form#25:$\begin{array}{cc}y^2+1 & -xy\\ -xy & x^2+1\end{array}$
+\form#26:$\left[\begin{array}{cc}y^2+1 & -xy\\ -xy & x^2+1\end{array}\right]$
+\form#27:$\left[\begin{array}{cc}2 & 0\\ 0 & 1\end{array}\right]$
+\form#28:$u(x,y)=sin(\pi x) sin(\pi y)$
+\form#29:$u(x,y)=cos(\pi x) cos(\pi y)$
+\form#30:$u(x,y)= x$
+\form#31:$u(x,y)= y$
+\form#32:$u(x,y)= x^2 + y^2$

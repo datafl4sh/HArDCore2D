@@ -67,9 +67,9 @@ Returns the diffusion matrix at the points x, y.
 
 i\+TC\mbox{[}1\mbox{]}=1\+: Diff = Id
 
-i\+TC\mbox{[}1\mbox{]}=2\+: Diff = \mbox{[}y$^\wedge$2+1 -\/xy; -\/xy x$^\wedge$2+1\mbox{]}
+i\+TC\mbox{[}1\mbox{]}=2\+: Diff = $\left[\begin{array}{cc}y^2+1 & -xy\\ -xy & x^2+1\end{array}\right]$
 
-i\+TC\mbox{[}1\mbox{]}=3\+: Diff=Id if x$<$=1/2, Diff=\mbox{[}2 0; 0 1\mbox{]} if x$>$1/2. Only valid with i\+TC\mbox{[}0\mbox{]}=1; 
+i\+TC\mbox{[}1\mbox{]}=3\+: Diff=Id if x$<$=1/2, Diff= $\left[\begin{array}{cc}2 & 0\\ 0 & 1\end{array}\right]$ if x$>$1/2. Only valid with i\+TC\mbox{[}0\mbox{]}=1; 
 \begin{DoxyParams}{Parameters}
 {\em cell} & In case of discontinuity, we need to know the cell we\textquotesingle{}re in to select the correct formula \\
 \hline
@@ -129,15 +129,15 @@ Returns the Hessian of the exact solution at the points x, y.
 
 Returns the exact solution at the points x, y. 
 
-i\+TC\mbox{[}0\mbox{]}=1\+: u(x,y)=sin(pi x) $\ast$ sin(pi y)
+i\+TC\mbox{[}0\mbox{]}=1\+: $u(x,y)=sin(\pi x) sin(\pi y)$
 
-i\+TC\mbox{[}0\mbox{]}=2\+: u(x,y)=cos(pi x) $\ast$ cos(pi y)
+i\+TC\mbox{[}0\mbox{]}=2\+: $u(x,y)=cos(\pi x) cos(\pi y)$
 
-i\+TC\mbox{[}0\mbox{]}=3\+: u(x,y)= x
+i\+TC\mbox{[}0\mbox{]}=3\+: $u(x,y)= x$
 
-i\+TC\mbox{[}0\mbox{]}=3\+: u(x,y)= y
+i\+TC\mbox{[}0\mbox{]}=3\+: $u(x,y)= y$
 
-i\+TC\mbox{[}0\mbox{]}=4\+: u(x,y)= x$^\wedge$2 + y$^\wedge$2 \mbox{\Hypertarget{classTestCase_a5b2e54e9f17ac2ec9c1d675f97fbe335}\label{classTestCase_a5b2e54e9f17ac2ec9c1d675f97fbe335}} 
+i\+TC\mbox{[}0\mbox{]}=4\+: $u(x,y)= x^2 + y^2$ \mbox{\Hypertarget{classTestCase_a5b2e54e9f17ac2ec9c1d675f97fbe335}\label{classTestCase_a5b2e54e9f17ac2ec9c1d675f97fbe335}} 
 \index{Test\+Case@{Test\+Case}!source@{source}}
 \index{source@{source}!Test\+Case@{Test\+Case}}
 \subsubsection{\texorpdfstring{source()}{source()}}

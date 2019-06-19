@@ -23,6 +23,18 @@ using \hyperlink{classHArDCore2D_1_1HHO__Diffusion_a14797a72cc96ee5ea6fc45e4986d
 \begin{DoxyCompactList}\small\item\em type for gradient \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_acc4abb92b452d6407d45a87823fb47f9}\label{classHArDCore2D_1_1HHO__Diffusion_acc4abb92b452d6407d45a87823fb47f9}} 
 using \hyperlink{classHArDCore2D_1_1HHO__Diffusion_acc4abb92b452d6407d45a87823fb47f9}{tensor\+\_\+function\+\_\+type} = std\+::function$<$ Eigen\+::\+Matrix2d(double, double, \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$)$>$
+\begin{DoxyCompactList}\small\item\em type for diffusion tensor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_ac2ddc18a37be70e4767a9040fb6a09f6}\label{classHArDCore2D_1_1HHO__Diffusion_ac2ddc18a37be70e4767a9040fb6a09f6}} 
+using \hyperlink{classHArDCore2D_1_1HHO__Diffusion_ac2ddc18a37be70e4767a9040fb6a09f6}{solution\+\_\+function\+\_\+type} = std\+::function$<$ double(double, double)$>$
+\begin{DoxyCompactList}\small\item\em type for solution \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_ade095df766ff04bf09385a163136e5c0}\label{classHArDCore2D_1_1HHO__Diffusion_ade095df766ff04bf09385a163136e5c0}} 
+using \hyperlink{classHArDCore2D_1_1HHO__Diffusion_ade095df766ff04bf09385a163136e5c0}{source\+\_\+function\+\_\+type} = std\+::function$<$ double(double, double, \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$)$>$
+\begin{DoxyCompactList}\small\item\em type for source \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_a14797a72cc96ee5ea6fc45e4986d6a84}\label{classHArDCore2D_1_1HHO__Diffusion_a14797a72cc96ee5ea6fc45e4986d6a84}} 
+using \hyperlink{classHArDCore2D_1_1HHO__Diffusion_a14797a72cc96ee5ea6fc45e4986d6a84}{grad\+\_\+function\+\_\+type} = std\+::function$<$ Eigen\+::\+Vector2d(double, double, \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$)$>$
+\begin{DoxyCompactList}\small\item\em type for gradient \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_acc4abb92b452d6407d45a87823fb47f9}\label{classHArDCore2D_1_1HHO__Diffusion_acc4abb92b452d6407d45a87823fb47f9}} 
+using \hyperlink{classHArDCore2D_1_1HHO__Diffusion_acc4abb92b452d6407d45a87823fb47f9}{tensor\+\_\+function\+\_\+type} = std\+::function$<$ Eigen\+::\+Matrix2d(double, double, \hyperlink{classHArDCore2D_1_1Cell}{Cell} $\ast$)$>$
 \begin{DoxyCompactList}\small\item\em type for diffusion tensor \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -42,12 +54,85 @@ double \hyperlink{group__HHO__Diffusion_ga0ba01c42bc116f962b6982b27e95b471}{get\
 double \hyperlink{group__HHO__Diffusion_gad53ffa4a52af7bf6803e28f36c7e3365}{get\+\_\+solving\+\_\+error} () const
 \begin{DoxyCompactList}\small\item\em residual after solving the scheme \end{DoxyCompactList}\item 
 double \hyperlink{group__HHO__Diffusion_ga43051dfce03a9f75c33903f1736f4e1a}{get\+\_\+itime} (size\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em various intermediate assembly times \end{DoxyCompactList}\item 
+\hyperlink{classHArDCore2D_1_1HHO__Diffusion_a9ab2e2cdf0c77f60069f7572c587c4f1}{H\+H\+O\+\_\+\+Diffusion} (\hyperlink{classHArDCore2D_1_1HHO__Diffusion_acc4abb92b452d6407d45a87823fb47f9}{tensor\+\_\+function\+\_\+type} kappa, \hyperlink{classHArDCore2D_1_1HHO__Diffusion_ade095df766ff04bf09385a163136e5c0}{source\+\_\+function\+\_\+type} source, size\+\_\+t BC, \hyperlink{classHArDCore2D_1_1HHO__Diffusion_ac2ddc18a37be70e4767a9040fb6a09f6}{solution\+\_\+function\+\_\+type} exact\+\_\+solution, \hyperlink{classHArDCore2D_1_1HHO__Diffusion_a14797a72cc96ee5ea6fc45e4986d6a84}{grad\+\_\+function\+\_\+type} grad\+\_\+exact\+\_\+solution, std\+::string solver\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_a1aebf22f19de92c115aed69ba394de88}\label{classHArDCore2D_1_1HHO__Diffusion_a1aebf22f19de92c115aed69ba394de88}} 
+Eigen\+::\+Vector\+Xd \hyperlink{classHArDCore2D_1_1HHO__Diffusion_a1aebf22f19de92c115aed69ba394de88}{solve} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho)
+\begin{DoxyCompactList}\small\item\em Assemble and solve the scheme. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_a1f21d17ee818df40d6c0081300c44982}\label{classHArDCore2D_1_1HHO__Diffusion_a1f21d17ee818df40d6c0081300c44982}} 
+double \hyperlink{classHArDCore2D_1_1HHO__Diffusion_a1f21d17ee818df40d6c0081300c44982}{Energy\+Norm} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho, const Eigen\+::\+Vector\+Xd Xh)
+\begin{DoxyCompactList}\small\item\em Discrete H1 norm of an hybrid function. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector\+Xd \hyperlink{classHArDCore2D_1_1HHO__Diffusion_a2b77651b50be012339ca136f4fd90e81}{Vertex\+Values} (\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&hho, const Eigen\+::\+Vector\+Xd Xh, const char from\+\_\+dofs)
+\begin{DoxyCompactList}\small\item\em From a hybrid function, computes a vector of values at the vertices of the mesh. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_a4b67f061d06b1aea5a626792a2bddd1e}\label{classHArDCore2D_1_1HHO__Diffusion_a4b67f061d06b1aea5a626792a2bddd1e}} 
+double \hyperlink{classHArDCore2D_1_1HHO__Diffusion_a4b67f061d06b1aea5a626792a2bddd1e}{get\+\_\+assembly\+\_\+time} () const
+\begin{DoxyCompactList}\small\item\em cpu time to assemble the scheme \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_a0ba01c42bc116f962b6982b27e95b471}\label{classHArDCore2D_1_1HHO__Diffusion_a0ba01c42bc116f962b6982b27e95b471}} 
+double \hyperlink{classHArDCore2D_1_1HHO__Diffusion_a0ba01c42bc116f962b6982b27e95b471}{get\+\_\+solving\+\_\+time} () const
+\begin{DoxyCompactList}\small\item\em cpu time to solve the scheme \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_ad53ffa4a52af7bf6803e28f36c7e3365}\label{classHArDCore2D_1_1HHO__Diffusion_ad53ffa4a52af7bf6803e28f36c7e3365}} 
+double \hyperlink{classHArDCore2D_1_1HHO__Diffusion_ad53ffa4a52af7bf6803e28f36c7e3365}{get\+\_\+solving\+\_\+error} () const
+\begin{DoxyCompactList}\small\item\em residual after solving the scheme \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_a43051dfce03a9f75c33903f1736f4e1a}\label{classHArDCore2D_1_1HHO__Diffusion_a43051dfce03a9f75c33903f1736f4e1a}} 
+double \hyperlink{classHArDCore2D_1_1HHO__Diffusion_a43051dfce03a9f75c33903f1736f4e1a}{get\+\_\+itime} (size\+\_\+t idx) const
 \begin{DoxyCompactList}\small\item\em various intermediate assembly times \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 The \hyperlink{classHArDCore2D_1_1HHO__Diffusion}{H\+H\+O\+\_\+\+Diffusion} class provides tools to implement the H\+HO method for the diffusion problem. 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_a9ab2e2cdf0c77f60069f7572c587c4f1}\label{classHArDCore2D_1_1HHO__Diffusion_a9ab2e2cdf0c77f60069f7572c587c4f1}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion@{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion}!H\+H\+O\+\_\+\+Diffusion@{H\+H\+O\+\_\+\+Diffusion}}
+\index{H\+H\+O\+\_\+\+Diffusion@{H\+H\+O\+\_\+\+Diffusion}!H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion@{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion}}
+\subsubsection{\texorpdfstring{H\+H\+O\+\_\+\+Diffusion()}{HHO\_Diffusion()}}
+{\footnotesize\ttfamily H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::\+H\+H\+O\+\_\+\+Diffusion (\begin{DoxyParamCaption}\item[{\hyperlink{classHArDCore2D_1_1HHO__Diffusion_acc4abb92b452d6407d45a87823fb47f9}{tensor\+\_\+function\+\_\+type}}]{kappa,  }\item[{\hyperlink{classHArDCore2D_1_1HHO__Diffusion_ade095df766ff04bf09385a163136e5c0}{source\+\_\+function\+\_\+type}}]{source,  }\item[{size\+\_\+t}]{BC,  }\item[{\hyperlink{classHArDCore2D_1_1HHO__Diffusion_ac2ddc18a37be70e4767a9040fb6a09f6}{solution\+\_\+function\+\_\+type}}]{exact\+\_\+solution,  }\item[{\hyperlink{classHArDCore2D_1_1HHO__Diffusion_a14797a72cc96ee5ea6fc45e4986d6a84}{grad\+\_\+function\+\_\+type}}]{grad\+\_\+exact\+\_\+solution,  }\item[{std\+::string}]{solver\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Constructor of the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kappa} & diffusion tensor \\
+\hline
+{\em source} & source term \\
+\hline
+{\em BC} & type of boundary conditions (0 for Dirichlet, 1 for Neumann) \\
+\hline
+{\em exact\+\_\+solution} & exact solution \\
+\hline
+{\em grad\+\_\+exact\+\_\+solution} & gradient of the exact solution \\
+\hline
+{\em solver\+\_\+type} & type of solver to use for the global system (bicgstab at the moment) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classHArDCore2D_1_1HHO__Diffusion_a2b77651b50be012339ca136f4fd90e81}\label{classHArDCore2D_1_1HHO__Diffusion_a2b77651b50be012339ca136f4fd90e81}} 
+\index{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion@{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion}!Vertex\+Values@{Vertex\+Values}}
+\index{Vertex\+Values@{Vertex\+Values}!H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion@{H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion}}
+\subsubsection{\texorpdfstring{Vertex\+Values()}{VertexValues()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector\+Xd H\+Ar\+D\+Core2\+D\+::\+H\+H\+O\+\_\+\+Diffusion\+::\+Vertex\+Values (\begin{DoxyParamCaption}\item[{\hyperlink{classHArDCore2D_1_1HybridCore}{Hybrid\+Core} \&}]{hho,  }\item[{const Eigen\+::\+Vector\+Xd}]{Xh,  }\item[{const char}]{from\+\_\+dofs }\end{DoxyParamCaption})}
+
+
+
+From a hybrid function, computes a vector of values at the vertices of the mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hho} & current instance of the hybridcore class \\
+\hline
+{\em Xh} & hybrid function (cell and edge polynomials) \\
+\hline
+{\em from\+\_\+dofs} & Type of unknowns to use\+: cell (T) or edge (E) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Schemes/\+H\+H\+O-\/diffusion/H\+H\+O\+\_\+\+Diffusion.\+hpp\end{DoxyCompactItemize}
+Schemes/\+H\+H\+O-\/diffusion/H\+H\+O\+\_\+\+Diffusion.\+hpp\item 
+Schemes/\+N\+C-\/poly/N\+C\+\_\+\+Poly.\+hpp\end{DoxyCompactItemize}
